@@ -23,12 +23,12 @@ export default function Home() {
       <main className="relative z-10">
         <div className="text-center px-8 pt-24 pb-12">
           <SmartTypewriter
-            baseText="Hi I'm Aidan, I'm a "
+            baseText="Hi i'm Aidan, i'm a "
             replacements={[
               { word: "UX designer", delay: 2000 },
               { word: "motion designer", delay: 2000 },
               { word: "graphic designer", delay: 2000 },
-              { word: "check out my work", delay: 3500, baseText: "Hi I'm Aidan, " }
+              { word: "check out my work", delay: 3500, baseText: "Hi i'm Aidan, " }
             ]}
             typingSpeed={80}
             deletingSpeed={40}
