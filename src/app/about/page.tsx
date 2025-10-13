@@ -64,7 +64,7 @@ export default function AboutPage() {
             </div>
 
             <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold mb-4 text-[#C8FF96]">Let's connect</h3>
+              <h3 className="text-2xl font-bold mb-4 text-[#C8FF96]">Let&apos;s connect</h3>
               <p className="text-white/90 leading-relaxed mb-6">
                 I&apos;m always excited to talk shop with other designers, explore new opportunities, or collaborate on projects that challenge me to grow. Whether you&apos;ve got a product that needs some UX love, want to bounce around ideas, or just want to geek out about interaction design, I&apos;d love to hear from you.
               </p>
