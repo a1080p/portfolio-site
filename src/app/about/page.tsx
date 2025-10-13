@@ -43,30 +43,30 @@ export default function AboutPage() {
 
             <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-lg mb-8">
               <p className="text-white/90 leading-relaxed mb-4">
-                Hey there! I'm Aidan, a UX/UI designer based in Louisville, Kentucky, where I'm currently wrapping up my BFA in Graphic Design at the University of Louisville with marketing and communication minors.
+                Hey there! I&apos;m Aidan, a UX/UI designer based in Louisville, Kentucky, where I&apos;m currently wrapping up my BFA in Graphic Design at the University of Louisville with marketing and communication minors.
               </p>
               <p className="text-white/90 leading-relaxed mb-4">
-                I'm drawn to UX/UI because it sits at this perfect intersection of creativity, psychology, and problem-solving. I love digging into how people interact with digital products and finding ways to make those experiences more intuitive, engaging, and genuinely helpful. For me, it's not just about making interfaces look good, it's about understanding user needs, testing assumptions, and iterating until something truly works.
+                I&apos;m drawn to UX/UI because it sits at this perfect intersection of creativity, psychology, and problem-solving. I love digging into how people interact with digital products and finding ways to make those experiences more intuitive, engaging, and genuinely helpful. For me, it&apos;s not just about making interfaces look good, it&apos;s about understanding user needs, testing assumptions, and iterating until something truly works.
               </p>
               <p className="text-white/90 leading-relaxed">
-                Right now, I'm wearing a few different hats: leading client projects at The Birds Nest Marketing Agency, supporting digital media platforms at UofL, and constantly expanding my design toolkit. Working across these different environments has taught me how to balance user needs with business goals, communicate design decisions effectively, and stay adaptable when things inevitably change mid-project.
+                Right now, I&apos;m wearing a few different hats: leading client projects at The Birds Nest Marketing Agency, supporting digital media platforms at UofL, and constantly expanding my design toolkit. Working across these different environments has taught me how to balance user needs with business goals, communicate design decisions effectively, and stay adaptable when things inevitably change mid-project.
               </p>
             </div>
 
             <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-lg mb-8">
               <h3 className="text-2xl font-bold mb-4 text-[#C8FF96]">My approach</h3>
               <p className="text-white/90 leading-relaxed mb-4">
-                I believe the best interfaces are the ones you don't have to think about, they just feel right. Getting there takes empathy, research, and a willingness to kill your darlings when the data tells you to. I'm all about collaborative design processes, bringing stakeholders into the conversation early, and always keeping the end user at the center of every decision.
+                I believe the best interfaces are the ones you don&apos;t have to think about, they just feel right. Getting there takes empathy, research, and a willingness to kill your darlings when the data tells you to. I&apos;m all about collaborative design processes, bringing stakeholders into the conversation early, and always keeping the end user at the center of every decision.
               </p>
               <p className="text-white/90 leading-relaxed">
-                My background in graphic design gives me a strong foundation in visual communication, but it's the UX thinking that really lights me up; crafting user flows, wireframing solutions, prototyping in Figma, and watching how people actually interact with what I've built. Every project is a chance to learn something new about human behavior and digital design.
+                My background in graphic design gives me a strong foundation in visual communication, but it&apos;s the UX thinking that really lights me up; crafting user flows, wireframing solutions, prototyping in Figma, and watching how people actually interact with what I&apos;ve built. Every project is a chance to learn something new about human behavior and digital design.
               </p>
             </div>
 
             <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-lg">
               <h3 className="text-2xl font-bold mb-4 text-[#C8FF96]">Let's connect</h3>
               <p className="text-white/90 leading-relaxed mb-6">
-                I'm always excited to talk shop with other designers, explore new opportunities, or collaborate on projects that challenge me to grow. Whether you've got a product that needs some UX love, want to bounce around ideas, or just want to geek out about interaction design, I'd love to hear from you.
+                I&apos;m always excited to talk shop with other designers, explore new opportunities, or collaborate on projects that challenge me to grow. Whether you&apos;ve got a product that needs some UX love, want to bounce around ideas, or just want to geek out about interaction design, I&apos;d love to hear from you.
               </p>
               <div className="space-y-2 text-white/90">
                 <p>
