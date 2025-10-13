@@ -21,7 +21,7 @@ export default function Home() {
       <div className="fixed inset-0 bg-black/60 z-5 pointer-events-none" />
 
       <main className="relative z-10">
-        <div className="text-center px-8 pt-24 pb-12">
+        <div className="text-center px-4 md:px-8 pt-16 md:pt-24 pb-8 md:pb-12">
           <SmartTypewriter
             baseText="Hi i'm Aidan, i'm a "
             replacements={[
@@ -32,7 +32,7 @@ export default function Home() {
             ]}
             typingSpeed={80}
             deletingSpeed={40}
-            className="text-2xl md:text-4xl font-bold text-[#ffa1a1] font-mono typewriter-glow"
+            className="text-xl md:text-4xl font-bold text-[#ffa1a1] font-mono typewriter-glow"
           />
         </div>
 
