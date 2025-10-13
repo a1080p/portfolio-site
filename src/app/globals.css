@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Liquid Glass Glassmorphism Styles */
+.glass-card {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.08) 50%,
+    rgba(255, 255, 255, 0.04) 100%
+  );
+  border: 2px solid rgba(255, 255, 255, 0.25);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.4),
+    0 20px 60px 0 rgba(0, 0, 0, 0.3),
+    inset 0 2px 0 0 rgba(255, 255, 255, 0.3),
+    inset 0 -2px 0 0 rgba(0, 0, 0, 0.2);
+  overflow: visible;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-radius: 200px;
+}
+
+/* Animated liquid shimmer effect */
+.glass-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background:
+    radial-gradient(
+      circle at var(--glow-x) var(--glow-y),
+      rgba(255, 255, 255, 0.15) 0%,
+      transparent 50%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      transparent 40%,
+      transparent 60%,
+      rgba(0, 0, 0, 0.05) 100%
+    );
+  pointer-events: none;
+  z-index: 10;
+  transition: background 0.2s ease;
+}
+
+/* Liquid ripple effect on hover */
+@keyframes liquidRipple {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.9;
+  }
+}
+
+/* Border glow effect on hover */
+.glass-card::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+  filter: blur(20px);
+}
+
+.glass-card:hover::before {
+  opacity: 1;
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.5);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(255, 255, 255, 0.2),
+    0 0 30px rgba(255, 255, 255, 0.15);
+}
+
+.shadow-glow {
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.4),
+    0 0 40px rgba(255, 51, 51, 0.3),
+    0 0 60px rgba(255, 51, 51, 0.2);
+}
+
+/* Typewriter text glow effect */
+.typewriter-glow {
+  text-shadow:
+    0 0 10px rgba(255, 51, 51, 0.8),
+    0 0 20px rgba(255, 51, 51, 0.6),
+    0 0 30px rgba(255, 51, 51, 0.4),
+    0 0 40px rgba(255, 51, 51, 0.2);
+  animation: flare 3s ease-in-out infinite;
+}
+
+@keyframes flare {
+  0%, 100% {
+    text-shadow:
+      0 0 10px rgba(255, 51, 51, 0.8),
+      0 0 20px rgba(255, 51, 51, 0.6),
+      0 0 30px rgba(255, 51, 51, 0.4),
+      0 0 40px rgba(255, 51, 51, 0.2);
+  }
+  50% {
+    text-shadow:
+      0 0 15px rgba(255, 51, 51, 1),
+      0 0 30px rgba(255, 51, 51, 0.8),
+      0 0 45px rgba(255, 51, 51, 0.6),
+      0 0 60px rgba(255, 51, 51, 0.4);
+  }
+}

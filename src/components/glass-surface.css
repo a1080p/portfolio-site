@@ -1,0 +1,59 @@
+.glass-surface {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  transition: opacity 0.26s ease-out;
+  border-radius: inherit;
+}
+
+.glass-surface__filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.glass-surface__content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  border-radius: inherit;
+  overflow: hidden;
+  backdrop-filter: var(--filter-id) saturate(var(--glass-saturation)) blur(24px);
+  -webkit-backdrop-filter: var(--filter-id) saturate(var(--glass-saturation)) blur(24px);
+}
+
+.glass-surface--svg .glass-surface__content {
+  backdrop-filter: var(--filter-id) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: var(--filter-id) saturate(var(--glass-saturation));
+}
+
+.glass-surface--svg .glass-surface__content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: hsl(0 0% 100% / var(--glass-frost));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glass-surface--fallback .glass-surface__content {
+  backdrop-filter: blur(30px) saturate(var(--glass-saturation));
+  -webkit-backdrop-filter: blur(30px) saturate(var(--glass-saturation));
+}
+
+.glass-surface--fallback .glass-surface__content::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(255, 255, 255, var(--glass-frost));
+  pointer-events: none;
+  z-index: -1;
+}
