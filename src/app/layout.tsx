@@ -15,6 +15,15 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Aidan Dombrowski | UX/UI Designer & Motion Designer",
   description: "Portfolio of Aidan Dombrowski - UX designer, motion designer, and graphic designer. From initial wireframes to polished prototypes, I handle the full spectrum: UX research, interface design, motion systems, and front-end development.",
+  icons: {
+    icon: [
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
   openGraph: {
     title: "Aidan Dombrowski | UX/UI Designer & Motion Designer",
     description: "Portfolio of Aidan Dombrowski - UX designer, motion designer, and graphic designer.",
