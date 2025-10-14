@@ -162,13 +162,13 @@ const Masonry = ({
   };
 
   const grid = useMemo(() => {
-    if (!width || imageDimensions.size === 0) return [];
+    if (!width || imageDimensions.size === 0) return { items: [], height: 0 };
 
     const colHeights = new Array(columns).fill(0);
     const columnWidth = width / columns;
     const gap = 4; // Small gap between items
 
-    return items.map(child => {
+    const gridItems = items.map(child => {
       const dims = imageDimensions.get(child.img);
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = columnWidth * col;
@@ -185,6 +185,9 @@ const Masonry = ({
 
       return { ...child, x, y, w: columnWidth, h: height };
     });
+
+    const maxHeight = Math.max(...colHeights);
+    return { items: gridItems, height: maxHeight };
   }, [columns, items, width, imageDimensions]);
 
   const hasMounted = useRef(false);
@@ -192,7 +195,7 @@ const Masonry = ({
   useLayoutEffect(() => {
     if (!imagesReady) return;
 
-    grid.forEach((item, index) => {
+    grid.items.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
       const animationProps = {
         x: item.x,
@@ -282,8 +285,8 @@ const Masonry = ({
 
   return (
     <>
-      <div ref={containerRef} className="list">
-        {grid.map(item => {
+      <div ref={containerRef} className="list" style={{ height: grid.height || 'auto' }}>
+        {grid.items.map(item => {
           return (
             <div
               key={item.id}
