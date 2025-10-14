@@ -125,15 +125,6 @@ export default function BentoGrid() {
 
         {/* Small Cards - 1/3 width stacked with equal height */}
         <div className="md:col-span-1 flex flex-col gap-4">
-          <Link href="/demo-reel">
-            <TiltCard className="transition-all duration-300 h-[150px] md:h-[200px]">
-              <div className="glass-card h-full rounded-[40px] bg-white/10 backdrop-blur-md border border-white/20">
-                <div className="p-4 md:p-8 flex items-start h-full">
-                  <h3 className="text-2xl md:text-3xl font-black text-white">Demo Reel</h3>
-                </div>
-              </div>
-            </TiltCard>
-          </Link>
           <Link href="/gallery">
             <TiltCard className="transition-all duration-300 h-[150px] md:h-[200px]">
               <div className="glass-card h-full rounded-[40px] bg-white/10 backdrop-blur-md border border-white/20">

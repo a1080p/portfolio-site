@@ -66,7 +66,19 @@ export default function GalleryPage() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-8 py-12" style={{ minHeight: '3000px' }}>
+        <div className="max-w-6xl mx-auto px-4 md:px-8 py-12">
+          {/* Demo Reel Video Section */}
+          <div className="mb-12">
+            <div className="glass-card rounded-[40px] bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-8">
+              <h2 className="text-2xl md:text-3xl font-black text-white mb-4 md:mb-6">Demo Reel</h2>
+              <video controls className="w-full rounded-2xl" preload="metadata">
+                <source src="/Demo%20Reel.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+
+          {/* Gallery Masonry */}
           <Masonry
             items={items}
             ease="power3.out"
