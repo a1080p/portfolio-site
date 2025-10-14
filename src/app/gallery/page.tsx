@@ -70,7 +70,7 @@ export default function GalleryPage() {
           {/* Demo Reel Video Section */}
           <div className="mb-12">
             <div className="glass-card rounded-[40px] bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-black text-white mb-4 md:mb-6">Demo Reel</h2>
+              <h2 className="text-2xl md:text-3xl font-black text-[#C8FF96] mb-4 md:mb-6">Demo Reel</h2>
               <video controls className="w-full rounded-2xl" preload="metadata">
                 <source src="/Demo%20Reel.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
@@ -80,7 +80,7 @@ export default function GalleryPage() {
 
           {/* Image Archive Section with Glass Effect */}
           <div className="glass-card rounded-[40px] bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-8">
-            <h2 className="text-2xl md:text-3xl font-black text-white mb-8">Image Archive</h2>
+            <h2 className="text-2xl md:text-3xl font-black text-[#C8FF96] mb-8">Image Archive</h2>
 
             {/* Gallery Masonry */}
             <Masonry
