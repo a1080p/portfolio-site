@@ -78,24 +78,24 @@ export default function GalleryPage() {
             </div>
           </div>
 
-          {/* Image Archive Header */}
-          <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-black text-white">Image Archive</h2>
-          </div>
+          {/* Image Archive Section with Glass Effect */}
+          <div className="glass-card rounded-[40px] bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-8">
+            <h2 className="text-2xl md:text-3xl font-black text-white mb-8">Image Archive</h2>
 
-          {/* Gallery Masonry */}
-          <Masonry
-            items={items}
-            ease="power3.out"
-            duration={0.4}
-            stagger={0.025}
-            animateFrom="bottom"
-            scaleOnHover={true}
-            hoverScale={0.95}
-            blurToFocus={true}
-            colorShiftOnHover={false}
-            onFullscreenChange={setIsFullscreen}
-          />
+            {/* Gallery Masonry */}
+            <Masonry
+              items={items}
+              ease="power3.out"
+              duration={0.4}
+              stagger={0.025}
+              animateFrom="bottom"
+              scaleOnHover={true}
+              hoverScale={0.95}
+              blurToFocus={true}
+              colorShiftOnHover={false}
+              onFullscreenChange={setIsFullscreen}
+            />
+          </div>
         </div>
       </main>
 
