@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Aidan Dombrowski | UX/UI Designer & Motion Designer",
+  title: "Aidan Dombrowski Digital Portfolio",
   description: "Portfolio of Aidan Dombrowski - UX designer, motion designer, and graphic designer. From initial wireframes to polished prototypes, I handle the full spectrum: UX research, interface design, motion systems, and front-end development.",
   icons: {
     icon: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     ],
   },
   openGraph: {
-    title: "Aidan Dombrowski | UX/UI Designer & Motion Designer",
+    title: "Aidan Dombrowski Digital Portfolio",
     description: "Portfolio of Aidan Dombrowski - UX designer, motion designer, and graphic designer.",
     url: "https://aidandombrowski.com",
     siteName: "Aidan Dombrowski Portfolio",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aidan Dombrowski | UX/UI Designer & Motion Designer",
+    title: "Aidan Dombrowski Digital Portfolio",
     description: "Portfolio of Aidan Dombrowski - UX designer, motion designer, and graphic designer.",
   },
 };
