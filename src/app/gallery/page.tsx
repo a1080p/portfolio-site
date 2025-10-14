@@ -78,6 +78,11 @@ export default function GalleryPage() {
             </div>
           </div>
 
+          {/* Image Archive Header */}
+          <div className="mb-8">
+            <h2 className="text-2xl md:text-3xl font-black text-white">Image Archive</h2>
+          </div>
+
           {/* Gallery Masonry */}
           <Masonry
             items={items}
