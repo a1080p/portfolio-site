@@ -32,12 +32,11 @@ export default function GalleryPage() {
     { id: "21", img: "/Gallery/in%20love.png", url: "#", height: 1700 },
     { id: "22", img: "/Gallery/maybe%20today.png", url: "#", height: 1700 },
     { id: "23", img: "/Gallery/Scan%203.jpeg", url: "#", height: 1600 },
-    { id: "24", img: "/Gallery/Fight%20night%202024.png", url: "#", height: 1800 },
-    { id: "25", img: "/Gallery/screenshot-oct-9.png", url: "#", height: 1500 },
-    { id: "26", img: "/Gallery/bite%20me.png", url: "#", height: 1600 },
-    { id: "27", img: "/Gallery/COCO%20wrapper.png", url: "#", height: 1400 },
-    { id: "28", img: "/Gallery/Artboard%201.png", url: "#", height: 1500 },
-    { id: "29", img: "/Gallery/screenshot-sept-16.png", url: "#", height: 1400 },
+    { id: "24", img: "/Gallery/screenshot-oct-9.png", url: "#", height: 1500 },
+    { id: "25", img: "/Gallery/bite%20me.png", url: "#", height: 1600 },
+    { id: "26", img: "/Gallery/COCO%20wrapper.png", url: "#", height: 1400 },
+    { id: "27", img: "/Gallery/Artboard%201.png", url: "#", height: 1500 },
+    { id: "28", img: "/Gallery/screenshot-sept-16.png", url: "#", height: 1400 },
   ];
 
   return (
