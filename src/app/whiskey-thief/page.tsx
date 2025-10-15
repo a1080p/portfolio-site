@@ -17,7 +17,7 @@ export default function WhiskeyThiefPage() {
         />
       </div>
 
-      <div className="fixed inset-0 bg-black/60 z-5 pointer-events-none" />
+      <div className="fixed inset-0 bg-black/70 z-5 pointer-events-none" />
 
       <main className="relative z-10">
         <div className="text-center px-8 pt-24 pb-12">
@@ -166,7 +166,7 @@ export default function WhiskeyThiefPage() {
               href="https://www.figma.com/proto/8kLFXE69afUkCD6x4hKCVX/Aidan-Dombrowski---DES-576-Spring-25?node-id=1043-5145&t=ijtGM4P1f8kwmvbE-0&scaling=min-zoom&content-scaling=fixed&page-id=1043%3A3702&starting-point-node-id=1043%3A5498"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-white font-bold text-xl transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-105"
+              className="inline-block px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-white font-bold text-xl transition-all duration-300 hover:border-[#C8FF96] hover:scale-105"
             >
               Final Figma File
             </a>
@@ -197,7 +197,7 @@ export default function WhiskeyThiefPage() {
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex gap-4">
         <Link
           href="/"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-110"
+          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
           title="Home"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -207,7 +207,7 @@ export default function WhiskeyThiefPage() {
 
         <Link
           href="/about"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-110"
+          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
           title="About"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -217,7 +217,7 @@ export default function WhiskeyThiefPage() {
 
         <Link
           href="/gallery"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-110"
+          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
           title="Gallery"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">

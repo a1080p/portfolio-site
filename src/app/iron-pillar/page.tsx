@@ -17,7 +17,7 @@ export default function IronPillarPage() {
         />
       </div>
 
-      <div className="fixed inset-0 bg-black/60 z-5 pointer-events-none" />
+      <div className="fixed inset-0 bg-black/70 z-5 pointer-events-none" />
 
       <main className="relative z-10">
         <div className="text-center px-8 pt-24 pb-12">
@@ -116,7 +116,7 @@ export default function IronPillarPage() {
               href="https://www.behance.net/gallery/236207299/IRON-PILLAR-Competitive-Analysis"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-white font-bold text-xl transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-105"
+              className="inline-block px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-white font-bold text-xl transition-all duration-300 hover:border-[#C8FF96] hover:scale-105"
             >
               View Full Analysis
             </a>
@@ -243,7 +243,7 @@ export default function IronPillarPage() {
                 href="https://www.figma.com/proto/jaRishkrfdZU8vJBD1Lje4/ID-2-Fall-2025?node-id=112-154&p=f&t=3s09XEOL1kwkGaeY-0&scaling=scale-down&content-scaling=fixed&page-id=112%3A14&starting-point-node-id=129%3A66"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-white font-bold text-xl transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-105"
+                className="inline-block px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-white font-bold text-xl transition-all duration-300 hover:border-[#C8FF96] hover:scale-105"
               >
                 Final Figma File
               </a>
@@ -251,7 +251,7 @@ export default function IronPillarPage() {
                 href="https://www.behance.net/gallery/236190049/Iron-Pillar-Pitch-Deck"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-white font-bold text-xl transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-105"
+                className="inline-block px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-white font-bold text-xl transition-all duration-300 hover:border-[#C8FF96] hover:scale-105"
               >
                 Full Pitchdeck
               </a>
@@ -283,7 +283,7 @@ export default function IronPillarPage() {
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex gap-4">
         <Link
           href="/"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-110"
+          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
           title="Home"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -293,7 +293,7 @@ export default function IronPillarPage() {
 
         <Link
           href="/about"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-110"
+          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
           title="About"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -303,7 +303,7 @@ export default function IronPillarPage() {
 
         <Link
           href="/gallery"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-110"
+          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
           title="Gallery"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">

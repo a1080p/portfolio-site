@@ -18,23 +18,15 @@ function TiltCard({ children, className }: { children: React.ReactNode; classNam
     const centerX = rect.width / 2
     const centerY = rect.height / 2
 
-    const rotateX = ((y - centerY) / centerY) * -3
-    const rotateY = ((x - centerX) / centerX) * 3
+    const rotateX = ((y - centerY) / centerY) * -0.5
+    const rotateY = ((x - centerX) / centerX) * 0.5
 
-    // Update CSS variables for liquid shimmer effect
-    const percentX = (x / rect.width) * 100
-    const percentY = (y / rect.height) * 100
-    cardRef.current.style.setProperty('--glow-x', `${percentX}%`)
-    cardRef.current.style.setProperty('--glow-y', `${percentY}%`)
-
-    cardRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`
+    cardRef.current.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
   }
 
   const handleMouseLeave = () => {
     if (!cardRef.current) return
-    cardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)'
-    cardRef.current.style.setProperty('--glow-x', '50%')
-    cardRef.current.style.setProperty('--glow-y', '50%')
+    cardRef.current.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)'
   }
 
   return (
@@ -102,19 +94,19 @@ export default function BentoGrid() {
                 {/* Horizontal divider */}
                 <div className="hidden md:block absolute left-0 right-0 top-1/2 h-px bg-white/10 transform -translate-y-1/2"></div>
 
-                <Link href="/iron-pillar" className="p-4 md:p-6 flex flex-col justify-center cursor-pointer transition-all duration-300 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] rounded-2xl group">
+                <Link href="/iron-pillar" className="p-4 md:p-6 flex flex-col justify-center cursor-pointer transition-all duration-300 rounded-2xl group">
                   <h4 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 group-hover:text-[#C8FF96] group-hover:drop-shadow-[0_0_8px_rgba(200,255,150,0.6)] transition-all">Iron Pillar</h4>
                   <p className="text-white/70 text-sm leading-relaxed group-hover:text-white/90 transition-colors">A fitness app concept reimagining workout tracking through gamification and social accountability.</p>
                 </Link>
-                <Link href="/whiskey-thief" className="p-4 md:p-6 flex flex-col justify-center cursor-pointer transition-all duration-300 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] rounded-2xl group">
+                <Link href="/whiskey-thief" className="p-4 md:p-6 flex flex-col justify-center cursor-pointer transition-all duration-300 rounded-2xl group">
                   <h4 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 group-hover:text-[#C8FF96] group-hover:drop-shadow-[0_0_8px_rgba(200,255,150,0.6)] transition-all">Whiskey Thief</h4>
                   <p className="text-white/70 text-sm leading-relaxed group-hover:text-white/90 transition-colors">Interactive digital platform for Whiskey Thief Distilling Co., featuring bourbon, cocktail, and food menus.</p>
                 </Link>
-                <Link href="/lego-architect" className="p-4 md:p-6 flex flex-col justify-center cursor-pointer transition-all duration-300 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] rounded-2xl group">
+                <Link href="/lego-architect" className="p-4 md:p-6 flex flex-col justify-center cursor-pointer transition-all duration-300 rounded-2xl group">
                   <h4 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 group-hover:text-[#C8FF96] group-hover:drop-shadow-[0_0_8px_rgba(200,255,150,0.6)] transition-all">LEGO Architect</h4>
                   <p className="text-white/70 text-sm leading-relaxed group-hover:text-white/90 transition-colors">Precision-scaled modular building system for architectural professionals, bridging physical and digital design.</p>
                 </Link>
-                <Link href="/multiverse-mix" className="p-4 md:p-6 flex flex-col justify-center cursor-pointer transition-all duration-300 hover:bg-white/5 hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] rounded-2xl group">
+                <Link href="/multiverse-mix" className="p-4 md:p-6 flex flex-col justify-center cursor-pointer transition-all duration-300 rounded-2xl group">
                   <h4 className="text-xl md:text-2xl font-bold text-white mb-2 md:mb-3 group-hover:text-[#C8FF96] group-hover:drop-shadow-[0_0_8px_rgba(200,255,150,0.6)] transition-all">Multiverse Mix</h4>
                   <p className="text-white/70 text-sm leading-relaxed group-hover:text-white/90 transition-colors">Music streaming app reimagining content discovery through interdimensional exploration and intuitive safety features.</p>
                 </Link>

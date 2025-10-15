@@ -18,7 +18,7 @@ export default function Home() {
         />
       </div>
 
-      <div className="fixed inset-0 bg-black/60 z-5 pointer-events-none" />
+      <div className="fixed inset-0 bg-black/70 z-5 pointer-events-none" />
 
       <main className="relative z-10">
         <div className="text-center px-4 md:px-8 pt-16 md:pt-24 pb-8 md:pb-12">

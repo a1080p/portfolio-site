@@ -9,34 +9,37 @@ export default function GalleryPage() {
   const [isFullscreen, setIsFullscreen] = useState(false);
 
   const items = [
-    { id: "1", img: "/Gallery/Queens%20Gambit.png", url: "#", height: 2000 },
-    { id: "2", img: "/Gallery/Sinners.png", url: "#", height: 1800 },
-    { id: "3", img: "/Gallery/CPU_.png", url: "#", height: 1900 },
-    { id: "4", img: "/Gallery/Bridge.png", url: "#", height: 1700 },
-    { id: "5", img: "/Gallery/Light%20abyss.png", url: "#", height: 1800 },
-    { id: "6", img: "/Gallery/The%20path.png", url: "#", height: 1700 },
-    { id: "7", img: "/Gallery/flowers.png", url: "#", height: 1800 },
-    { id: "8", img: "/Gallery/Untitled-1.png", url: "#", height: 1900 },
-    { id: "9", img: "/Gallery/Album%20project%20wip%20copy.png", url: "#", height: 1600 },
-    { id: "10", img: "/Gallery/vhs%20flowers.png", url: "#", height: 1700 },
-    { id: "11", img: "/Gallery/wanderer.png", url: "#", height: 1800 },
-    { id: "12", img: "/Gallery/Scan%2011.jpeg", url: "#", height: 1600 },
-    { id: "13", img: "/Gallery/art%20nov%20poster.png", url: "#", height: 1900 },
-    { id: "14", img: "/Gallery/The%20big%20lebowski%20poster.png", url: "#", height: 1800 },
-    { id: "15", img: "/Gallery/Starve%20the%20ego%20poster.png", url: "#", height: 1900 },
-    { id: "16", img: "/Gallery/Your%20brain%20on%20creativity.png", url: "#", height: 1700 },
-    { id: "17", img: "/Gallery/awaken.png", url: "#", height: 1800 },
-    { id: "18", img: "/Gallery/This%20is%20the%20future%20you%20created.png", url: "#", height: 1700 },
-    { id: "19", img: "/Gallery/Arabic%20class%20exercise%20-%20Peace.png", url: "#", height: 1600 },
-    { id: "20", img: "/Gallery/2%20to%20look.png", url: "#", height: 1600 },
-    { id: "21", img: "/Gallery/in%20love.png", url: "#", height: 1700 },
-    { id: "22", img: "/Gallery/maybe%20today.png", url: "#", height: 1700 },
-    { id: "23", img: "/Gallery/Scan%203.jpeg", url: "#", height: 1600 },
-    { id: "24", img: "/Gallery/screenshot-oct-9.png", url: "#", height: 1500 },
-    { id: "25", img: "/Gallery/bite%20me.png", url: "#", height: 1600 },
-    { id: "26", img: "/Gallery/COCO%20wrapper.png", url: "#", height: 1400 },
-    { id: "27", img: "/Gallery/Artboard%201.png", url: "#", height: 1500 },
-    { id: "28", img: "/Gallery/screenshot-sept-16.png", url: "#", height: 1400 },
+    { id: "1", img: "/Gallery/1.png", url: "#", height: 1800 },
+    { id: "2", img: "/Gallery/bamf.png", url: "#", height: 1800 },
+    { id: "3", img: "/Gallery/Hornet.png", url: "#", height: 1800 },
+    { id: "4", img: "/Gallery/Queens%20Gambit.png", url: "#", height: 2000 },
+    { id: "5", img: "/Gallery/Sinners.png", url: "#", height: 1800 },
+    { id: "6", img: "/Gallery/CPU_.png", url: "#", height: 1900 },
+    { id: "7", img: "/Gallery/Bridge.png", url: "#", height: 1700 },
+    { id: "8", img: "/Gallery/Light%20abyss.png", url: "#", height: 1800 },
+    { id: "9", img: "/Gallery/The%20path.png", url: "#", height: 1700 },
+    { id: "10", img: "/Gallery/flowers.png", url: "#", height: 1800 },
+    { id: "11", img: "/Gallery/Untitled-1.png", url: "#", height: 1900 },
+    { id: "12", img: "/Gallery/Album%20project%20wip%20copy.png", url: "#", height: 1600 },
+    { id: "13", img: "/Gallery/vhs%20flowers.png", url: "#", height: 1700 },
+    { id: "14", img: "/Gallery/wanderer.png", url: "#", height: 1800 },
+    { id: "15", img: "/Gallery/Scan%2011.jpeg", url: "#", height: 1600 },
+    { id: "16", img: "/Gallery/art%20nov%20poster.png", url: "#", height: 1900 },
+    { id: "17", img: "/Gallery/The%20big%20lebowski%20poster.png", url: "#", height: 1800 },
+    { id: "18", img: "/Gallery/Starve%20the%20ego%20poster.png", url: "#", height: 1900 },
+    { id: "19", img: "/Gallery/Your%20brain%20on%20creativity.png", url: "#", height: 1700 },
+    { id: "20", img: "/Gallery/awaken.png", url: "#", height: 1800 },
+    { id: "21", img: "/Gallery/This%20is%20the%20future%20you%20created.png", url: "#", height: 1700 },
+    { id: "22", img: "/Gallery/Arabic%20class%20exercise%20-%20Peace.png", url: "#", height: 1600 },
+    { id: "23", img: "/Gallery/2%20to%20look.png", url: "#", height: 1600 },
+    { id: "24", img: "/Gallery/in%20love.png", url: "#", height: 1700 },
+    { id: "25", img: "/Gallery/maybe%20today.png", url: "#", height: 1700 },
+    { id: "26", img: "/Gallery/Scan%203.jpeg", url: "#", height: 1600 },
+    { id: "27", img: "/Gallery/screenshot-oct-9.png", url: "#", height: 1500 },
+    { id: "28", img: "/Gallery/bite%20me.png", url: "#", height: 1600 },
+    { id: "29", img: "/Gallery/COCO%20wrapper.png", url: "#", height: 1400 },
+    { id: "30", img: "/Gallery/Artboard%201.png", url: "#", height: 1500 },
+    { id: "31", img: "/Gallery/screenshot-sept-16.png", url: "#", height: 1400 },
   ];
 
   return (
@@ -54,7 +57,7 @@ export default function GalleryPage() {
         />
       </div>
 
-      <div className="fixed inset-0 bg-black/60 z-5 pointer-events-none" />
+      <div className="fixed inset-0 bg-black/70 z-5 pointer-events-none" />
 
       <main className="relative z-10">
         <div className="text-center px-8 pt-24 pb-12">
@@ -70,8 +73,9 @@ export default function GalleryPage() {
           <div className="mb-12">
             <div className="glass-card rounded-[40px] bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-8">
               <h2 className="text-2xl md:text-3xl font-black text-[#C8FF96] mb-4 md:mb-6">Demo Reel</h2>
-              <video controls className="w-full rounded-2xl" preload="metadata">
+              <video controls className="w-full rounded-2xl" preload="metadata" aria-label="Demo reel showcasing design and development work">
                 <source src="/Demo%20Reel.mp4" type="video/mp4" />
+                <track kind="captions" srcLang="en" label="English" />
                 Your browser does not support the video tag.
               </video>
             </div>
@@ -119,7 +123,7 @@ export default function GalleryPage() {
       <div className={`fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex gap-4 transition-opacity duration-300 ${isFullscreen ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
         <Link
           href="/"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-110"
+          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
           title="Home"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -129,7 +133,7 @@ export default function GalleryPage() {
 
         <Link
           href="/about"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-110"
+          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
           title="About"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -139,7 +143,7 @@ export default function GalleryPage() {
 
         <Link
           href="/gallery"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:bg-white/20 hover:border-[#C8FF96] hover:shadow-[0_0_20px_rgba(200,255,150,0.4)] hover:scale-110"
+          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
           title="Gallery"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
