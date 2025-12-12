@@ -46,28 +46,17 @@ const useMeasure = (): [React.RefObject<HTMLDivElement>, { width: number; height
   return [ref, size];
 };
 
-const preloadImages = async (urls: string[]): Promise<Map<string, { width: number; height: number }>> => {
-  const dimensions = new Map<string, { width: number; height: number }>();
-
-  await Promise.all(
-    urls.map(
-      src =>
-        new Promise<void>(resolve => {
-          const img = new Image();
-          img.src = src;
-          img.onload = () => {
-            dimensions.set(src, { width: img.naturalWidth, height: img.naturalHeight });
-            resolve();
-          };
-          img.onerror = () => {
-            dimensions.set(src, { width: 400, height: 400 }); // fallback
-            resolve();
-          };
-        })
-    )
-  );
-
-  return dimensions;
+const loadImageDimensions = (src: string): Promise<{ width: number; height: number }> => {
+  return new Promise((resolve) => {
+    const img = new Image();
+    img.src = src;
+    img.onload = () => {
+      resolve({ width: img.naturalWidth, height: img.naturalHeight });
+    };
+    img.onerror = () => {
+      resolve({ width: 400, height: 400 }); // fallback
+    };
+  });
 };
 
 interface MasonryItem {
@@ -116,20 +105,15 @@ const Masonry = ({
   );
 
   const [containerRef, { width }] = useMeasure();
-  const [imagesReady, setImagesReady] = useState(false);
   const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
   const [imageDimensions, setImageDimensions] = useState<Map<string, { width: number; height: number }>>(new Map());
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
+  const imageRefs = useRef<Map<string, HTMLDivElement>>(new Map());
+  const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
     onFullscreenChange?.(fullscreenImage !== null);
   }, [fullscreenImage, onFullscreenChange]);
-
-  useEffect(() => {
-    preloadImages(items.map(i => i.img)).then((dims) => {
-      setImageDimensions(dims);
-      setImagesReady(true);
-    });
-  }, [items]);
 
   const getInitialPosition = (item: GridItem) => {
     const containerRect = containerRef.current?.getBoundingClientRect();
@@ -162,7 +146,7 @@ const Masonry = ({
   };
 
   const grid = useMemo(() => {
-    if (!width || imageDimensions.size === 0) return { items: [], height: 0 };
+    if (!width) return { items: [], height: 0 };
 
     const colHeights = new Array(columns).fill(0);
     const columnWidth = width / columns;
@@ -173,11 +157,14 @@ const Masonry = ({
       const col = colHeights.indexOf(Math.min(...colHeights));
       const x = columnWidth * col;
 
-      // Calculate height based on actual image aspect ratio
+      // Calculate height based on actual image aspect ratio or use estimated height
       let height = columnWidth;
       if (dims) {
         const aspectRatio = dims.height / dims.width;
         height = columnWidth * aspectRatio;
+      } else {
+        // Use estimated aspect ratio from item height property
+        height = columnWidth * 1.2; // Default aspect ratio while loading
       }
 
       const y = colHeights[col];
@@ -192,9 +179,55 @@ const Masonry = ({
 
   const hasMounted = useRef(false);
 
-  useLayoutEffect(() => {
-    if (!imagesReady) return;
+  // Lazy load images as they come into view
+  useEffect(() => {
+    if (!observerRef.current) {
+      observerRef.current = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const img = entry.target.getAttribute('data-src');
+              if (img) {
+                // Load the image dimensions and mark as loaded
+                loadImageDimensions(img).then((dims) => {
+                  setImageDimensions((prevDims) => {
+                    const newMap = new Map(prevDims);
+                    newMap.set(img, dims);
+                    return newMap;
+                  });
+                  setLoadedImages((prev) => {
+                    const newSet = new Set(prev);
+                    newSet.add(img);
+                    return newSet;
+                  });
+                });
+              }
+            }
+          });
+        },
+        {
+          rootMargin: '400px', // Start loading 400px before item enters viewport
+          threshold: 0.01
+        }
+      );
+    }
 
+    // Observe all current refs
+    const currentObserver = observerRef.current;
+    imageRefs.current.forEach((ref) => {
+      if (ref && currentObserver) {
+        currentObserver.observe(ref);
+      }
+    });
+
+    return () => {
+      if (currentObserver) {
+        currentObserver.disconnect();
+      }
+    };
+  }, [grid.items]);
+
+  useLayoutEffect(() => {
     grid.items.forEach((item, index) => {
       const selector = `[data-key="${item.id}"]`;
       const animationProps = {
@@ -235,7 +268,7 @@ const Masonry = ({
 
     hasMounted.current = true;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [grid, imagesReady, stagger, animateFrom, blurToFocus, duration, ease]);
+  }, [grid, stagger, animateFrom, blurToFocus, duration, ease]);
 
   const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>, item: GridItem) => {
     const element = e.currentTarget;
@@ -287,26 +320,56 @@ const Masonry = ({
     <>
       <div ref={containerRef} className="list" style={{ height: grid.height || 'auto' }}>
         {grid.items.map(item => {
+          const isLoaded = loadedImages.has(item.img);
           return (
             <div
               key={item.id}
               data-key={item.id}
+              data-src={item.img}
               className="item-wrapper"
+              ref={(el) => {
+                if (el) imageRefs.current.set(item.id, el);
+              }}
               onClick={() => setFullscreenImage(item.img)}
               onMouseEnter={e => handleMouseEnter(e, item)}
               onMouseLeave={e => handleMouseLeave(e, item)}
             >
               <div className="item-img">
-                <img
-                  src={item.img}
-                  alt={`Gallery item ${item.id}`}
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'cover',
-                    borderRadius: '4px'
-                  }}
-                />
+                {isLoaded ? (
+                  <img
+                    src={item.img}
+                    alt={`Gallery item ${item.id}`}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      borderRadius: '4px'
+                    }}
+                  />
+                ) : (
+                  <div
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      backgroundColor: 'rgba(255,255,255,0.05)',
+                      borderRadius: '4px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: '40px',
+                        height: '40px',
+                        border: '3px solid rgba(200,255,150,0.3)',
+                        borderTop: '3px solid rgba(200,255,150,0.8)',
+                        borderRadius: '50%',
+                        animation: 'spin 1s linear infinite'
+                      }}
+                    />
+                  </div>
+                )}
                 {colorShiftOnHover && (
                   <div
                     className="color-overlay"

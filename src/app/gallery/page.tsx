@@ -73,7 +73,7 @@ export default function GalleryPage() {
           <div className="mb-12">
             <div className="glass-card rounded-[40px] bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-8">
               <h2 className="text-2xl md:text-3xl font-black text-[#C8FF96] mb-4 md:mb-6">Demo Reel</h2>
-              <video controls className="w-full rounded-2xl" preload="metadata" aria-label="Demo reel showcasing design and development work">
+              <video controls muted className="w-full rounded-2xl" preload="metadata" aria-label="Demo reel showcasing design and development work">
                 <source src="/Demo%20Reel.mp4" type="video/mp4" />
                 <track kind="captions" srcLang="en" label="English" />
                 Your browser does not support the video tag.
