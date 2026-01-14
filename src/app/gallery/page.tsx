@@ -69,18 +69,6 @@ export default function GalleryPage() {
         </div>
 
         <div className="max-w-6xl mx-auto px-4 md:px-8 py-12">
-          {/* Demo Reel Video Section */}
-          <div className="mb-12">
-            <div className="glass-card rounded-[40px] bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-8">
-              <h2 className="text-2xl md:text-3xl font-black text-[#C8FF96] mb-4 md:mb-6">Demo Reel</h2>
-              <video controls muted className="w-full rounded-2xl" preload="metadata" aria-label="Demo reel showcasing design and development work">
-                <source src="/Demo%20Reel.mp4" type="video/mp4" />
-                <track kind="captions" srcLang="en" label="English" />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-
           {/* Image Archive Section with Glass Effect */}
           <div className="glass-card rounded-[40px] bg-white/10 backdrop-blur-md border border-white/20 p-4 md:p-8">
             <h2 className="text-2xl md:text-3xl font-black text-[#C8FF96] mb-8">Image Archive</h2>
@@ -128,6 +116,16 @@ export default function GalleryPage() {
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+        </Link>
+
+        <Link
+          href="/motion-reels"
+          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
+          title="Motion Reels"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
           </svg>
         </Link>
 

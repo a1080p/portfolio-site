@@ -16,9 +16,9 @@ export default function MotionReelsPage() {
     },
     {
       id: "mgk-dossier",
-      title: "MGK x Dossier Commercial",
+      title: "MGK x Dossier Case Study",
       videoSrc: "/MGK%20x%20Dossier%20Final.mp4",
-      description: "Commercial project for Machine Gun Kelly's collaboration with Dossier. Features high-energy motion graphics, product visualization, and brand storytelling through dynamic camera movements and stylized visual effects."
+      description: "A branding and motion design exploration for a conceptual Machine Gun Kelly x Dossier collaboration. This case study demonstrates product design storytelling through kinetic typography, dynamic transitions, and brand-focused visual movement."
     }
   ];
 
@@ -110,6 +110,16 @@ export default function MotionReelsPage() {
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+          </svg>
+        </Link>
+
+        <Link
+          href="/motion-reels"
+          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
+          title="Motion Reels"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
           </svg>
         </Link>
 
