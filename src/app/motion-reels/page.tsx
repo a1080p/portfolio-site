@@ -18,7 +18,7 @@ export default function MotionReelsPage() {
       id: "mgk-dossier",
       title: "MGK x Dossier Case Study",
       videoSrc: "/MGK%20x%20Dossier%20Final.mp4",
-      description: "A branding and motion design exploration for a conceptual Machine Gun Kelly x Dossier collaboration. This case study demonstrates product design storytelling through kinetic typography, dynamic transitions, and brand-focused visual movement."
+      description: "A personal branding and motion design exploration inspired by the Machine Gun Kelly x Dossier collaboration. This independent case study demonstrates product design storytelling through kinetic typography, dynamic transitions, and brand-focused visual movement. Not affiliated with MGK or Dossier."
     }
   ];
 
