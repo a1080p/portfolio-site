@@ -1,139 +1,265 @@
-import DitherBackground from "@/components/dither-background";
-import Link from "next/link";
+import Image from 'next/image';
+import { Container } from '@/components/ui/Container';
+import { Button } from '@/components/ui/Button';
+import { Card, CardContent } from '@/components/ui/Card';
+import { ScrollReveal } from '@/components/animations/ScrollReveal';
+
+const experiences = [
+  {
+    title: 'Design Assistant',
+    company: 'University of Louisville School of Medicine',
+    period: 'Jan 2026 - Present',
+    description: [
+      'Craft motion reels and animated content that bring medical communications to life through storytelling and visual design.',
+      'Design cohesive print and digital media campaigns that bridge complex medical concepts with accessible visual narratives.',
+      'Collaborate with cross-functional teams of designers, medical professionals, and marketing strategists.',
+    ],
+  },
+  {
+    title: 'Digital Media Suite Specialist',
+    company: 'University of Louisville',
+    period: 'Aug 2023 - Present',
+    description: [
+      'Lead technical support and training for digital media platforms, improving user adoption rates.',
+      'Create multimedia content using industry-standard software for university marketing initiatives.',
+    ],
+  },
+  {
+    title: 'Client Lead & Content Designer',
+    company: 'The Birds Nest Marketing Agency',
+    period: 'Jan 2025 - Dec 2025',
+    description: [
+      'Oversaw and coordinated a cross-functional design/marketing team, ensuring timely delivery of client projects.',
+      'Designed UI/UX components and animated assets that drive engagement across digital touchpoints.',
+      'Executed projects from concept through delivery, maintaining brand consistency while pushing creative boundaries.',
+    ],
+  },
+  {
+    title: 'Graphic Design Intern',
+    company: 'Delta Upsilon International Fraternity',
+    period: 'May 2025 - Sep 2025',
+    description: [
+      'Collaborated with marketing team to develop and implement social media content strategies.',
+      'Created engaging visual content to promote fraternity programs, events, and initiatives.',
+    ],
+  },
+];
+
+const education = {
+  school: 'University of Louisville',
+  degree: 'BFA Graphic Design',
+  minors: ['Marketing', 'Communication'],
+  gpa: '3.745',
+  years: '2022 - 2027',
+};
 
 export default function AboutPage() {
   return (
-    <div className="relative min-h-screen bg-[#1a1a1a]">
-      <div style={{ width: '100%', height: '100vh', position: 'fixed', top: 0, left: 0, zIndex: 0, pointerEvents: 'none' }}>
-        <DitherBackground
-          waveColor={[0.65, 0.78, 0.08]}
-          disableAnimation={false}
-          enableMouseInteraction={true}
-          mouseRadius={0.25}
-          colorNum={4}
-          waveAmplitude={0.3}
-          waveFrequency={3}
-          waveSpeed={0.05}
-        />
-      </div>
-
-      <div className="fixed inset-0 bg-black/70 z-5 pointer-events-none" />
-
-      <main className="relative z-10">
-        <div className="text-center px-8 pt-24 pb-12">
-          <div className="inline-block">
-            <div className="px-8 py-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg">
-              <h1 className="text-4xl md:text-6xl font-bold text-[#ffa1a1] typewriter-glow">About Me</h1>
-            </div>
-          </div>
-        </div>
-
-        <div className="max-w-6xl mx-auto px-8 py-12 text-white">
-          <section className="mb-12">
-            <div className="text-center mb-8">
-              <div className="inline-block">
-                <img
+    <>
+      {/* Hero Section */}
+      <section className="pt-32 pb-20">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <ScrollReveal>
+              <div className="relative">
+                <Image
                   src="/Aidan Dombrowski.png"
                   alt="Aidan Dombrowski"
-                  className="w-80 h-80 mx-auto mb-4 object-cover rounded-3xl border-4 border-white/20 backdrop-blur-md shadow-lg"
+                  width={400}
+                  height={400}
+                  className="rounded-2xl object-cover w-full max-w-md mx-auto lg:mx-0"
+                  priority
                 />
               </div>
-              <h2 className="text-2xl font-bold text-white">Aidan Dombrowski</h2>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-lg mb-8">
-              <p className="text-white/90 leading-relaxed mb-4">
-                Hey there! I&apos;m Aidan, a UX/UI designer based in Louisville, Kentucky, where I&apos;m currently wrapping up my BFA in Graphic Design at the University of Louisville with marketing and communication minors.
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <h1 className="text-[var(--text-display)] font-black mb-6">
+                Hey, I'm Aidan
+              </h1>
+              <p className="text-[var(--color-text-secondary)] text-lg mb-6">
+                Graphic designer with a focus on web design and motion graphics. I enjoy exploring the intersection of digital design, 3D, and animation.
               </p>
-              <p className="text-white/90 leading-relaxed mb-4">
-                I&apos;m drawn to UX/UI because it sits at this perfect intersection of creativity, psychology, and problem-solving. I love digging into how people interact with digital products and finding ways to make those experiences more intuitive, engaging, and genuinely helpful. For me, it&apos;s not just about making interfaces look good, it&apos;s about understanding user needs, testing assumptions, and iterating until something truly works.
+              <p className="text-[var(--color-text-secondary)] mb-8">
+                Currently learning Blender for animation alongside Adobe Creative Suite and Figma. I've worked across agency, university, and organizational environments translating ideas into visual narratives.
               </p>
-              <p className="text-white/90 leading-relaxed">
-                Right now, I&apos;m wearing a few different hats: leading client projects at The Birds Nest Marketing Agency, supporting digital media platforms at UofL, and constantly expanding my design toolkit. Working across these different environments has taught me how to balance user needs with business goals, communicate design decisions effectively, and stay adaptable when things inevitably change mid-project.
-              </p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-lg mb-8">
-              <h3 className="text-2xl font-bold mb-4 text-[#C8FF96]">My approach</h3>
-              <p className="text-white/90 leading-relaxed mb-4">
-                I believe the best interfaces are the ones you don&apos;t have to think about, they just feel right. Getting there takes empathy, research, and a willingness to kill your darlings when the data tells you to. I&apos;m all about collaborative design processes, bringing stakeholders into the conversation early, and always keeping the end user at the center of every decision.
-              </p>
-              <p className="text-white/90 leading-relaxed">
-                My background in graphic design gives me a strong foundation in visual communication, but it&apos;s the UX thinking that really lights me up; crafting user flows, wireframing solutions, prototyping in Figma, and watching how people actually interact with what I&apos;ve built. Every project is a chance to learn something new about human behavior and digital design.
-              </p>
-            </div>
-
-            <div className="bg-white/10 backdrop-blur-md border border-white/10 rounded-3xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold mb-4 text-[#C8FF96]">Let&apos;s connect</h3>
-              <p className="text-white/90 leading-relaxed mb-6">
-                I&apos;m always excited to talk shop with other designers, explore new opportunities, or collaborate on projects that challenge me to grow. Whether you&apos;ve got a product that needs some UX love, want to bounce around ideas, or just want to geek out about interaction design, I&apos;d love to hear from you.
-              </p>
-              <div className="space-y-2 text-white/90">
-                <p>
-                  <strong className="text-white">Email:</strong>{" "}
-                  <a href="mailto:aidand510@gmail.com" className="text-[#C8FF96] hover:underline">aidand510@gmail.com</a>
-                </p>
-                <p>
-                  <strong className="text-white">Phone:</strong>{" "}
-                  <a href="tel:815-341-2885" className="text-[#C8FF96] hover:underline">815-341-2885</a>
-                </p>
+              <div className="flex flex-wrap gap-4">
+                <Button href="/contact" variant="primary">
+                  Get in Touch
+                </Button>
+                <Button href="/Aidan Dombrowski - Resume 2026.pdf" variant="outline" target="_blank">
+                  View Resume
+                </Button>
               </div>
-            </div>
-          </section>
-
-          <div className="h-24"></div>
-        </div>
-      </main>
-
-      {/* Footer */}
-      <footer className="relative z-10 bg-[#2a2a2a] border-t border-white/10 py-16">
-        <div className="max-w-6xl mx-auto px-8 flex justify-between items-center">
-          <a href="mailto:aidand510@gmail.com" className="text-white/90 text-base hover:text-white transition-colors">
-            aidand510@gmail.com
-          </a>
-          <div className="flex gap-4">
-            <a href="https://www.linkedin.com/in/aidan-dombrowski-43055b261/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-              <img src="/Linkedin.png" alt="LinkedIn" className="w-10 h-10" />
-            </a>
-            <a href="https://www.instagram.com/greattaidan/" target="_blank" rel="noopener noreferrer" className="hover:opacity-80 transition-opacity">
-              <img src="/instagram.webp" alt="Instagram" className="w-10 h-10" />
-            </a>
+            </ScrollReveal>
           </div>
-        </div>
-      </footer>
+        </Container>
+      </section>
 
-      {/* Sticky Navigation Buttons */}
-      <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-50 flex gap-4">
-        <Link
-          href="/"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
-          title="Home"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-          </svg>
-        </Link>
+      {/* Education Section */}
+      <section className="py-28 bg-white/50 border-t border-stone-200/60">
+        <Container>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div>
+              <ScrollReveal>
+                <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-6">Education</h2>
+              </ScrollReveal>
+              <ScrollReveal delay={100}>
+                <Card padding="lg">
+                  <CardContent>
+                    <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-1">
+                      {education.degree}
+                    </h3>
+                    <p className="text-[var(--color-accent)] mb-2">
+                      {education.school}
+                    </p>
+                    <p className="text-[var(--color-text-secondary)] mb-2">
+                      Minor in {education.minors.join(' & ')}
+                    </p>
+                    <div className="flex justify-between items-center text-sm">
+                      <span className="text-[var(--color-text-secondary)]">
+                        {education.gpa} GPA
+                      </span>
+                      <span className="text-[var(--color-text-secondary)]">
+                        {education.years}
+                      </span>
+                    </div>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
+            </div>
+            <div>
+              <ScrollReveal>
+                <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-6">My Approach</h2>
+              </ScrollReveal>
+              <ScrollReveal delay={100}>
+                <p className="text-[var(--color-text-secondary)] text-lg mb-4">
+                  I believe the best interfaces are the ones you don't have to think about—they just feel right. Getting there takes empathy, research, and a willingness to iterate until it works.
+                </p>
+              </ScrollReveal>
+              <ScrollReveal delay={200}>
+                <p className="text-[var(--color-text-secondary)] text-lg">
+                  I'm passionate about pushing creative boundaries while maintaining focus on usability and user experience. Every project is a chance to learn something new about human behavior and digital design.
+                </p>
+              </ScrollReveal>
+            </div>
+          </div>
+        </Container>
+      </section>
 
-        <Link
-          href="/about"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
-          title="About"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-          </svg>
-        </Link>
+      {/* Experience Section */}
+      <section className="py-28 border-t border-stone-200/60">
+        <Container>
+          <ScrollReveal>
+            <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-12">Experience</h2>
+          </ScrollReveal>
+          <div className="space-y-6">
+            {experiences.map((exp, index) => (
+              <ScrollReveal key={exp.title + exp.company} delay={index * 100}>
+                <Card padding="lg">
+                  <CardContent>
+                    <div className="flex flex-col md:flex-row md:items-start gap-4">
+                      <div className="flex-1">
+                        <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-1">
+                          {exp.title}
+                        </h3>
+                        <p className="text-[var(--color-accent)] mb-3">
+                          {exp.company}
+                        </p>
+                        <ul className="space-y-2 list-disc list-inside marker:text-[var(--color-accent)]">
+                          {exp.description.map((item, i) => (
+                            <li key={i} className="text-[var(--color-text-secondary)] text-sm">
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                      <div className="text-[var(--color-text-secondary)] text-sm md:text-right whitespace-nowrap">
+                        {exp.period}
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </ScrollReveal>
+            ))}
+          </div>
+        </Container>
+      </section>
 
-        <Link
-          href="/gallery"
-          className="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 shadow-lg transition-all duration-300 hover:border-[#C8FF96] hover:scale-110"
-          title="Gallery"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-          </svg>
-        </Link>
-      </div>
-    </div>
+      {/* What I Do Section */}
+      <section className="py-28 bg-stone-100/70 border-t border-stone-200/60">
+        <Container>
+          <ScrollReveal>
+            <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-12">What I Do</h2>
+          </ScrollReveal>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <ScrollReveal delay={0}>
+              <Card padding="lg" hover>
+                <CardContent>
+                  <div className="w-12 h-12 bg-[var(--color-accent)]/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">UX/UI Design</h3>
+                  <p className="text-[var(--color-text-secondary)] text-sm">
+                    Crafting user flows, wireframes, and high-fidelity prototypes in Figma that solve real problems.
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
+            <ScrollReveal delay={100}>
+              <Card padding="lg" hover>
+                <CardContent>
+                  <div className="w-12 h-12 bg-[var(--color-accent)]/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">Motion Design</h3>
+                  <p className="text-[var(--color-text-secondary)] text-sm">
+                    Bringing interfaces to life with purposeful animations using Blender, After Effects, and motion graphics.
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
+            <ScrollReveal delay={200}>
+              <Card padding="lg" hover>
+                <CardContent>
+                  <div className="w-12 h-12 bg-[var(--color-accent)]/10 rounded-lg flex items-center justify-center mb-4">
+                    <svg className="w-6 h-6 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
+                    </svg>
+                  </div>
+                  <h3 className="text-xl font-semibold text-[var(--color-text-primary)] mb-2">Brand Identity</h3>
+                  <p className="text-[var(--color-text-secondary)] text-sm">
+                    Building cohesive visual identities and digital media campaigns that communicate brand values effectively.
+                  </p>
+                </CardContent>
+              </Card>
+            </ScrollReveal>
+          </div>
+        </Container>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-32 border-t border-stone-200/60">
+        <Container size="md">
+          <ScrollReveal className="text-center">
+            <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-6">Let's Connect</h2>
+            <p className="text-[var(--color-text-secondary)] text-lg mb-8 max-w-xl mx-auto">
+              I'm always excited to explore new opportunities or collaborate on projects that challenge me to grow. Whether you've got a product that needs some UX love or want to discuss motion design, I'd love to hear from you.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button href="/contact" variant="primary" size="lg">
+                Start a Conversation
+              </Button>
+              <Button href="mailto:aidand510@gmail.com" variant="outline" size="lg">
+                aidand510@gmail.com
+              </Button>
+            </div>
+          </ScrollReveal>
+        </Container>
+      </section>
+    </>
   );
 }

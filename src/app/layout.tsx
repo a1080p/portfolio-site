@@ -1,43 +1,40 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Navbar } from "@/components/layout/Navbar";
+import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const inter = Inter({
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: "--font-inter",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Aidan Dombrowski Digital Portfolio",
-  description: "Portfolio of Aidan Dombrowski - UX designer, motion designer, and graphic designer. From initial wireframes to polished prototypes, I handle the full spectrum: UX research, interface design, motion systems, and front-end development.",
+  title: "Aidan Dombrowski | Graphic Designer",
+  description: "Graphic designer with a focus on web design and motion graphics. Based in Louisville, KY.",
   icons: {
     icon: [
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
     ],
-    apple: [
-      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
-    ],
+    apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Aidan Dombrowski Digital Portfolio",
-    description: "Portfolio of Aidan Dombrowski - UX designer, motion designer, and graphic designer.",
+    title: "Aidan Dombrowski | Graphic Designer",
+    description: "Graphic designer with a focus on web design and motion graphics. Based in Louisville, KY.",
     url: "https://aidandombrowski.com",
-    siteName: "Aidan Dombrowski Portfolio",
+    siteName: "Aidan Dombrowski",
     locale: "en_US",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Aidan Dombrowski Digital Portfolio",
-    description: "Portfolio of Aidan Dombrowski - UX designer, motion designer, and graphic designer.",
+    title: "Aidan Dombrowski | Graphic Designer",
+    description: "Graphic designer with a focus on web design and motion graphics. Based in Louisville, KY.",
   },
 };
 
@@ -47,11 +44,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="en" className={inter.variable}>
+      <body className="antialiased">
+        <Navbar />
+        <main>{children}</main>
+        <Footer />
         <Analytics />
         <SpeedInsights />
       </body>
