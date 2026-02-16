@@ -52,32 +52,17 @@ export function ProjectCard({
       onMouseLeave={handleMouseLeave}
     >
       <article className="bg-[var(--color-card)] border border-[var(--color-border)] rounded-xl overflow-hidden transition-all duration-300 hover:border-[var(--color-accent)]/50 hover:-translate-y-1">
-        <div className={cn(
-          "relative overflow-hidden bg-[var(--color-border)]",
-          thumbnailFit !== 'contain' && "aspect-[16/10]"
-        )}>
-          {thumbnailFit === 'contain' ? (
-            <Image
-              src={thumbnail}
-              alt={title}
-              width={1200}
-              height={800}
-              className={cn(
-                "w-full h-auto transition-all duration-500",
-                isHovered && videoPreview ? "opacity-0" : "opacity-100 group-hover:scale-105"
-              )}
-            />
-          ) : (
-            <Image
-              src={thumbnail}
-              alt={title}
-              fill
-              className={cn(
-                "object-cover transition-all duration-500",
-                isHovered && videoPreview ? "opacity-0" : "opacity-100 group-hover:scale-105"
-              )}
-            />
-          )}
+        <div className="relative overflow-hidden bg-[var(--color-border)] aspect-[16/10]">
+          <Image
+            src={thumbnail}
+            alt={title}
+            fill
+            className={cn(
+              "transition-all duration-500",
+              thumbnailFit === 'contain' ? "object-contain" : "object-cover",
+              isHovered && videoPreview ? "opacity-0" : "opacity-100 group-hover:scale-105"
+            )}
+          />
           {videoPreview && (
             <>
               <video
