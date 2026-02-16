@@ -51,7 +51,7 @@ export function FeatureGrid({
           {/* Left Side - Title */}
           <div className="lg:col-span-5">
             <ScrollReveal>
-              <h2 className="text-[var(--text-display)] font-black uppercase tracking-tight leading-none mb-4 text-[#3d9e5a]">
+              <h2 className="text-[var(--text-display)] font-black uppercase tracking-tight leading-none mb-4" style={{ color: '#3d9e5a' }}>
                 {title}
               </h2>
               {subtitle && (

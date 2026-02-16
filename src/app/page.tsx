@@ -110,7 +110,7 @@ export default function HomePage() {
             {/* Left - Title */}
             <div className="lg:col-span-4">
               <ScrollReveal>
-                <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-4 text-[#3d9e5a]">
+                <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-4" style={{ color: '#3d9e5a' }}>
                   Capabilities
                 </h2>
                 <p className="text-white text-xl font-medium mb-8">
