@@ -26,7 +26,7 @@ export const projects: Project[] = [
     category: 'Motion Design',
     tags: ['Blender', '3D Animation', 'Motion Graphics'],
     featured: true,
-    year: '2024',
+    year: '2026',
   },
   {
     slug: 'iron-pillar',
@@ -37,7 +37,7 @@ export const projects: Project[] = [
     category: 'UX/UI Design',
     tags: ['Mobile App', 'UX Research', 'Figma'],
     featured: true,
-    year: '2024',
+    year: '2025',
     externalLinks: {
       behance: 'https://www.behance.net/gallery/236190049/Iron-Pillar-Pitch-Deck',
     },
@@ -51,20 +51,7 @@ export const projects: Project[] = [
     category: 'UX/UI Design',
     tags: ['Web App', 'Tourism', 'QR Experience'],
     featured: true,
-    year: '2024',
-  },
-  {
-    slug: 'lego-architect',
-    title: 'LEGO Architect',
-    description: 'A visionary product concept that reimagines LEGO for architectural professionals. This precision-scaled modular building system bridges the gap between physical model-making and digital design, featuring 1:100 scale components that snap together with architectural accuracy. The companion app syncs physical builds to 3D digital models in real-time, enabling architects to iterate on designs tangibly before committing to CAD. Pitched as a professional tool for client presentations and spatial planning.',
-    thumbnail: '/lego-architect-thumbnail.png',
-    category: 'UX/UI Design',
-    tags: ['Product Design', 'Concept', 'Pitch'],
-    featured: true,
-    year: '2024',
-    externalLinks: {
-      behance: 'https://www.behance.net/gallery/224263107/Lego-Architect-Interaction-Project/modules/1282739869',
-    },
+    year: '2025',
   },
   {
     slug: 'dither-dog',
@@ -75,9 +62,22 @@ export const projects: Project[] = [
     category: 'Graphic Design',
     tags: ['Web App', 'Tool Design', 'Development'],
     featured: false,
-    year: '2024',
+    year: '2025',
     externalLinks: {
       live: 'https://ditherdog.vercel.app',
+    },
+  },
+  {
+    slug: 'lego-architect',
+    title: 'LEGO Architect',
+    description: 'A visionary product concept that reimagines LEGO for architectural professionals. This precision-scaled modular building system bridges the gap between physical model-making and digital design, featuring 1:100 scale components that snap together with architectural accuracy. The companion app syncs physical builds to 3D digital models in real-time, enabling architects to iterate on designs tangibly before committing to CAD. Pitched as a professional tool for client presentations and spatial planning.',
+    thumbnail: '/lego-architect-thumbnail.png',
+    category: 'UX/UI Design',
+    tags: ['Product Design', 'Concept', 'Pitch'],
+    featured: true,
+    year: '2025',
+    externalLinks: {
+      behance: 'https://www.behance.net/gallery/224263107/Lego-Architect-Interaction-Project/modules/1282739869',
     },
   },
 ];
