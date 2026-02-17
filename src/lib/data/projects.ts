@@ -18,6 +18,19 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: 'dither-dog',
+    title: 'Dither Dog',
+    description: 'My first fully deployed web application—a creative tool that transforms images with customizable dither effects. Built from scratch using Claude Code, Dither Dog lets users import any image and apply retro-inspired halftone and dithering filters with real-time preview. The project represents a milestone in my development journey, combining UI/UX design with hands-on coding to create a functional, deployed product.',
+    thumbnail: '/Dither dog thumbnail.png',
+    category: 'Graphic Design',
+    tags: ['Web App', 'Tool Design', 'Development'],
+    featured: true,
+    year: '2024',
+    externalLinks: {
+      live: 'https://ditherdog.vercel.app',
+    },
+  },
+  {
     slug: 'mgk-dossier',
     title: 'MGK x Dossier Case Study',
     description: 'A self-directed 3D motion design exploration pushing the boundaries of luxury fragrance advertising. Built entirely in Blender, this case study features photorealistic glass rendering, Mantaflow fluid simulations, and dramatic studio lighting to capture the rebellious elegance of high-end perfume commercials. The project demonstrates advanced techniques in product visualization, procedural materials, and cinematic camera work. Not affiliated with MGK or Dossier.',

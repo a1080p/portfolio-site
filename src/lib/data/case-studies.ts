@@ -17,6 +17,70 @@ export interface CaseStudy {
 }
 
 export const caseStudies: Record<string, CaseStudy> = {
+  'dither-dog': {
+    slug: 'dither-dog',
+    overview: 'Dither Dog is a web-based image processing tool that applies customizable dither effects to any uploaded image. This project marks my first fully designed and deployed web application—built from concept to production using Claude Code as my development partner.',
+    heroImage: '/Dither dog thumbnail.png',
+    sections: [
+      {
+        title: 'Project Overview',
+        content: 'Dither Dog started as a personal challenge: could I design and ship a functional web tool without prior development experience? The answer was yes—by combining my design skills with AI-assisted coding through Claude Code, I built a creative tool that transforms images with retro-inspired halftone and dithering effects.',
+      },
+      {
+        title: 'The Concept',
+        content: 'Dithering is a technique that reduces color palettes while maintaining visual detail through patterns of dots or noise. I wanted to create a tool that makes this effect accessible to anyone:',
+        bullets: [
+          'Drag-and-drop image upload with instant preview',
+          'Multiple dithering algorithms (Floyd-Steinberg, ordered, halftone)',
+          'Customizable color palettes and dot sizes',
+          'Real-time adjustments with live preview',
+          'One-click export to PNG',
+        ],
+      },
+      {
+        title: 'Design Process',
+        content: 'The interface needed to be simple enough for casual users but powerful enough for designers seeking specific effects. I designed the UI in Figma first, focusing on a clean, minimal layout that puts the image front and center. The control panel uses intuitive sliders and toggles that provide immediate visual feedback.',
+      },
+      {
+        title: 'Development Journey',
+        content: 'This was my first experience building a complete web application. Using Claude Code, I learned:',
+        bullets: [
+          'How to structure a React application with proper component architecture',
+          'Canvas API manipulation for real-time image processing',
+          'State management for handling user inputs and image data',
+          'Deployment workflows using Vercel for continuous deployment',
+          'The importance of performance optimization for smooth user experience',
+        ],
+      },
+      {
+        title: 'Technical Challenges',
+        content: 'The biggest hurdles involved real-time image processing performance and browser memory management:',
+        bullets: [
+          'Implemented debounced updates to prevent lag during slider adjustments',
+          'Used Web Workers to offload heavy processing from the main thread',
+          'Optimized canvas operations for handling large images without crashes',
+          'Built responsive design that works across desktop and mobile devices',
+        ],
+      },
+      {
+        title: 'Key Insights',
+        content: 'This project taught me that the gap between design and development is bridgeable. With the right tools and approach, designers can ship real products:',
+        bullets: [
+          'Start with a clear, focused scope—one feature done well beats many half-finished',
+          'Design and development inform each other; iteration between both improves the final product',
+          'AI-assisted coding accelerates learning but requires understanding the fundamentals',
+          'Shipping something real, even if imperfect, is more valuable than endless polish in isolation',
+        ],
+      },
+      {
+        title: 'Tools Used',
+        content: 'Figma (UI design), React (framework), Canvas API (image processing), Claude Code (development), Vercel (deployment).',
+      },
+    ],
+    externalLinks: [
+      { label: 'Try Dither Dog', url: 'https://ditherdog.vercel.app' },
+    ],
+  },
   'iron-pillar': {
     slug: 'iron-pillar',
     overview: 'Iron Pillar is a UX/UI design project for a mobile fitness application that transforms workout tracking into an engaging, game-like experience. The app bridges the gap between beginner fitness enthusiasts and sustainable workout habits by combining personalized guidance with motivational gamification mechanics inspired by successful platforms like Duolingo.',
