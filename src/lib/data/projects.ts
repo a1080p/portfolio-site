@@ -64,7 +64,7 @@ export const projects: Project[] = [
     featured: false,
     year: '2025',
     externalLinks: {
-      live: 'https://ditherdog.vercel.app',
+      live: 'https://www.ditherdog.tech/',
     },
   },
   {

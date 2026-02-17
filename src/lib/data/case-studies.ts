@@ -78,7 +78,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
     ],
     externalLinks: [
-      { label: 'Try Dither Dog', url: 'https://ditherdog.vercel.app' },
+      { label: 'Try Dither Dog', url: 'https://www.ditherdog.tech/' },
     ],
   },
   'iron-pillar': {
