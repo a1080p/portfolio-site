@@ -22,6 +22,7 @@ export const projects: Project[] = [
     title: 'Dither Dog',
     description: 'My first fully deployed web application—a creative tool that transforms images with customizable dither effects. Built from scratch using Claude Code, Dither Dog lets users import any image and apply retro-inspired halftone and dithering filters with real-time preview. The project represents a milestone in my development journey, combining UI/UX design with hands-on coding to create a functional, deployed product.',
     thumbnail: '/Dither dog thumbnail.png',
+    videoPreview: '/Dither Dog Demo.mp4',
     category: 'Graphic Design',
     tags: ['Web App', 'Tool Design', 'Development'],
     featured: true,
