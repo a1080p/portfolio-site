@@ -150,6 +150,26 @@ export default async function ProjectPage({ params }: Props) {
         </Container>
       </section>
 
+      {/* Video Section */}
+      {project.videoPreview && (
+        <section className="pb-16">
+          <Container>
+            <ScrollReveal>
+              <div className="rounded-2xl overflow-hidden bg-black">
+                <video
+                  src={project.videoPreview}
+                  controls
+                  className="w-full"
+                  poster={project.thumbnail}
+                >
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </ScrollReveal>
+          </Container>
+        </section>
+      )}
+
       {/* Case Study Content */}
       {caseStudy && caseStudy.sections.length > 0 && (
         <section className="pb-24">
