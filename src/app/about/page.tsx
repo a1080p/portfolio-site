@@ -10,9 +10,9 @@ const experiences = [
     company: 'University of Louisville School of Medicine',
     period: 'Jan 2026 - Present',
     description: [
-      'Craft motion reels and animated content that bring medical communications to life through storytelling and visual design.',
-      'Design cohesive print and digital media campaigns that bridge complex medical concepts with accessible visual narratives.',
-      'Collaborate with cross-functional teams of designers, medical professionals, and marketing strategists.',
+      'Breathe life into medical communications through motion reels and animated content that make complex information feel human, approachable, and memorable.',
+      'Build print and digital campaigns that close the gap between clinical complexity and everyday understanding.',
+      'Work shoulder-to-shoulder with designers, medical professionals, and marketers to craft campaigns that connect with the people they're meant to reach.',
     ],
   },
   {
@@ -20,8 +20,8 @@ const experiences = [
     company: 'University of Louisville',
     period: 'Aug 2023 - Present',
     description: [
-      'Lead technical support and training for digital media platforms, improving user adoption rates.',
-      'Create multimedia content using industry-standard software for university marketing initiatives.',
+      'Guide users through digital media platforms with a hands-on, approachable teaching style.',
+      'Produce multimedia content that reflects the university's voice and vision, blending creativity with strategy to strengthen UofL's digital presence.',
     ],
   },
   {
@@ -29,9 +29,9 @@ const experiences = [
     company: 'The Birds Nest Marketing Agency',
     period: 'Jan 2025 - Dec 2025',
     description: [
-      'Oversaw and coordinated a cross-functional design/marketing team, ensuring timely delivery of client projects.',
-      'Designed UI/UX components and animated assets that drive engagement across digital touchpoints.',
-      'Executed projects from concept through delivery, maintaining brand consistency while pushing creative boundaries.',
+      'Kept cross-functional teams aligned and projects on track, fostering a collaborative environment where work could thrive without losing sight of the deadline.',
+      'Designed UI/UX components and animated assets with a focus on real user behavior; building intuitive experiences that were built with intention.',
+      'Took ownership of projects from the first sketch to final delivery, balancing brand integrity with the creative risk-taking that makes work stand out.',
     ],
   },
   {
@@ -39,8 +39,9 @@ const experiences = [
     company: 'Delta Upsilon International Fraternity',
     period: 'May 2025 - Sep 2025',
     description: [
-      'Collaborated with marketing team to develop and implement social media content strategies.',
-      'Created engaging visual content to promote fraternity programs, events, and initiatives.',
+      'Partnered with the marketing team to develop social media strategies that felt authentic to the fraternity's identity while reaching broader audiences.',
+      'Created visual content that gave programs and events a distinct, engaging presence.',
+      'Worked behind the scenes at the annual Leadership Institute conference, supporting logistics and helping the event run smoothly from start to finish.',
     ],
   },
 ];
@@ -50,7 +51,7 @@ const education = {
   degree: 'BFA Graphic Design',
   minors: ['Marketing', 'Communication'],
   gpa: '3.745',
-  years: '2022 - 2027',
+  years: '2023 - 2027',
 };
 
 export default function AboutPage() {
@@ -86,7 +87,7 @@ export default function AboutPage() {
                 <Button href="/contact" variant="primary">
                   Get in Touch
                 </Button>
-                <Button href="/Aidan Dombrowski - Resume 2026.pdf" variant="outline" target="_blank">
+                <Button href="/Aidan Dombrowski Resume 2026.pdf" variant="outline" target="_blank">
                   View Resume
                 </Button>
               </div>
