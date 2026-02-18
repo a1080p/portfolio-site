@@ -12,7 +12,7 @@ const experiences = [
     description: [
       'Breathe life into medical communications through motion reels and animated content that make complex information feel human, approachable, and memorable.',
       'Build print and digital campaigns that close the gap between clinical complexity and everyday understanding.',
-      'Work shoulder-to-shoulder with designers, medical professionals, and marketers to craft campaigns that connect with the people they're meant to reach.',
+      "Work shoulder-to-shoulder with designers, medical professionals, and marketers to craft campaigns that connect with the people they're meant to reach.",
     ],
   },
   {
@@ -21,7 +21,7 @@ const experiences = [
     period: 'Aug 2023 - Present',
     description: [
       'Guide users through digital media platforms with a hands-on, approachable teaching style.',
-      'Produce multimedia content that reflects the university's voice and vision, blending creativity with strategy to strengthen UofL's digital presence.',
+      "Produce multimedia content that reflects the university's voice and vision, blending creativity with strategy to strengthen UofL's digital presence.",
     ],
   },
   {
@@ -39,7 +39,7 @@ const experiences = [
     company: 'Delta Upsilon International Fraternity',
     period: 'May 2025 - Sep 2025',
     description: [
-      'Partnered with the marketing team to develop social media strategies that felt authentic to the fraternity's identity while reaching broader audiences.',
+      "Partnered with the marketing team to develop social media strategies that felt authentic to the fraternity's identity while reaching broader audiences.",
       'Created visual content that gave programs and events a distinct, engaging presence.',
       'Worked behind the scenes at the annual Leadership Institute conference, supporting logistics and helping the event run smoothly from start to finish.',
     ],
