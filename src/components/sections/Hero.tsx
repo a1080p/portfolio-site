@@ -80,7 +80,7 @@ export function Hero({
           {/* Badge */}
           {badge && (
             <ScrollReveal delay={50}>
-              <div className="text-xs sm:text-sm uppercase tracking-[0.2em] text-[var(--color-text-secondary)] mb-8">
+              <div className="text-xs sm:text-sm uppercase tracking-[0.2em] text-[var(--color-text-secondary)] mb-6 sm:mb-8">
                 {badge}
               </div>
             </ScrollReveal>
@@ -89,7 +89,7 @@ export function Hero({
           {/* Main Typography */}
           <ScrollReveal delay={100}>
             {lines ? (
-              <h1 className="text-hero leading-[0.95] tracking-tight">
+              <h1 className="text-hero leading-[1.1] sm:leading-[1] lg:leading-[0.95] tracking-tight">
                 {lines.map((line, index) => (
                   <span
                     key={index}
