@@ -28,7 +28,7 @@ export function FeatureGrid({
   return (
     <section
       className={cn(
-        'relative py-28 overflow-hidden',
+        'relative py-16 sm:py-20 lg:py-28 overflow-hidden',
         className
       )}
     >
@@ -55,7 +55,7 @@ export function FeatureGrid({
                 {title}
               </h2>
               {subtitle && (
-                <p className="text-white text-2xl font-medium mt-8">
+                <p className="text-white text-lg sm:text-xl lg:text-2xl font-medium mt-6 lg:mt-8">
                   {subtitle}
                 </p>
               )}

@@ -152,8 +152,8 @@ export function WorkShowcase({
   const gridProjects = projects.slice(1, 3);
 
   return (
-    <section id={id} className={cn('py-28', className)}>
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section id={id} className={cn('py-16 sm:py-20 lg:py-28', className)}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <ScrollReveal>
           <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight text-center mb-16">
@@ -163,27 +163,27 @@ export function WorkShowcase({
 
         {/* Featured Project - Full Width */}
         {featuredProject && (
-          <ScrollReveal className="mb-6">
+          <ScrollReveal className="mb-4 sm:mb-6">
             <VideoProjectCard
               project={featuredProject}
               aspectRatio="16/9"
-              contentPadding="p-8"
-              titleSize="text-lg"
-              buttonSize="w-10 h-10"
-              iconSize="w-4 h-4"
+              contentPadding="p-4 sm:p-6 lg:p-8"
+              titleSize="text-base sm:text-lg"
+              buttonSize="w-8 h-8 sm:w-10 sm:h-10"
+              iconSize="w-3 h-3 sm:w-4 sm:h-4"
             />
           </ScrollReveal>
         )}
 
         {/* Grid Projects - 2 Column */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
           {gridProjects.map((project, index) => (
             <ScrollReveal key={project.href} delay={index * 100}>
               <VideoProjectCard
                 project={project}
                 aspectRatio="4/3"
-                contentPadding="p-6"
-                titleSize="text-base"
+                contentPadding="p-4 sm:p-6"
+                titleSize="text-sm sm:text-base"
                 buttonSize="w-8 h-8"
                 iconSize="w-3 h-3"
               />

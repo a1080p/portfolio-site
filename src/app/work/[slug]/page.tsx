@@ -45,12 +45,12 @@ export default async function ProjectPage({ params }: Props) {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16">
-        <Container>
+      <section className="pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-12 lg:pb-16">
+        <Container className="px-4 sm:px-6">
           <ScrollReveal>
             <Link
               href="/work"
-              className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-8"
+              className="inline-flex items-center gap-2 text-[var(--color-text-secondary)] hover:text-[var(--color-text-primary)] transition-colors mb-6 sm:mb-8 text-sm sm:text-base"
             >
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -59,37 +59,37 @@ export default async function ProjectPage({ params }: Props) {
             </Link>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <ScrollReveal>
-              <h1 className="text-[var(--text-h1)] font-bold mb-4">{project.title}</h1>
-              <p className="text-[var(--color-text-secondary)] text-lg mb-6">
+              <h1 className="text-[var(--text-h1)] font-bold mb-3 sm:mb-4">{project.title}</h1>
+              <p className="text-[var(--color-text-secondary)] text-base sm:text-lg mb-4 sm:mb-6">
                 {caseStudy?.overview || project.description}
               </p>
 
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-sm bg-white/60 border border-stone-200 text-[var(--color-text-secondary)] rounded-full"
+                    className="px-2.5 sm:px-3 py-1 text-xs sm:text-sm bg-white/60 border border-stone-200 text-[var(--color-text-secondary)] rounded-full"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              <div className="flex flex-wrap gap-4 mb-8">
+              <div className="flex flex-wrap gap-4 sm:gap-6 mb-6 sm:mb-8">
                 <div>
-                  <span className="text-[var(--color-text-secondary)] text-sm">Category</span>
-                  <p className="text-[var(--color-text-primary)] font-medium">{project.category}</p>
+                  <span className="text-[var(--color-text-secondary)] text-xs sm:text-sm">Category</span>
+                  <p className="text-[var(--color-text-primary)] font-medium text-sm sm:text-base">{project.category}</p>
                 </div>
                 <div>
-                  <span className="text-[var(--color-text-secondary)] text-sm">Year</span>
-                  <p className="text-[var(--color-text-primary)] font-medium">{project.year}</p>
+                  <span className="text-[var(--color-text-secondary)] text-xs sm:text-sm">Year</span>
+                  <p className="text-[var(--color-text-primary)] font-medium text-sm sm:text-base">{project.year}</p>
                 </div>
               </div>
 
               {(project.externalLinks || caseStudy?.externalLinks) && (
-                <div className="flex flex-wrap gap-3">
+                <div className="flex flex-wrap gap-2 sm:gap-3">
                   {caseStudy?.externalLinks?.map((link) => (
                     <Button
                       key={link.url}
@@ -136,7 +136,7 @@ export default async function ProjectPage({ params }: Props) {
             </ScrollReveal>
 
             <ScrollReveal delay={100}>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-[var(--color-card)]">
+              <div className="relative aspect-[4/3] rounded-xl sm:rounded-2xl overflow-hidden bg-[var(--color-card)]">
                 <Image
                   src={caseStudy?.heroImage || project.thumbnail}
                   alt={project.title}
@@ -152,10 +152,10 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* Video Section */}
       {project.videoPreview && (
-        <section className="pb-16">
-          <Container>
+        <section className="pb-10 sm:pb-12 lg:pb-16">
+          <Container className="px-4 sm:px-6">
             <ScrollReveal>
-              <div className="rounded-2xl overflow-hidden bg-black">
+              <div className="rounded-xl sm:rounded-2xl overflow-hidden bg-black">
                 <video
                   src={project.videoPreview}
                   controls
@@ -172,21 +172,21 @@ export default async function ProjectPage({ params }: Props) {
 
       {/* Case Study Content */}
       {caseStudy && caseStudy.sections.length > 0 && (
-        <section className="pb-24">
-          <Container>
-            <div className="space-y-12">
+        <section className="pb-16 sm:pb-20 lg:pb-24">
+          <Container className="px-4 sm:px-6">
+            <div className="space-y-6 sm:space-y-8 lg:space-y-12">
               {caseStudy.sections.map((section, index) => (
                 <ScrollReveal key={section.title} delay={index * 50}>
                   <Card padding="lg">
                     <CardContent>
-                      <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-4">{section.title}</h2>
-                      <p className="text-[var(--color-text-secondary)] mb-4">{section.content}</p>
+                      <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--color-text-primary)] mb-3 sm:mb-4">{section.title}</h2>
+                      <p className="text-[var(--color-text-secondary)] text-sm sm:text-base mb-3 sm:mb-4">{section.content}</p>
 
                       {section.bullets && (
-                        <ul className="space-y-3 mb-4">
+                        <ul className="space-y-2 sm:space-y-3 mb-3 sm:mb-4">
                           {section.bullets.map((bullet, i) => (
-                            <li key={i} className="flex items-start text-[var(--color-text-secondary)]">
-                              <span className="text-[var(--color-accent)] mr-3 mt-1">•</span>
+                            <li key={i} className="flex items-start text-[var(--color-text-secondary)] text-sm sm:text-base">
+                              <span className="text-[var(--color-accent)] mr-2 sm:mr-3 mt-1">•</span>
                               <span>{bullet}</span>
                             </li>
                           ))}
@@ -194,7 +194,7 @@ export default async function ProjectPage({ params }: Props) {
                       )}
 
                       {section.image && (
-                        <div className="relative aspect-video rounded-lg overflow-hidden mt-6 bg-[var(--color-bg)]">
+                        <div className="relative aspect-video rounded-lg overflow-hidden mt-4 sm:mt-6 bg-[var(--color-bg)]">
                           <Image
                             src={section.image}
                             alt={section.title}
@@ -213,14 +213,14 @@ export default async function ProjectPage({ params }: Props) {
       )}
 
       {/* Navigation */}
-      <section className="py-16 bg-stone-100/70 border-t border-stone-200/60">
-        <Container>
+      <section className="py-12 sm:py-14 lg:py-16 bg-stone-100/70 border-t border-stone-200/60">
+        <Container className="px-4 sm:px-6">
           <ScrollReveal className="text-center">
-            <h2 className="text-3xl font-bold text-[var(--color-text-primary)] mb-4">Interested in working together?</h2>
-            <p className="text-[var(--color-text-secondary)] mb-8">
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-[var(--color-text-primary)] mb-3 sm:mb-4">Interested in working together?</h2>
+            <p className="text-[var(--color-text-secondary)] text-sm sm:text-base mb-6 sm:mb-8">
               Let's discuss how I can help bring your project to life.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
               <Button href="/contact" variant="primary">
                 Start a Conversation
               </Button>
