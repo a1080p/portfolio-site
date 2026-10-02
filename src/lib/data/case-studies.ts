@@ -5,6 +5,8 @@ export interface CaseStudySection {
   image?: string;
   /** Small label above the title on themed pages, e.g. "Phase 01 / Research" */
   kicker?: string;
+  /** A film shown with the section, with controls */
+  video?: { src: string; poster: string; caption?: string };
   /** Extra images shown as a grid on themed pages. Without width/height they're cropped to 16:9. */
   gallery?: { src: string; alt: string; width?: number; height?: number }[];
 }
@@ -22,7 +24,8 @@ export type CaseStudyTheme =
   | 'dither-dog'
   | 'mgk-dossier'
   | 'whiskey-thief'
-  | 'lego-architect';
+  | 'lego-architect'
+  | 'apostrophe';
 
 export interface CaseStudy {
   slug: string;
@@ -40,6 +43,66 @@ export interface CaseStudy {
 }
 
 export const caseStudies: Record<string, CaseStudy> = {
+  apostrophe: {
+    slug: 'apostrophe',
+    theme: 'apostrophe',
+    eyebrow: 'Ident campaign · 3D motion',
+    headline: 'Small mark,\n*big entrance.*',
+    overview: 'Idents for Apostrophe, a Louisville creative studio that makes promos and campaigns for networks like AMC, Peacock, and Paramount. Each ident brings the Apostrophe logo to life in its own world. I came up with the ideas and was responsible for bringing them to life. I also versioned AMC advertisements and commercials for its Pride Month and binge series campaigns.',
+    heroImage: '/apostrophe-idents/vinyl-poster.jpg',
+    status: 'Client work · Apostrophe',
+    stats: [
+      { value: '02', label: 'Logo idents, concept to final' },
+      { value: 'Blender', label: 'Physics & simulation' },
+      { value: 'Pride', label: 'AMC Pride Month versioning' },
+      { value: 'Binge', label: 'AMC binge series versioning' },
+    ],
+    roles: ['Concept', 'Art Direction', '3D Animation', 'Simulation', 'Versioning'],
+    stack: ['Blender', 'Physics Simulation', '3D Animation', 'Broadcast Versioning'],
+    sections: [
+      {
+        kicker: 'The Campaign',
+        title: 'An ident system for a studio',
+        content: 'Apostrophe\'s ident campaign gives the studio\'s logo a series of short, memorable entrances. Instead of placing the mark on an end card, each ident makes the logo the hero object of the scene, so the brand is the story rather than a sign-off.',
+      },
+      {
+        kicker: 'Ident 01',
+        title: 'Two years, one big breath',
+        content: 'For Apostrophe\'s second birthday in business, the idea was all mine: the logo as a balloon. In a clean white studio niche, the apostrophe mark inflates to fill its frame, then lets go, deflating and slipping out of view. I built everything in Blender, using physics and simulation so the balloon stretches, wobbles, and collapses like the real thing.',
+        bullets: [
+          'Original concept, pitched for the studio\'s 2nd birthday in business',
+          'Modeled, simulated, animated, and rendered in Blender',
+          'Physics simulation drives both the inflation and the release',
+          'The logo is the balloon, so the brand mark carries the whole piece',
+        ],
+        video: {
+          src: '/apostrophe-idents/balloon-ident.mp4',
+          poster: '/apostrophe-idents/balloon-poster.jpg',
+          caption: 'Apostrophe 2nd birthday ident · Sound design by others',
+        },
+      },
+      {
+        kicker: 'Ident 02',
+        title: 'Side B: the vinyl ident',
+        content: 'A vinyl ident used for a posted Apostrophe soundtrack promo. The record itself carries the brand: an orange disc with the apostrophe mark as its center label. The camera glides in tight macro moves across the grooves and the tonearm, then pulls back to reveal the full turntable.',
+        video: {
+          src: '/apostrophe-idents/vinyl-ident.mp4',
+          poster: '/apostrophe-idents/vinyl-poster.jpg',
+          caption: 'Apostrophe soundtrack promo ident',
+        },
+      },
+      {
+        kicker: 'Also at Apostrophe',
+        title: 'Versioning for AMC',
+        content: 'Beyond the idents, I versioned advertisements and commercials for AMC, including spots for its Pride Month campaign and its binge series promos, adapting finished creative into the versions each placement needed while keeping every cut on brand.',
+      },
+      {
+        kicker: 'Credits',
+        title: 'My role',
+        content: 'I came up with the ideas for both idents and was responsible for bringing them to life, from first concept to final animation. Sound design was handled by others.',
+      },
+    ],
+  },
   'dither-dog': {
     slug: 'dither-dog',
     theme: 'dither-dog',

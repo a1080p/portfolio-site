@@ -92,6 +92,8 @@ function SplashContent({ theme, year }: { theme: CaseStudyTheme; year: string })
       return <WhiskeyThiefSplash />;
     case 'lego-architect':
       return <LegoSplash />;
+    case 'apostrophe':
+      return <ApostropheSplash year={year} />;
   }
 }
 
@@ -220,6 +222,37 @@ function LegoSplash() {
         ))}
       </div>
       <p className="ps-lego-tagline">Transforming play into real world creation</p>
+    </div>
+  );
+}
+
+/** The Apostrophe mark: an orange stadium with a white comma */
+function ApostropheMark({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 60 100" aria-hidden="true">
+      <rect width="60" height="100" rx="30" fill="#e8764f" />
+      <path
+        d="M30 29C38 29 44 35 44 43C44 54 37 64 24 71C22 72 21 70 22 69C28 64 31 59 31 55C24 55 17 50 17 42C17 35 23 29 30 29Z"
+        fill="#ffffff"
+      />
+    </svg>
+  );
+}
+
+function ApostropheSplash({ year }: { year: string }) {
+  return (
+    <div className="ps-apos" aria-hidden="true">
+      <span className="ps-apos-corner ps-apos-corner--tl" />
+      <span className="ps-apos-corner ps-apos-corner--tr" />
+      <span className="ps-apos-corner ps-apos-corner--bl" />
+      <span className="ps-apos-corner ps-apos-corner--br" />
+      <ApostropheMark className="ps-apos-mark" />
+      <p className="ps-apos-name">Apostrophe</p>
+      <p className="ps-apos-slate">
+        <span>Ident</span>
+        <span>Campaign</span>
+        <span>{year}</span>
+      </p>
     </div>
   );
 }

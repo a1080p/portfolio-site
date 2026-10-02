@@ -67,6 +67,14 @@ const THEMES: Record<CaseStudyTheme, ThemeConfig> = {
     stackNote: 'Tools behind the concept.',
     ctaTitle: 'Let\'s build something together.',
   },
+  apostrophe: {
+    tone: 'light',
+    numbered: false,
+    videoLabel: 'Reel',
+    roleNote: 'Concept and execution. Sound design by others.',
+    stackNote: 'Tools behind the idents.',
+    ctaTitle: 'Let\'s make something that moves.',
+  },
 };
 
 function ProjectLink({ link, primary }: { link: CaseStudyLink; primary: boolean }) {
@@ -285,6 +293,26 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
                       </li>
                     ))}
                   </ul>
+                )}
+
+                {section.video && (
+                  <figure className="pt-frame mt-8">
+                    <div className="pt-media bg-black">
+                      <video
+                        src={section.video.src}
+                        poster={section.video.poster}
+                        controls
+                        playsInline
+                        preload="none"
+                        className="w-full block aspect-video"
+                      >
+                        Your browser does not support the video tag.
+                      </video>
+                    </div>
+                    {section.video.caption && (
+                      <figcaption className="pt-mono pt-muted text-[0.6875rem] mt-3">{section.video.caption}</figcaption>
+                    )}
+                  </figure>
                 )}
 
                 {section.image && (

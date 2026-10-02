@@ -119,3 +119,6 @@
   border-color: var(--pt-accent);
   color: var(--pt-accent-ink);
 }
+
+/* Keep Apostrophe's logo-pill marker inside the card instead of clipped at its edge */
+.pt--apostrophe .pc-body.pt-plate::before { left: 1.5rem; }

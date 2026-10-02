@@ -4,6 +4,7 @@ import {
   Courier_Prime,
   Doto,
   JetBrains_Mono,
+  Lato,
   Montserrat,
   Public_Sans,
   Zilla_Slab,
@@ -84,6 +85,15 @@ export const montserrat = Montserrat({
   preload: false,
 });
 
+// Apostrophe: the heavy Lato capitals from apostrophetv.com
+export const lato = Lato({
+  subsets: ['latin'],
+  weight: ['400', '700', '900'],
+  variable: '--font-apos-display',
+  display: 'swap',
+  preload: false,
+});
+
 export const projectFontVariables = [
   bigShoulders.variable,
   publicSans.variable,
@@ -93,4 +103,5 @@ export const projectFontVariables = [
   zillaSlab.variable,
   courierPrime.variable,
   montserrat.variable,
+  lato.variable,
 ].join(' ');

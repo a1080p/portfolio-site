@@ -53,6 +53,7 @@ body:has(.pt.pt--dither-dog) { background: #000000; --pt-chrome: 0, 0, 0; }
 body:has(.pt.pt--mgk-dossier) { background: #0a0707; --pt-chrome: 10, 7, 7; }
 body:has(.pt.pt--whiskey-thief) { background: #211d1a; --pt-chrome: 33, 29, 26; }
 body:has(.pt.pt--lego-architect) { background: #fff8f2; }
+body:has(.pt.pt--apostrophe) { background: #f6f5f7; }
 
 /* Dark themes recolor the shared navbar and footer; light themes keep the defaults */
 body:has(.pt[data-tone='dark']) {
@@ -1160,3 +1161,194 @@ body:has(.pt[data-tone='dark']) footer {
 }
 
 .ps--lego-architect .ps-skip { border-radius: 10px; border-width: 2px; opacity: 0.8; }
+
+/* ======================================================================
+ * Apostrophe: a broadcast ident on a white studio set.
+ * Heavy Lato capitals, the logo's orange, title-safe corners, slates.
+ * ==================================================================== */
+
+.pt--apostrophe {
+  --pt-bg: #f6f5f7;
+  --pt-surface: #ffffff;
+  --pt-ink: #1d1c1f;
+  --pt-muted: #5b5860;
+  --pt-line: #e3e0e6;
+  --pt-accent: #c94f25;          /* logo orange, deepened for text contrast */
+  --pt-accent-ink: #ffffff;
+  --pt-accent-2: #c94f25;
+  --pt-accent-2-soft: #fbe6dd;
+  --apos-orange: #e8764f;        /* the logo's own orange, for fills */
+  --pt-display: var(--font-apos-display), 'Helvetica Neue', Arial, sans-serif;
+  --pt-body: var(--font-sans);
+  --pt-mono: var(--font-project-mono), ui-monospace, monospace;
+  --pt-radius: 18px;
+}
+
+.pt--apostrophe .pt-display {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.005em;
+  line-height: 0.95;
+}
+
+.pt--apostrophe .pt-h1 { font-size: clamp(2.5rem, 6.4vw, 4.75rem); }
+.pt--apostrophe .pt-eyebrow { letter-spacing: 0.2em; }
+
+/* The white studio set from the balloon ident */
+.pt--apostrophe .pt-texture {
+  background: radial-gradient(ellipse 75% 70% at 50% 40%, #ffffff 0%, #f6f5f7 55%, #e9e6ec 100%);
+}
+
+/* A small logo-shaped pill marks each section */
+.pt--apostrophe .pt-plate {
+  position: relative;
+  border-top: 1px solid var(--pt-line);
+}
+
+.pt--apostrophe .pt-plate::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 10px;
+  height: 16px;
+  border-radius: 10px;
+  background: var(--apos-orange);
+}
+
+/* Title-safe corner marks around media, like a broadcast monitor */
+.pt--apostrophe .pt-frame::before,
+.pt--apostrophe .pt-frame::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border: 0 solid rgba(29, 28, 31, 0.45);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pt--apostrophe .pt-frame::before { top: -9px; left: -9px; border-width: 1.5px 0 0 1.5px; }
+.pt--apostrophe .pt-frame::after { bottom: -9px; right: -9px; border-width: 0 1.5px 1.5px 0; }
+
+.pt--apostrophe .pt-frame:has(figcaption)::after { bottom: 18px; }
+
+.pt--apostrophe .pt-media {
+  border: 0;
+  box-shadow: 0 30px 60px -30px rgba(29, 28, 31, 0.35);
+}
+
+.pt--apostrophe .pt-btn {
+  font-family: var(--pt-display);
+  font-weight: 900;
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.pt--apostrophe .pt-btn--ghost { background: #fff; }
+
+.pt--apostrophe .pt-chip { background: #fff; }
+
+.pt--apostrophe .pt-stat-value { font-weight: 900; font-size: clamp(1.875rem, 4vw, 3rem); }
+.pt--apostrophe .pt-stat:first-child .pt-stat-value { color: var(--pt-accent); }
+
+.pt--apostrophe .pt-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0.35rem;
+  top: 0.3em;
+  width: 9px;
+  height: 14px;
+  border-radius: 9px;
+  background: var(--apos-orange);
+}
+
+/* ----- Apostrophe splash: the mark inflates like the balloon, then floats off ----- */
+
+.ps--apostrophe {
+  background: radial-gradient(ellipse 75% 70% at 50% 45%, #ffffff 0%, #f1eff3 60%, #e0dce4 100%);
+  color: #1d1c1f;
+  animation:
+    ps-apos-exit 0.4s ease 2.15s forwards,
+    ps-hide 0s linear 2.6s forwards;
+}
+
+@keyframes ps-apos-exit { to { opacity: 0; } }
+
+.ps-apos {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  padding: 40px 56px 28px;
+}
+
+/* Title-safe corners framing the ident */
+.ps-apos-corner {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border: 0 solid rgba(29, 28, 31, 0.4);
+  opacity: 0;
+  animation: ps-blink-in 0.3s ease 0.1s forwards;
+}
+
+.ps-apos-corner--tl { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; }
+.ps-apos-corner--tr { top: 0; right: 0; border-width: 1.5px 1.5px 0 0; }
+.ps-apos-corner--bl { bottom: 0; left: 0; border-width: 0 0 1.5px 1.5px; }
+.ps-apos-corner--br { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
+
+.ps-apos-mark {
+  width: 84px;
+  height: auto;
+  filter: drop-shadow(0 18px 18px rgba(201, 79, 37, 0.25));
+  transform-origin: 50% 100%;
+  transform: scale(0.15, 0.05);
+  opacity: 0;
+  animation:
+    ps-apos-inflate 0.95s cubic-bezier(0.3, 0.7, 0.4, 1) 0.2s forwards,
+    ps-apos-float 0.85s cubic-bezier(0.45, 0, 0.7, 0.3) 1.5s forwards;
+}
+
+@keyframes ps-apos-inflate {
+  0% { opacity: 0; transform: scale(0.15, 0.05); }
+  15% { opacity: 1; }
+  45% { transform: scale(1.12, 0.9); }
+  65% { transform: scale(0.94, 1.07); }
+  82% { transform: scale(1.03, 0.98); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes ps-apos-float {
+  from { opacity: 1; transform: scale(1); }
+  to { opacity: 1; transform: translateY(-70vh) rotate(-14deg) scale(0.9); }
+}
+
+.ps-apos-name {
+  font-family: var(--font-apos-display), 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.5rem, 6vw, 2.25rem);
+  letter-spacing: 0.24em;
+  margin-right: -0.24em;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: ps-fade-up 0.5s ease 0.75s forwards;
+}
+
+.ps-apos-slate {
+  display: flex;
+  gap: 18px;
+  font-family: var(--font-project-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(29, 28, 31, 0.55);
+  opacity: 0;
+  animation: ps-blink-in 0.3s ease 1s forwards;
+}
+
+.ps-apos-slate span:first-child { color: #c94f25; }
+
+.ps--apostrophe .ps-skip { border-radius: 999px; }
