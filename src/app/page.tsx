@@ -84,7 +84,7 @@ export default function HomePage() {
       <div className="relative dither-bg dark-section">
         <FeatureGrid
           title="Features"
-          subtitle="Launch with Ease"
+          subtitle="Concept to launch"
           features={features}
           className="relative z-10"
         />
