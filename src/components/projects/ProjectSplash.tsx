@@ -1,11 +1,10 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { CaseStudyTheme } from '@/lib/data/case-studies';
 
 interface ProjectSplashProps {
   theme: CaseStudyTheme;
-  slug: string;
   year: string;
 }
 
@@ -13,32 +12,14 @@ interface ProjectSplashProps {
 const SPLASH_DURATION_MS = 2600;
 
 /**
- * Branded intro shown once per session per project. The animation itself is
- * pure CSS (and skipped under prefers-reduced-motion); this component only
- * handles skipping, the session flag, and unmounting when it's done.
+ * Branded intro that plays every time a project page opens. The animation itself
+ * is pure CSS (and skipped under prefers-reduced-motion); this component only
+ * handles skipping and unmounting when it's done.
  */
-export function ProjectSplash({ theme, slug, year }: ProjectSplashProps) {
+export function ProjectSplash({ theme, year }: ProjectSplashProps) {
   const [done, setDone] = useState(false);
-  const seenBefore = useRef<boolean | null>(null);
-  const storageKey = `splash-seen:${slug}`;
-  const elementId = `project-splash-${slug}`;
 
   useEffect(() => {
-    // Read once so React's dev double-invoke doesn't treat the first run as a repeat visit
-    if (seenBefore.current === null) {
-      try {
-        seenBefore.current = sessionStorage.getItem(storageKey) === '1';
-        sessionStorage.setItem(storageKey, '1');
-      } catch {
-        seenBefore.current = false;
-      }
-    }
-
-    if (seenBefore.current) {
-      setDone(true);
-      return;
-    }
-
     const timer = window.setTimeout(() => setDone(true), SPLASH_DURATION_MS);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') setDone(true);
@@ -48,35 +29,24 @@ export function ProjectSplash({ theme, slug, year }: ProjectSplashProps) {
       window.clearTimeout(timer);
       window.removeEventListener('keydown', onKey);
     };
-  }, [storageKey]);
+  }, []);
 
   if (done) return null;
 
-  // Hides the splash before first paint on repeat visits, so it doesn't flash before hydration
-  const preHide = `try{if(sessionStorage.getItem(${JSON.stringify(storageKey)})==='1'){var s=document.createElement('style');s.textContent='#${elementId}{display:none}';document.head.appendChild(s)}}catch(e){}`;
-
   return (
-    <>
-      <div
-        id={elementId}
-        className={`ps ps--${theme}`}
-        onClick={() => setDone(true)}
-        role="presentation"
+    <div className={`ps ps--${theme}`} onClick={() => setDone(true)} role="presentation">
+      <SplashContent theme={theme} year={year} />
+      <button
+        type="button"
+        className="ps-skip"
+        onClick={(e) => {
+          e.stopPropagation();
+          setDone(true);
+        }}
       >
-        <SplashContent theme={theme} year={year} />
-        <button
-          type="button"
-          className="ps-skip"
-          onClick={(e) => {
-            e.stopPropagation();
-            setDone(true);
-          }}
-        >
-          Skip intro
-        </button>
-      </div>
-      <script dangerouslySetInnerHTML={{ __html: preHide }} />
-    </>
+        Skip intro
+      </button>
+    </div>
   );
 }
 

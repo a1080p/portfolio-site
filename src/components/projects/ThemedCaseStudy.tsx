@@ -108,7 +108,7 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
 
   return (
     <div className={`pt pt--${theme} ${projectFontVariables}`} data-tone={config.tone}>
-      <ProjectSplash theme={theme} slug={project.slug} year={project.year} />
+      <ProjectSplash theme={theme} year={project.year} />
 
       {/* Hero */}
       <section className={`relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 pt-texture`}>
