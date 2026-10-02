@@ -226,33 +226,63 @@ function LegoSplash() {
   );
 }
 
-/** The Apostrophe mark: an orange stadium with a white comma */
-function ApostropheMark({ className }: { className?: string }) {
-  return (
-    <svg className={className} viewBox="0 0 60 100" aria-hidden="true">
-      <rect width="60" height="100" rx="30" fill="#e8764f" />
-      <path
-        d="M30 29C38 29 44 35 44 43C44 54 37 64 24 71C22 72 21 70 22 69C28 64 31 59 31 55C24 55 17 50 17 42C17 35 23 29 30 29Z"
-        fill="#ffffff"
-      />
-    </svg>
-  );
+// A hand-torn edge, precomputed (a slow wave plus fine jitter, in % of screen height) so the
+// server and every browser render exactly the same tear. TEAR_FIBER is how far the white paper
+// core shows past each torn edge.
+const TEAR_Y = 62;
+const TEAR_OFFSETS = [
+  0.31, 0.7, 0.49, -0.0, 0.05, 0.44, 1.18, 1.27, 1.54, 1.11, 0.94, 0.62,
+  0.19, 0.5, 0.43, 0.44, -0.2, -1.12, -0.97, -1.15, -0.8, -0.4, -0.92, -1.08,
+  -1.24, -1.05, -1.05, -0.67, -0.31, 0.32, 0.27, 0.02, 0.09, 0.72, 1.02, 1.1,
+  1.5, 1.3, 0.65, 0.27, 0.53, 0.71, 0.81, 0.68, -0.12, -0.36, -0.46, -0.8,
+  -0.55, -0.07, -0.86, -1.28, -1.41, -1.87, -1.29, -0.39, -0.34, -0.17, -0.18, -0.31,
+  -0.47,
+];
+const TEAR_FIBER = [
+  0.49, 0.42, 0.68, 0.81, 0.74, 0.43, 1.09, 0.55, 1.2, 0.71, 0.39, 0.61,
+  0.46, 1.08, 0.87, 0.69, 0.41, 0.54, 0.73, 0.88, 0.62, 0.98, 0.87, 1.14,
+  0.61, 0.46, 1.03, 0.79, 0.95, 0.87, 0.63, 0.88, 0.76, 1.2, 0.95, 0.98,
+  1.24, 0.61, 0.95, 0.77, 0.46, 1.04, 0.57, 1.13, 0.75, 1.15, 1.13, 0.72,
+  1.15, 0.49, 0.56, 0.79, 0.59, 0.73, 0.86, 0.97, 0.91, 0.4, 1.05, 1.07,
+  0.71,
+];
+
+/** Points along the tear, left to right. `side` grows the edge into the gap for the fiber layer. */
+function tearPoints(side: 'top' | 'bottom', fiber = false) {
+  return TEAR_OFFSETS.map((offset, i) => {
+    const x = (i / (TEAR_OFFSETS.length - 1)) * 100;
+    const grow = fiber ? TEAR_FIBER[i] * (side === 'top' ? 1 : -1) : 0;
+    return `${x.toFixed(2)}% ${(TEAR_Y + offset + grow).toFixed(2)}%`;
+  });
 }
 
+const topClip = (fiber = false) => `polygon(0% 0%, 100% 0%, ${tearPoints('top', fiber).reverse().join(', ')})`;
+const bottomClip = (fiber = false) => `polygon(${tearPoints('bottom', fiber).join(', ')}, 100% 100%, 0% 100%)`;
+
+/** The Apostrophe lockup printed on a sheet of paper that tears open to reveal the page */
 function ApostropheSplash({ year }: { year: string }) {
   return (
-    <div className="ps-apos" aria-hidden="true">
-      <span className="ps-apos-corner ps-apos-corner--tl" />
-      <span className="ps-apos-corner ps-apos-corner--tr" />
-      <span className="ps-apos-corner ps-apos-corner--bl" />
-      <span className="ps-apos-corner ps-apos-corner--br" />
-      <ApostropheMark className="ps-apos-mark" />
-      <p className="ps-apos-name">Apostrophe</p>
-      <p className="ps-apos-slate">
-        <span>Ident</span>
-        <span>Campaign</span>
-        <span>{year}</span>
-      </p>
+    <div className="ps-tear" aria-hidden="true">
+      {/* Whole sheet behind both halves, so their shared edge has no seam until the tear */}
+      <div className="ps-tear-paper ps-tear-backing" />
+      <div className="ps-tear-half ps-tear-half--top">
+        {/* White paper core along the torn edge */}
+        <div className="ps-tear-fiber" style={{ clipPath: topClip(true) }} />
+        <div className="ps-tear-paper" style={{ clipPath: topClip() }}>
+          <div className="ps-tear-print">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img className="ps-tear-logo" src="/apostrophe-idents/apostrophe-logo.svg" alt="" width={276} height={232} />
+            <p className="ps-tear-slate">
+              <span>Ident campaign</span>
+              <span>{year}</span>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="ps-tear-half ps-tear-half--bottom">
+        <div className="ps-tear-fiber" style={{ clipPath: bottomClip(true) }} />
+        <div className="ps-tear-paper" style={{ clipPath: bottomClip() }} />
+      </div>
     </div>
   );
 }

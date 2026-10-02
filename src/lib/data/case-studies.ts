@@ -48,17 +48,17 @@ export const caseStudies: Record<string, CaseStudy> = {
     theme: 'apostrophe',
     eyebrow: 'Ident campaign · 3D motion',
     headline: 'Small mark,\n*big entrance.*',
-    overview: 'Idents for Apostrophe, a Louisville creative studio that makes promos and campaigns for networks like AMC, Peacock, and Paramount. Each ident brings the Apostrophe logo to life in its own world. I came up with the ideas and was responsible for bringing them to life. I also versioned AMC advertisements and commercials for its Pride Month and binge series campaigns.',
+    overview: 'Logo idents for Apostrophe, a Louisville creative studio that makes promos and campaigns for networks like Peacock and Paramount. Each ident brings the Apostrophe logo to life in its own world: a balloon that inflates for the studio\'s second birthday, and a vinyl record spinning up a soundtrack promo. I came up with the ideas and was responsible for bringing them to life.',
     heroImage: '/apostrophe-idents/vinyl-poster.jpg',
     status: 'Client work · Apostrophe',
     stats: [
       { value: '02', label: 'Logo idents, concept to final' },
       { value: 'Blender', label: 'Physics & simulation' },
-      { value: 'Pride', label: 'AMC Pride Month versioning' },
-      { value: 'Binge', label: 'AMC binge series versioning' },
+      { value: '10.7s', label: 'Balloon ident' },
+      { value: '22.5s', label: 'Vinyl ident' },
     ],
-    roles: ['Concept', 'Art Direction', '3D Animation', 'Simulation', 'Versioning'],
-    stack: ['Blender', 'Physics Simulation', '3D Animation', 'Broadcast Versioning'],
+    roles: ['Concept', 'Art Direction', '3D Animation', 'Simulation'],
+    stack: ['Blender', 'Physics Simulation', '3D Animation'],
     sections: [
       {
         kicker: 'The Campaign',
@@ -90,11 +90,6 @@ export const caseStudies: Record<string, CaseStudy> = {
           poster: '/apostrophe-idents/vinyl-poster.jpg',
           caption: 'Apostrophe soundtrack promo ident',
         },
-      },
-      {
-        kicker: 'Also at Apostrophe',
-        title: 'Versioning for AMC',
-        content: 'Beyond the idents, I versioned advertisements and commercials for AMC, including spots for its Pride Month campaign and its binge series promos, adapting finished creative into the versions each placement needed while keeping every cut on brand.',
       },
       {
         kicker: 'Credits',

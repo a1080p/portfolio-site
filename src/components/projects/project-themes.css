@@ -1173,11 +1173,11 @@ body:has(.pt[data-tone='dark']) footer {
   --pt-ink: #1d1c1f;
   --pt-muted: #5b5860;
   --pt-line: #e3e0e6;
-  --pt-accent: #c94f25;          /* logo orange, deepened for text contrast */
+  --pt-accent: #c24104;          /* logo orange, deepened for text contrast */
   --pt-accent-ink: #ffffff;
-  --pt-accent-2: #c94f25;
-  --pt-accent-2-soft: #fbe6dd;
-  --apos-orange: #e8764f;        /* the logo's own orange, for fills */
+  --pt-accent-2: #c24104;
+  --pt-accent-2-soft: #fee3d4;
+  --apos-orange: #f85608;        /* the official logo orange, for fills */
   --pt-display: var(--font-apos-display), 'Helvetica Neue', Arial, sans-serif;
   --pt-body: var(--font-sans);
   --pt-mono: var(--font-project-mono), ui-monospace, monospace;
@@ -1264,80 +1264,88 @@ body:has(.pt[data-tone='dark']) footer {
   background: var(--apos-orange);
 }
 
-/* ----- Apostrophe splash: the mark inflates like the balloon, then floats off ----- */
+/* ----- Apostrophe splash: the logo is printed on paper that tears open ----- */
 
 .ps--apostrophe {
-  background: radial-gradient(ellipse 75% 70% at 50% 45%, #ffffff 0%, #f1eff3 60%, #e0dce4 100%);
+  background: transparent;
   color: #1d1c1f;
-  animation:
-    ps-apos-exit 0.4s ease 2.15s forwards,
-    ps-hide 0s linear 2.6s forwards;
+  animation: ps-hide 0s linear 2.6s forwards;
 }
 
-@keyframes ps-apos-exit { to { opacity: 0; } }
+.ps--apostrophe .ps-skip { z-index: 2; border-radius: 999px; }
 
-.ps-apos {
-  position: relative;
+.ps-tear,
+.ps-tear-half,
+.ps-tear-fiber,
+.ps-tear-paper {
+  position: absolute;
+  inset: 0;
+}
+
+/* Shadows sit on the wrapper so the clipped paper still casts them; they appear with the tear
+   so the sheet looks whole until then */
+.ps-tear-half { filter: drop-shadow(0 0 0 rgba(29, 28, 31, 0)); }
+
+.ps-tear-half--top { animation: ps-tear-top 1.15s 1s forwards; }
+.ps-tear-half--bottom { animation: ps-tear-bottom 1.15s 1s forwards; }
+
+/* A short tug that opens the tear, then each half is pulled away */
+@keyframes ps-tear-top {
+  0% { transform: none; filter: drop-shadow(0 0 0 rgba(29, 28, 31, 0)); animation-timing-function: cubic-bezier(0.3, 0, 0.4, 1); }
+  20% { transform: translateY(-1.4vh) rotate(-0.6deg); filter: drop-shadow(0 10px 18px rgba(29, 28, 31, 0.22)); animation-timing-function: cubic-bezier(0.55, 0, 0.8, 0.2); }
+  100% { transform: translate(-3vw, -85vh) rotate(-7deg); filter: drop-shadow(0 10px 18px rgba(29, 28, 31, 0.22)); }
+}
+
+@keyframes ps-tear-bottom {
+  0% { transform: none; filter: drop-shadow(0 0 0 rgba(29, 28, 31, 0)); animation-timing-function: cubic-bezier(0.3, 0, 0.4, 1); }
+  20% { transform: translateY(1.4vh) rotate(0.5deg); filter: drop-shadow(0 -6px 14px rgba(29, 28, 31, 0.18)); animation-timing-function: cubic-bezier(0.55, 0, 0.8, 0.2); }
+  100% { transform: translate(3vw, 70vh) rotate(5deg); filter: drop-shadow(0 -6px 14px rgba(29, 28, 31, 0.18)); }
+}
+
+/* Hides at the moment of the tear, so only the two halves move */
+.ps-tear-backing { animation: ps-tear-backing-off 0s linear 1s forwards; }
+
+@keyframes ps-tear-backing-off { to { visibility: hidden; } }
+
+/* The white core only shows once the paper starts to tear */
+.ps-tear-fiber {
+  background: #ffffff;
+  opacity: 0;
+  animation: ps-blink-in 0.05s linear 1s forwards;
+}
+
+/* Warm paper with a fine grain */
+.ps-tear-paper {
+  background-color: #f4f0e8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='p'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.4 0 0 0 0 0.33 0 0 0 0.16 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23p)'/%3E%3C/svg%3E");
+}
+
+/* Printed area sits above the tear line, so the logo stays whole and leaves with the top half */
+.ps-tear-print {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 58%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 22px;
-  padding: 40px 56px 28px;
+  justify-content: center;
+  gap: 18px;
+  padding-top: 4vh;
 }
 
-/* Title-safe corners framing the ident */
-.ps-apos-corner {
-  position: absolute;
-  width: 18px;
-  height: 18px;
-  border: 0 solid rgba(29, 28, 31, 0.4);
-  opacity: 0;
-  animation: ps-blink-in 0.3s ease 0.1s forwards;
-}
-
-.ps-apos-corner--tl { top: 0; left: 0; border-width: 1.5px 0 0 1.5px; }
-.ps-apos-corner--tr { top: 0; right: 0; border-width: 1.5px 1.5px 0 0; }
-.ps-apos-corner--bl { bottom: 0; left: 0; border-width: 0 0 1.5px 1.5px; }
-.ps-apos-corner--br { bottom: 0; right: 0; border-width: 0 1.5px 1.5px 0; }
-
-.ps-apos-mark {
-  width: 84px;
+.ps-tear-logo {
+  width: min(240px, 56vw);
   height: auto;
-  filter: drop-shadow(0 18px 18px rgba(201, 79, 37, 0.25));
-  transform-origin: 50% 100%;
-  transform: scale(0.15, 0.05);
   opacity: 0;
-  animation:
-    ps-apos-inflate 0.95s cubic-bezier(0.3, 0.7, 0.4, 1) 0.2s forwards,
-    ps-apos-float 0.85s cubic-bezier(0.45, 0, 0.7, 0.3) 1.5s forwards;
+  transform: scale(1.08);
+  animation: ps-tear-stamp 0.45s cubic-bezier(0.2, 0.8, 0.3, 1) 0.15s forwards;
 }
 
-@keyframes ps-apos-inflate {
-  0% { opacity: 0; transform: scale(0.15, 0.05); }
-  15% { opacity: 1; }
-  45% { transform: scale(1.12, 0.9); }
-  65% { transform: scale(0.94, 1.07); }
-  82% { transform: scale(1.03, 0.98); }
-  100% { opacity: 1; transform: scale(1); }
-}
+@keyframes ps-tear-stamp { to { opacity: 1; transform: scale(1); } }
 
-@keyframes ps-apos-float {
-  from { opacity: 1; transform: scale(1); }
-  to { opacity: 1; transform: translateY(-70vh) rotate(-14deg) scale(0.9); }
-}
-
-.ps-apos-name {
-  font-family: var(--font-apos-display), 'Helvetica Neue', Arial, sans-serif;
-  font-weight: 900;
-  font-size: clamp(1.5rem, 6vw, 2.25rem);
-  letter-spacing: 0.24em;
-  margin-right: -0.24em;
-  text-transform: uppercase;
-  opacity: 0;
-  animation: ps-fade-up 0.5s ease 0.75s forwards;
-}
-
-.ps-apos-slate {
+.ps-tear-slate {
   display: flex;
   gap: 18px;
   font-family: var(--font-project-mono), ui-monospace, monospace;
@@ -1346,9 +1354,7 @@ body:has(.pt[data-tone='dark']) footer {
   text-transform: uppercase;
   color: rgba(29, 28, 31, 0.55);
   opacity: 0;
-  animation: ps-blink-in 0.3s ease 1s forwards;
+  animation: ps-blink-in 0.3s ease 0.55s forwards;
 }
 
-.ps-apos-slate span:first-child { color: #c94f25; }
-
-.ps--apostrophe .ps-skip { border-radius: 999px; }
+.ps-tear-slate span:first-child { color: #c24104; }
