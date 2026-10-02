@@ -20,7 +20,7 @@ export default function WorkPage() {
       <section className="pt-24 sm:pt-28 lg:pt-32 pb-10 sm:pb-12 lg:pb-16">
         <Container className="px-4 sm:px-6">
           <ScrollReveal>
-            <h1 className="text-[var(--text-display)] font-black uppercase tracking-tight mb-3 sm:mb-4">My Work</h1>
+            <h1 className="text-[length:var(--text-display)] leading-[0.95] font-black uppercase tracking-tight mb-3 sm:mb-4">My Work</h1>
             <p className="text-[var(--color-text-secondary)] text-base sm:text-lg max-w-2xl">
               A collection of projects spanning UX/UI design, motion graphics, and brand identity.
               Each project represents a unique challenge and creative solution.

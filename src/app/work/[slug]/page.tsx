@@ -66,7 +66,7 @@ export default async function ProjectPage({ params }: Props) {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
             <ScrollReveal>
-              <h1 className="text-[var(--text-h1)] font-bold mb-3 sm:mb-4">{project.title}</h1>
+              <h1 className="text-[length:var(--text-h1)] leading-[1] font-bold mb-3 sm:mb-4">{project.title}</h1>
               <p className="text-[var(--color-text-secondary)] text-base sm:text-lg mb-4 sm:mb-6">
                 {caseStudy?.overview || project.description}
               </p>

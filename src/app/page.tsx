@@ -11,11 +11,6 @@ import { skillCategories } from '@/lib/data/skills';
 
 // Feature icons
 const featureIcons = {
-  unlimited: (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-    </svg>
-  ),
   fast: (
     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
@@ -34,11 +29,6 @@ const featureIcons = {
 };
 
 const features = [
-  {
-    icon: featureIcons.unlimited,
-    title: 'Unlimited Revisions',
-    description: 'Get unlimited design revisions. I iterate until you\'re completely satisfied with the result.',
-  },
   {
     icon: featureIcons.fast,
     title: 'Fast Turnaround',
@@ -79,10 +69,15 @@ export default function HomePage() {
         lines={[
           { text: 'I CREATE', style: 'thin' },
           { text: 'DIGITAL', style: 'bold' },
-          { text: 'EXPERIENCES', style: 'outline' },
+          { text: 'EXPERIENCES', style: 'green' },
         ]}
         scrollTargetId="work"
         backgroundImage="/Landingpage_Hero.png"
+        backgroundVideo={{ src: '/reel/hero-reel.mp4', poster: '/reel/hero-reel-poster.jpg', label: 'Showreel · 2026' }}
+        actions={[
+          { label: 'View Work', href: '#work', primary: true },
+          { label: 'Start a Project', href: '/contact' },
+        ]}
       />
 
       {/* Features Section */}
@@ -109,14 +104,15 @@ export default function HomePage() {
       {/* Skills Section - Redesigned */}
       <section className="py-16 sm:py-20 lg:py-28 relative overflow-hidden dither-bg dark-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            {/* Left - Title */}
-            <div className="lg:col-span-4">
-              <ScrollReveal>
-                <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-4" style={{ color: '#3d9e5a' }}>
+          <div className="flex flex-col gap-10 sm:gap-14">
+            {/* Title row: heading left, intro and link right */}
+            <div>
+              <ScrollReveal className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-12">
+                <h2 className="text-[length:var(--text-display)] font-black uppercase tracking-tight leading-none" style={{ color: '#3d9e5a' }}>
                   Capabilities
                 </h2>
-                <p className="text-white text-base sm:text-lg lg:text-xl font-medium mb-6 lg:mb-8">
+                <div className="lg:pb-3 lg:text-right">
+                <p className="text-white text-base sm:text-lg lg:text-xl font-medium mb-3">
                   The tools and skills I use to bring ideas to life.
                 </p>
                 <Link
@@ -128,11 +124,12 @@ export default function HomePage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
+                </div>
               </ScrollReveal>
             </div>
 
-            {/* Right - Skills Grid */}
-            <div className="lg:col-span-8">
+            {/* Skills Grid */}
+            <div>
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4">
                 {skillCategories.map((skillCat, index) => (
                   <ScrollReveal key={skillCat.category} delay={index * 50}>
@@ -166,7 +163,7 @@ export default function HomePage() {
 
         <Container size="md" className="relative z-10 px-4 sm:px-6">
           <ScrollReveal className="text-center">
-            <h2 className="text-[var(--text-display)] font-black uppercase tracking-tight mb-4 sm:mb-6">
+            <h2 className="text-[length:var(--text-display)] leading-[0.95] font-black uppercase tracking-tight mb-4 sm:mb-6">
               Let's Work
               <br />
               <span className="text-[var(--color-text-secondary)]">Together</span>

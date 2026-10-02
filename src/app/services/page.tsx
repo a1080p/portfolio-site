@@ -35,7 +35,7 @@ export default function ServicesPage() {
       <section className="pt-32 pb-16">
         <Container>
           <ScrollReveal>
-            <h1 className="text-[var(--text-display)] font-black uppercase tracking-tight mb-4">Services</h1>
+            <h1 className="text-[length:var(--text-display)] leading-[0.95] font-black uppercase tracking-tight mb-4">Services</h1>
             <p className="text-[var(--color-text-secondary)] text-lg max-w-2xl">
               From brand identity to motion graphics, I provide end-to-end design services
               tailored to startups and small businesses looking to make their mark.
@@ -55,7 +55,7 @@ export default function ServicesPage() {
                     <div className="w-16 h-16 bg-[var(--color-accent)]/10 rounded-xl flex items-center justify-center text-[var(--color-accent)] mb-6">
                       {serviceIcons[service.icon]}
                     </div>
-                    <h2 className="text-[var(--text-h2)] font-bold mb-4">{service.title}</h2>
+                    <h2 className="text-[length:var(--text-h2)] leading-[1.1] font-bold mb-4">{service.title}</h2>
                     <p className="text-[var(--color-text-secondary)] text-lg">
                       {service.description}
                     </p>
@@ -86,7 +86,7 @@ export default function ServicesPage() {
       <section className="py-28 bg-white/50 border-t border-stone-200/60">
         <Container>
           <ScrollReveal>
-            <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-4 text-center">How I Work</h2>
+            <h2 className="text-[length:var(--text-h1)] leading-[1] font-black uppercase tracking-tight mb-4 text-center">How I Work</h2>
             <p className="text-[var(--color-text-secondary)] text-center max-w-2xl mx-auto mb-16">
               A clear, collaborative process that keeps you involved at every step.
             </p>
@@ -95,11 +95,11 @@ export default function ServicesPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
               <ScrollReveal key={step.number} delay={index * 100}>
-                <div className="relative">
-                  <span className="text-6xl font-black text-[var(--color-accent)] absolute -top-4 -left-2 opacity-30">
+                <div className="relative border-t-2 border-[var(--color-accent)]/25 pt-5">
+                  <span className="block text-5xl font-black leading-none text-[var(--color-accent)] opacity-30 mb-4">
                     {step.number}
                   </span>
-                  <div className="relative pt-8">
+                  <div className="relative">
                     <h3 className="text-2xl font-semibold text-[var(--color-text-primary)] mb-3">{step.title}</h3>
                     <p className="text-[var(--color-text-secondary)] text-sm">
                       {step.description}
@@ -116,7 +116,7 @@ export default function ServicesPage() {
       <section className="py-28 border-t border-stone-200/60">
         <Container size="md">
           <ScrollReveal className="text-center">
-            <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-6">Why Work With Me</h2>
+            <h2 className="text-[length:var(--text-h1)] leading-[1] font-black uppercase tracking-tight mb-6">Why Work With Me</h2>
           </ScrollReveal>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -167,7 +167,7 @@ export default function ServicesPage() {
       <section className="py-32 bg-gradient-to-b from-stone-100/70 to-stone-200/50 border-t border-stone-200/60">
         <Container size="md">
           <ScrollReveal className="text-center">
-            <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-4">Ready to Get Started?</h2>
+            <h2 className="text-[length:var(--text-h1)] leading-[1] font-black uppercase tracking-tight mb-4">Ready to Get Started?</h2>
             <p className="text-[var(--color-text-secondary)] text-lg mb-8 max-w-xl mx-auto">
               Let's discuss your project and find the right solution for your needs. Free initial consultation included.
             </p>

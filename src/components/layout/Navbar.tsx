@@ -35,7 +35,7 @@ export function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         isScrolled
-          ? 'bg-white/70 backdrop-blur-xl backdrop-saturate-150 border-b border-white/50 shadow-[0_4px_20px_rgba(0,0,0,0.06)]'
+          ? 'bg-white/90 backdrop-blur-xl backdrop-saturate-150 border-b border-white/50 shadow-[0_4px_20px_rgba(0,0,0,0.06)]'
           : 'bg-transparent'
       )}
       role="banner"

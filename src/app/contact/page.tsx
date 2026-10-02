@@ -75,7 +75,7 @@ export default function ContactPage() {
         <Container>
           <div className="max-w-2xl">
             <ScrollReveal>
-              <h1 className="text-[var(--text-display)] font-black uppercase tracking-tight mb-4">Get in Touch</h1>
+              <h1 className="text-[length:var(--text-display)] leading-[0.95] font-black uppercase tracking-tight mb-4">Get in Touch</h1>
               <p className="text-[var(--color-text-secondary)] text-lg">
                 Have a project in mind? I'd love to hear about it. Fill out the form below
                 or reach out directly through email or social media.

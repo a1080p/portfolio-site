@@ -189,7 +189,7 @@ export function WorkShowcase({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Title */}
         <ScrollReveal>
-          <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight text-center mb-16">
+          <h2 className="text-[length:var(--text-h1)] leading-[1] font-black uppercase tracking-tight text-center mb-16">
             {title}
           </h2>
         </ScrollReveal>

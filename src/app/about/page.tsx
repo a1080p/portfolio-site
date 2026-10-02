@@ -74,7 +74,7 @@ export default function AboutPage() {
               </div>
             </ScrollReveal>
             <ScrollReveal delay={100}>
-              <h1 className="text-[var(--text-display)] font-black mb-4 sm:mb-6">
+              <h1 className="text-[length:var(--text-display)] leading-[0.95] font-black mb-4 sm:mb-6">
                 Hey, I'm Aidan
               </h1>
               <p className="text-[var(--color-text-secondary)] text-base sm:text-lg mb-4 sm:mb-6">
@@ -102,7 +102,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
             <div>
               <ScrollReveal>
-                <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-4 sm:mb-6">Education</h2>
+                <h2 className="text-[length:var(--text-h1)] leading-[1] font-black uppercase tracking-tight mb-4 sm:mb-6">Education</h2>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <Card padding="lg">
@@ -130,7 +130,7 @@ export default function AboutPage() {
             </div>
             <div>
               <ScrollReveal>
-                <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-4 sm:mb-6">My Approach</h2>
+                <h2 className="text-[length:var(--text-h1)] leading-[1] font-black uppercase tracking-tight mb-4 sm:mb-6">My Approach</h2>
               </ScrollReveal>
               <ScrollReveal delay={100}>
                 <p className="text-[var(--color-text-secondary)] text-base sm:text-lg mb-4">
@@ -151,7 +151,7 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20 lg:py-28 border-t border-stone-200/60">
         <Container className="px-4 sm:px-6">
           <ScrollReveal>
-            <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-8 sm:mb-12">Experience</h2>
+            <h2 className="text-[length:var(--text-h1)] leading-[1] font-black uppercase tracking-tight mb-8 sm:mb-12">Experience</h2>
           </ScrollReveal>
           <div className="space-y-4 sm:space-y-6">
             {experiences.map((exp, index) => (
@@ -190,7 +190,7 @@ export default function AboutPage() {
       <section className="py-16 sm:py-20 lg:py-28 bg-stone-100/70 border-t border-stone-200/60">
         <Container className="px-4 sm:px-6">
           <ScrollReveal>
-            <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-8 sm:mb-12">What I Do</h2>
+            <h2 className="text-[length:var(--text-h1)] leading-[1] font-black uppercase tracking-tight mb-8 sm:mb-12">What I Do</h2>
           </ScrollReveal>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
             <ScrollReveal delay={0}>
@@ -246,7 +246,7 @@ export default function AboutPage() {
       <section className="py-20 sm:py-24 lg:py-32 border-t border-stone-200/60">
         <Container size="md" className="px-4 sm:px-6">
           <ScrollReveal className="text-center">
-            <h2 className="text-[var(--text-h1)] font-black uppercase tracking-tight mb-4 sm:mb-6">Let's Connect</h2>
+            <h2 className="text-[length:var(--text-h1)] leading-[1] font-black uppercase tracking-tight mb-4 sm:mb-6">Let's Connect</h2>
             <p className="text-[var(--color-text-secondary)] text-base sm:text-lg mb-6 sm:mb-8 max-w-xl mx-auto">
               I'm always excited to explore new opportunities or collaborate on projects that challenge me to grow. Whether you've got a product that needs some UX love or want to discuss motion design, I'd love to hear from you.
             </p>
