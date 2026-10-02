@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/Container';
 import { Button } from '@/components/ui/Button';
 import { Card, CardContent } from '@/components/ui/Card';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
+import { ThemedCaseStudy } from '@/components/projects/ThemedCaseStudy';
 import { projects } from '@/lib/data/projects';
 import { caseStudies } from '@/lib/data/case-studies';
 
@@ -41,6 +42,10 @@ export default async function ProjectPage({ params }: Props) {
   }
 
   const caseStudy = caseStudies[slug];
+
+  if (caseStudy?.theme) {
+    return <ThemedCaseStudy project={project} caseStudy={{ ...caseStudy, theme: caseStudy.theme }} />;
+  }
 
   return (
     <>

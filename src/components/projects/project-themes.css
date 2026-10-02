@@ -1,0 +1,579 @@
+/*
+ * Themed case study pages. Each skin borrows the tokens of the project's own
+ * site: Iron Pillar from ironpillar.app (dark mode), Dither Dog from
+ * ditherdog.tech. Layout lives in ThemedCaseStudy.tsx; this file only skins it.
+ */
+
+/* ---------- Shared tokens ---------- */
+
+.pt {
+  background: var(--pt-bg);
+  color: var(--pt-ink);
+  font-family: var(--pt-body);
+  --color-text-primary: var(--pt-ink);
+  --color-text-secondary: var(--pt-muted);
+  --color-accent: var(--pt-accent);
+}
+
+.pt--iron-pillar {
+  --pt-bg: #0d0f1e;
+  --pt-surface: #151831;
+  --pt-ink: #eceefa;
+  --pt-muted: #9aa0bd;
+  --pt-line: #262a47;
+  --pt-accent: #ffa040;          /* flame */
+  --pt-accent-ink: #0d0f1e;
+  --pt-accent-2: #7482ff;        /* pillar blue */
+  --pt-accent-2-soft: #1d2250;
+  --pt-display: var(--font-ip-display), 'Arial Narrow', Impact, sans-serif;
+  --pt-body: var(--font-ip-body), 'Helvetica Neue', Arial, sans-serif;
+  --pt-mono: var(--font-project-mono), ui-monospace, 'SF Mono', Menlo, monospace;
+  --pt-radius: 14px;
+}
+
+.pt--dither-dog {
+  --pt-bg: #000000;
+  --pt-surface: #0a0a0a;
+  --pt-ink: #f2f2ee;
+  --pt-muted: rgba(242, 242, 238, 0.6);
+  --pt-line: rgba(255, 255, 255, 0.12);
+  --pt-accent: #ff5a1f;          /* signal orange */
+  --pt-accent-ink: #0a0a0a;
+  --pt-accent-2: #ff5a1f;
+  --pt-accent-2-soft: rgba(255, 90, 31, 0.12);
+  --pt-display: var(--font-dd-display), var(--font-project-mono), ui-monospace, monospace;
+  --pt-body: var(--font-sans);
+  --pt-mono: var(--font-project-mono), ui-monospace, 'SF Mono', Menlo, monospace;
+  --pt-radius: 0px;
+}
+
+/* Page-level chrome (body, scrolled navbar, footer) while a themed page is open */
+body:has(.pt--iron-pillar) { background: #0d0f1e; }
+body:has(.pt--dither-dog) { background: #000000; }
+
+body:has(.pt) {
+  --color-text-primary: #f2f2ee;
+  --color-text-secondary: rgba(242, 242, 238, 0.65);
+}
+
+body:has(.pt) header[role='banner'][class*='bg-white'] {
+  background-color: rgba(10, 11, 20, 0.72);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body:has(.pt) #mobile-menu {
+  background-color: rgba(10, 11, 20, 0.94);
+}
+
+body:has(.pt) footer {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.pt ::selection {
+  background: var(--pt-accent);
+  color: var(--pt-accent-ink);
+}
+
+.pt :focus-visible {
+  outline: 2px solid var(--pt-accent);
+  outline-offset: 3px;
+}
+
+/* ---------- Type ---------- */
+
+.pt-display {
+  font-family: var(--pt-display);
+  line-height: 0.92;
+  letter-spacing: -0.01em;
+}
+
+.pt--iron-pillar .pt-display {
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.pt--dither-dog .pt-display {
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.pt-mono {
+  font-family: var(--pt-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pt-muted { color: var(--pt-muted); }
+.pt-accent { color: var(--pt-accent); }
+.pt-line { border-color: var(--pt-line); }
+
+.pt-h1 { font-size: clamp(2.75rem, 8vw, 5.5rem); }
+.pt--dither-dog .pt-h1 { font-size: clamp(2.25rem, 5vw, 4.25rem); }
+.pt-h2 { font-size: clamp(1.875rem, 4vw, 2.75rem); }
+.pt--dither-dog .pt-h2 { font-size: clamp(1.625rem, 3.4vw, 2.25rem); }
+
+.pt-eyebrow {
+  font-family: var(--pt-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pt-accent-2);
+}
+
+.pt--dither-dog .pt-eyebrow { color: var(--pt-muted); }
+.pt--dither-dog .pt-eyebrow::before { content: '// '; color: var(--pt-accent); }
+
+/* ---------- Surfaces ---------- */
+
+.pt-panel {
+  background: var(--pt-surface);
+  border: 1px solid var(--pt-line);
+  border-radius: var(--pt-radius);
+}
+
+/* Iron Pillar: heavy horizontal "plates" between sections */
+.pt--iron-pillar .pt-plate {
+  border-top: 6px solid var(--pt-line);
+  position: relative;
+}
+
+.pt--iron-pillar .pt-plate::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 0;
+  width: 72px;
+  height: 6px;
+  background: var(--pt-accent);
+}
+
+/* Dither Dog: hairline modules with a dot-matrix texture */
+.pt--dither-dog .pt-plate { border-top: 1px solid var(--pt-line); }
+
+.pt--dither-dog .pt-dots {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.14) 1px, transparent 0);
+  background-size: 6px 6px;
+}
+
+/* Corner brackets around framed media on Dither Dog */
+.pt-frame { position: relative; }
+
+.pt--dither-dog .pt-frame::before,
+.pt--dither-dog .pt-frame::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  border-color: var(--pt-accent);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.pt--dither-dog .pt-frame::before { top: -6px; left: -6px; border-width: 2px 0 0 2px; }
+.pt--dither-dog .pt-frame::after { bottom: -6px; right: -6px; border-width: 0 2px 2px 0; }
+
+.pt-media {
+  border: 1px solid var(--pt-line);
+  border-radius: var(--pt-radius);
+  overflow: hidden;
+  background: var(--pt-surface);
+}
+
+/* ---------- Buttons & chips ---------- */
+
+.pt-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: 44px;
+  padding: 0.7rem 1.25rem;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease;
+}
+
+.pt-btn:hover { transform: translateY(-1px); }
+
+.pt-btn--primary { background: var(--pt-accent); color: var(--pt-accent-ink); }
+.pt-btn--ghost { border-color: var(--pt-line); color: var(--pt-ink); }
+.pt-btn--ghost:hover { border-color: var(--pt-ink); }
+
+.pt--dither-dog .pt-btn {
+  border-radius: 0;
+  font-family: var(--pt-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* App Store "coming soon" badge, modeled on ironpillar.app's store badge */
+.pt-store {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.35rem 1.1rem;
+  border: 1px dashed var(--pt-muted);
+  border-radius: 12px;
+  line-height: 1.15;
+  cursor: default;
+}
+
+.pt-store small {
+  font-size: 0.6875rem;
+  color: var(--pt-muted);
+}
+
+.pt-store strong { font-size: 1rem; }
+
+.pt-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.7rem;
+  font-family: var(--pt-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid var(--pt-line);
+  border-radius: 999px;
+  color: var(--pt-ink);
+}
+
+.pt--dither-dog .pt-chip { border-radius: 0; }
+
+.pt-chip--accent {
+  background: var(--pt-accent-2-soft);
+  border-color: transparent;
+  color: var(--pt-accent-2);
+}
+
+.pt--dither-dog .pt-chip--accent {
+  color: var(--pt-accent);
+  border-color: rgba(255, 90, 31, 0.35);
+}
+
+.pt-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.pt-status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--pt-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--pt-accent) 25%, transparent);
+}
+
+.pt--dither-dog .pt-status::before { border-radius: 0; }
+
+/* ---------- Stats ---------- */
+
+.pt-stat-value {
+  font-family: var(--pt-display);
+  font-weight: 900;
+  font-size: clamp(2.5rem, 6vw, 3.75rem);
+  line-height: 1;
+  color: var(--pt-ink);
+}
+
+.pt--iron-pillar .pt-stat:first-child .pt-stat-value { color: var(--pt-accent); }
+.pt--dither-dog .pt-stat:last-child .pt-stat-value { color: var(--pt-accent); }
+
+/* ---------- Lists ---------- */
+
+.pt-bullets { counter-reset: pt-bullet; }
+
+.pt-bullets li {
+  position: relative;
+  padding-left: 2.25rem;
+}
+
+.pt--iron-pillar .pt-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0.25rem;
+  top: 0.55em;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--pt-accent);
+}
+
+.pt--dither-dog .pt-bullets li::before {
+  counter-increment: pt-bullet;
+  content: counter(pt-bullet, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.2em;
+  font-family: var(--pt-mono);
+  font-size: 0.75rem;
+  color: var(--pt-accent);
+}
+
+/* ======================================================================
+ * Splash screens
+ * A pure CSS timeline, so it also finishes without JS. ProjectSplash.tsx
+ * handles skipping, once-per-session, and unmounting.
+ * ==================================================================== */
+
+.ps {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ps-skip {
+  position: absolute;
+  right: 16px;
+  bottom: max(16px, env(safe-area-inset-bottom));
+  min-height: 44px;
+  padding: 0 1rem;
+  font-family: var(--font-project-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: inherit;
+  opacity: 0.6;
+  background: none;
+  border: 1px solid currentColor;
+  cursor: pointer;
+}
+
+.ps-skip:hover { opacity: 1; }
+
+@keyframes ps-hide {
+  to { visibility: hidden; pointer-events: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ps { display: none; }
+}
+
+/* ----- Iron Pillar: the streak week fills, then the plate lifts ----- */
+
+.ps--iron-pillar {
+  background: #0d0f1e;
+  color: #eceefa;
+  animation:
+    ps-ip-lift 0.55s cubic-bezier(0.7, 0, 0.2, 1) 2s forwards,
+    ps-hide 0s linear 2.6s forwards;
+}
+
+.ps--iron-pillar .ps-skip { border-radius: 999px; }
+
+@keyframes ps-ip-lift {
+  to { transform: translateY(-100%); }
+}
+
+.ps-ip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  width: min(360px, calc(100vw - 32px));
+}
+
+.ps-ip-logo {
+  width: min(260px, 70vw);
+  height: auto;
+  filter: invert(1);
+  opacity: 0;
+  animation: ps-fade-up 0.5s ease 0.1s forwards;
+}
+
+.ps-ip-week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  width: 100%;
+}
+
+.ps-ip-day {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1;
+  font-family: var(--font-project-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #9aa0bd;
+  background: #151831;
+  border: 1px solid #262a47;
+  border-radius: 8px;
+  animation: ps-ip-day 0.25s ease forwards;
+  animation-delay: calc(0.5s + var(--i) * 0.13s);
+}
+
+@keyframes ps-ip-day {
+  to {
+    background: #ffa040;
+    border-color: #ffa040;
+    color: #0d0f1e;
+    transform: scale(1.04);
+  }
+}
+
+.ps-ip-bar {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #262a47;
+  overflow: hidden;
+}
+
+.ps-ip-bar span {
+  display: block;
+  height: 100%;
+  background: #7482ff;
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: ps-fill 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.45s forwards;
+}
+
+.ps-ip-meta {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: -16px;
+  font-family: var(--font-project-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #9aa0bd;
+}
+
+/* ----- Dither Dog: dot field resolves, pixel type scans in, stepped exit ----- */
+
+.ps--dither-dog {
+  background: #000;
+  color: #f2f2ee;
+  animation:
+    ps-dd-exit 0.4s steps(4, end) 2.05s forwards,
+    ps-hide 0s linear 2.6s forwards;
+}
+
+.ps--dither-dog .ps-skip { border-radius: 0; }
+
+@keyframes ps-dd-exit {
+  to { opacity: 0; }
+}
+
+.ps-dd-field {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.22) 1px, transparent 0);
+  background-size: 6px 6px;
+  -webkit-mask-image: radial-gradient(circle at center, #000 0%, transparent 70%);
+  mask-image: radial-gradient(circle at center, #000 0%, transparent 70%);
+  opacity: 0;
+  animation: ps-dd-field 1.2s steps(6, end) forwards;
+}
+
+@keyframes ps-dd-field {
+  0% { opacity: 0; background-size: 18px 18px; }
+  100% { opacity: 1; background-size: 6px 6px; }
+}
+
+.ps-dd {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: min(520px, calc(100vw - 48px));
+  padding: 28px 24px;
+}
+
+.ps-dd-corner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 0 solid #ff5a1f;
+  opacity: 0;
+  animation: ps-blink-in 0.3s steps(2, end) 0.15s forwards;
+}
+
+.ps-dd-corner--tl { top: 0; left: 0; border-width: 2px 0 0 2px; }
+.ps-dd-corner--tr { top: 0; right: 0; border-width: 2px 2px 0 0; }
+.ps-dd-corner--bl { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+.ps-dd-corner--br { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
+.ps-dd-label {
+  font-family: var(--font-project-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(242, 242, 238, 0.6);
+  opacity: 0;
+  animation: ps-blink-in 0.3s steps(2, end) 0.25s forwards;
+}
+
+.ps-dd-label b { color: #ff5a1f; font-weight: 700; }
+
+.ps-dd-title {
+  font-family: var(--font-dd-display), ui-monospace, monospace;
+  font-weight: 900;
+  font-size: clamp(2.5rem, 11vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  clip-path: inset(0 100% 0 0);
+  animation: ps-dd-scan 0.9s steps(10, end) 0.4s forwards;
+}
+
+@keyframes ps-dd-scan {
+  to { clip-path: inset(0 0 0 0); }
+}
+
+.ps-dd-cells {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 3px;
+}
+
+.ps-dd-cells span {
+  height: 10px;
+  background: rgba(255, 255, 255, 0.1);
+  animation: ps-dd-cell 0.05s steps(1, end) forwards;
+  animation-delay: calc(0.5s + var(--i) * 0.07s);
+}
+
+@keyframes ps-dd-cell {
+  to { background: #ff5a1f; }
+}
+
+.ps-dd-readout {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: var(--font-project-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(242, 242, 238, 0.6);
+}
+
+/* ----- Shared splash keyframes ----- */
+
+@keyframes ps-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: none; }
+}
+
+@keyframes ps-fill {
+  to { transform: scaleX(1); }
+}
+
+@keyframes ps-blink-in {
+  to { opacity: 1; }
+}

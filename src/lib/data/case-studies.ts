@@ -3,156 +3,214 @@ export interface CaseStudySection {
   content: string;
   bullets?: string[];
   image?: string;
+  /** Small label above the title on themed pages, e.g. "Phase 01 / Research" */
+  kicker?: string;
+  /** Extra images shown as a grid on themed pages. Without width/height they're cropped to 16:9. */
+  gallery?: { src: string; alt: string; width?: number; height?: number }[];
 }
+
+export interface CaseStudyLink {
+  label: string;
+  url: string;
+  /** Shown as a disabled "coming soon" badge instead of a link */
+  comingSoon?: boolean;
+}
+
+/** Projects with a theme get their own styled page and splash screen */
+export type CaseStudyTheme = 'iron-pillar' | 'dither-dog';
 
 export interface CaseStudy {
   slug: string;
   overview: string;
   heroImage?: string;
   sections: CaseStudySection[];
-  externalLinks?: {
-    label: string;
-    url: string;
-  }[];
+  externalLinks?: CaseStudyLink[];
+  theme?: CaseStudyTheme;
+  eyebrow?: string;
+  headline?: string;
+  status?: string;
+  stats?: { value: string; label: string }[];
+  roles?: string[];
+  stack?: string[];
 }
 
 export const caseStudies: Record<string, CaseStudy> = {
   'dither-dog': {
     slug: 'dither-dog',
-    overview: 'Dither Dog is a web-based image processing tool that applies customizable dither effects to any uploaded image. This project marks my first fully designed and deployed web application—built from concept to production using Claude Code as my development partner.',
+    theme: 'dither-dog',
+    eyebrow: 'Client-side image, video & GIF processor',
+    headline: 'Dither your\n*whole world.*',
+    overview: 'Dither Dog turns any photo, video, or GIF into pixel-precise art, with dozens of dithering algorithms and color palettes rendered entirely in the browser. It was my first fully designed and deployed web application, and I have kept growing it since: what started as a single-image filter is now a full processing tool with presets, video support, and guides.',
     heroImage: '/Dither dog thumbnail.png',
+    status: 'Live at ditherdog.tech',
+    stats: [
+      { value: '28', label: 'Dither algorithms' },
+      { value: '23', label: 'Color palettes' },
+      { value: '20', label: 'Curated presets' },
+      { value: '100%', label: 'Client-side' },
+    ],
+    roles: ['Product Design', 'UI / UX', 'Front-End Development', 'Project Management', 'Brand'],
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Canvas API', 'Vercel', 'Claude Code'],
     sections: [
       {
-        title: 'Project Overview',
-        content: 'Dither Dog started as a personal challenge: could I design and ship a functional web tool without prior development experience? The answer was yes—by combining my design skills with AI-assisted coding through Claude Code, I built a creative tool that transforms images with retro-inspired halftone and dithering effects.',
+        kicker: 'Origin',
+        title: 'A designer ships a real tool',
+        content: 'Dither Dog started as a personal challenge: could I design and ship a functional web tool without prior development experience? By pairing my design background with AI-assisted coding through Claude Code, I took it from an idea to a deployed product, and then kept iterating on it like a real product rather than a one-off experiment.',
       },
       {
-        title: 'The Concept',
-        content: 'Dithering is a technique that reduces color palettes while maintaining visual detail through patterns of dots or noise. I wanted to create a tool that makes this effect accessible to anyone:',
+        kicker: 'Product',
+        title: 'From one filter to a full workspace',
+        content: 'The first version applied a handful of effects to a single image. The current release is a complete dithering workspace:',
         bullets: [
-          'Drag-and-drop image upload with instant preview',
-          'Multiple dithering algorithms (Floyd-Steinberg, ordered, halftone)',
-          'Customizable color palettes and dot sizes',
-          'Real-time adjustments with live preview',
-          'One-click export to PNG',
+          'Images, videos, and GIFs, all processed in the browser. Nothing is ever uploaded to a server',
+          '28 algorithms across error diffusion (Floyd-Steinberg, Atkinson, Stucki, Sierra), ordered dither (Bayer, blue noise, clustered dot), and artistic patterns (halftone, crosshatch, stipple, spiral)',
+          '23 color palettes, from Game Boy green to cyan-and-magenta print halftone',
+          '20 hand-tuned presets that dial in an algorithm, palette, and contrast curve in one click',
+          'A Guides section that teaches how dithering works, so the tool doubles as a learning resource',
+        ],
+        gallery: [
+          { src: '/dither-dog/workspace-newspaper.jpg', alt: 'Classic Newspaper preset with the Effect & Color controls open', width: 2400, height: 1500 },
+          { src: '/dither-dog/workspace-game-boy.jpg', alt: 'Retro Game Boy preset', width: 2400, height: 1500 },
+          { src: '/dither-dog/workspace-vintage-poster.jpg', alt: 'Vintage Poster preset', width: 2400, height: 1500 },
         ],
       },
       {
-        title: 'Design Process',
-        content: 'The interface needed to be simple enough for casual users but powerful enough for designers seeking specific effects. I designed the UI in Figma first, focusing on a clean, minimal layout that puts the image front and center. The control panel uses intuitive sliders and toggles that provide immediate visual feedback.',
-      },
-      {
-        title: 'Development Journey',
-        content: 'This was my first experience building a complete web application. Using Claude Code, I learned:',
+        kicker: 'Design Direction',
+        title: 'A sleek, robotic instrument panel',
+        content: 'I wanted the interface to feel like precision hardware: something between a lab instrument and a retro terminal. The UI steps back so the artwork carries the color:',
         bullets: [
-          'How to structure a React application with proper component architecture',
-          'Canvas API manipulation for real-time image processing',
-          'State management for handling user inputs and image data',
-          'Deployment workflows using Vercel for continuous deployment',
-          'The importance of performance optimization for smooth user experience',
+          'Near-black canvas with a single signal-orange accent for every primary action',
+          'Dot-matrix display type that echoes the pixel grids the tool produces',
+          'Monospace, all-caps labels and numbered modules (01, 02, 03) that read like machine readouts',
+          'Hard edges, hairline borders, and no rounded corners, so everything feels engineered rather than decorative',
         ],
       },
       {
-        title: 'Technical Challenges',
-        content: 'The biggest hurdles involved real-time image processing performance and browser memory management:',
+        kicker: 'Development',
+        title: 'Learning to build by building',
+        content: 'Dither Dog was where I learned the fundamentals of shipping software:',
         bullets: [
-          'Implemented debounced updates to prevent lag during slider adjustments',
-          'Used Web Workers to offload heavy processing from the main thread',
-          'Optimized canvas operations for handling large images without crashes',
-          'Built responsive design that works across desktop and mobile devices',
+          'Structuring a Next.js and TypeScript app with a reusable component architecture',
+          'Canvas API pixel manipulation for real-time image processing',
+          'State management for algorithm, palette, and contrast settings across images, video frames, and GIFs',
+          'Performance work: debounced updates so sliders stay smooth, and careful canvas handling for large files',
+          'Continuous deployment on Vercel, with the source public on GitHub',
         ],
       },
       {
-        title: 'Key Insights',
-        content: 'This project taught me that the gap between design and development is bridgeable. With the right tools and approach, designers can ship real products:',
+        kicker: 'Project Management',
+        title: 'Small scope, real discipline',
+        content: 'Even as a small, niche project, Dither Dog taught me to run work like a product team of one:',
         bullets: [
-          'Start with a clear, focused scope—one feature done well beats many half-finished',
-          'Design and development inform each other; iteration between both improves the final product',
-          'AI-assisted coding accelerates learning but requires understanding the fundamentals',
-          'Shipping something real, even if imperfect, is more valuable than endless polish in isolation',
+          'Start with a focused core (upload, dither, export), ship it, then expand in deliberate releases',
+          'Prioritize the features that make the tool more useful (presets, video, guides) over ones that only add complexity',
+          'Keep the design system consistent as features grow, so new screens feel native to the product',
+          'Treat feedback and real usage as the roadmap instead of building in isolation',
         ],
       },
       {
-        title: 'Tools Used',
-        content: 'Figma (UI design), React (framework), Canvas API (image processing), Claude Code (development), Vercel (deployment).',
+        kicker: 'Takeaways',
+        title: 'What it taught me',
+        content: 'The gap between design and development is bridgeable. With the right tools and approach, designers can ship real products:',
+        bullets: [
+          'One feature done well beats many half-finished ones',
+          'Design and development inform each other, and iterating between both improves the result',
+          'AI-assisted coding speeds up learning, but understanding the fundamentals is what makes it work',
+          'Shipping something real, then improving it, beats endless polish in isolation',
+        ],
       },
     ],
     externalLinks: [
       { label: 'Try Dither Dog', url: 'https://www.ditherdog.tech/' },
+      { label: 'View Source', url: 'https://github.com/a1080p/Dither-Dog' },
     ],
   },
   'iron-pillar': {
     slug: 'iron-pillar',
-    overview: 'Iron Pillar is a UX/UI design project for a mobile fitness application that transforms workout tracking into an engaging, game-like experience. The app bridges the gap between beginner fitness enthusiasts and sustainable workout habits by combining personalized guidance with motivational gamification mechanics inspired by successful platforms like Duolingo.',
+    theme: 'iron-pillar',
+    eyebrow: 'Workout tracker for iPhone · Solo build',
+    headline: 'Show up.\nStack the *days.*',
+    overview: 'Iron Pillar began as a UX research and design project and became a real iOS app that I designed, built, and brought to the App Store on my own. It logs any workout in seconds, tracks outdoor activity with GPS, and turns consistency into streaks, XP, levels, and badges. As the sole developer, I owned everything: research, UX and UI, brand, mobile and backend engineering, the marketing site, App Store submission, and project management.',
     heroImage: '/iron-pillar-hero.png',
+    status: 'In App Store review',
+    stats: [
+      { value: '1', label: 'Developer, start to finish' },
+      { value: '51', label: 'Badges across 8 groups' },
+      { value: '59', label: 'Jira issues tracked' },
+      { value: '80+', label: 'Commits in 6 weeks' },
+    ],
+    roles: ['UX Research', 'UI / UX Design', 'Brand', 'iOS Development', 'Backend', 'Project Management'],
+    stack: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'Cloud Functions', 'RevenueCat', 'HealthKit', 'Live Activities', 'EAS Build', 'Claude Code'],
     sections: [
       {
-        title: 'Problem Statement',
-        content: 'The fitness app market suffers from high abandonment rates, with users typically falling into three categories experiencing distinct pain points:',
+        kicker: 'Phase 01 / Research',
+        title: 'The problem',
+        content: 'Fitness apps lose most of their users within weeks. Research pointed to three groups with distinct pain points:',
         bullets: [
-          'Fitness beginners feel overwhelmed by gym equipment and lack structured guidance on proper form and progression',
-          'Inconsistent users struggle to maintain motivation after missing workout sessions and need external accountability',
-          'Budget-conscious individuals require flexible, adaptable solutions that work across various fitness contexts',
+          'Beginners feel overwhelmed by equipment and lack structured guidance on form and progression',
+          'Inconsistent users lose motivation after missed sessions and need accountability',
+          'Budget-conscious users need flexible routines that work in any setting, including at home',
         ],
-      },
-      {
-        title: 'Solution',
-        content: 'Iron Pillar occupies a unique market position by combining:',
-        bullets: [
-          'Duolingo-inspired gamification: Streak tracking, achievement systems, daily commitment goals, and celebration animations',
-          'Personalized workout guidance: Structured programs tailored to individual fitness levels with proper form instruction',
-          'Social accountability: Community features that create support without judgment',
-        ],
-      },
-      {
-        title: 'Competitive Analysis',
-        content: 'The competitive analysis revealed a critical gap: apps either gamify without substance or provide tracking without engagement. Iron Pillar\'s strategy positions it at the intersection of motivation and functionality.',
-        image: '/iron-pillar-competitive.png',
-      },
-      {
-        title: 'User Personas',
-        content: 'Research identified key user personas to guide design decisions.',
         image: '/iron-pillar-personas.png',
       },
       {
-        title: 'Design Process',
-        content: 'The storyboard illustrates the complete user experience:',
-        bullets: [
-          'Onboarding: User recognizes need for change and discovers Iron Pillar',
-          'Personalization: Selects experience level (Novice/Intermediate/Pro) and goals',
-          'Structure: Receives tailored workout schedule and beginner-friendly programs',
-          'Execution: Follows guided workouts with proper form demonstrations',
-          'Celebration: Earns badges and medals through consistent progress',
-          'Tracking: Visualizes improvement through progress metrics',
-          'Motivation: Experiences accomplishment and reinforcement',
-          'Retention: Receives timely prompts to maintain streaks',
+        kicker: 'Phase 01 / Research',
+        title: 'Finding the gap',
+        content: 'The competitive analysis showed apps either gamify without substance (Duolingo-style motivation) or track without engagement (Hevy, Strong). Iron Pillar sits at the intersection: real workout guidance wrapped in streaks, XP, and achievements.',
+        image: '/iron-pillar-competitive.png',
+      },
+      {
+        kicker: 'Phase 02 / Design',
+        title: 'Storyboard to prototype',
+        content: 'I mapped the full journey in a storyboard, tested the critical flows with paper prototypes (onboarding, experience level, workout logging, social feed), then built a high-fidelity Figma prototype and a brand system: voice, type, color, and the pillar-and-plates logomark.',
+        gallery: [
+          { src: '/Iron Pillar Pitch Deck/5.png', alt: 'Iron Pillar storyboard' },
+          { src: '/Iron Pillar Pitch Deck/7.png', alt: 'Iron Pillar paper prototypes' },
+          { src: '/Iron Pillar Pitch Deck/8.png', alt: 'Iron Pillar high-fidelity digital prototype' },
+          { src: '/Iron Pillar Pitch Deck/6.png', alt: 'Iron Pillar style guide' },
         ],
       },
       {
-        title: 'Prototype',
-        content: 'High-fidelity prototype showcasing the core user flows and interactions.',
-        image: '/iron-pillar-prototype.png',
-      },
-      {
-        title: 'Key Features',
-        content: 'The final design includes:',
+        kicker: 'Phase 03 / Build',
+        title: 'From Figma to a working app',
+        content: 'I built the app in React Native with Expo and TypeScript, with a Firebase backend. The core rule: anything that affects progress is decided by the server, so streaks and XP can\'t be faked.',
         bullets: [
-          'Personalized dashboard: Displays current streak, recommended workouts, and quick-start options',
-          'Workout guidance: Step-by-step exercise instructions with demonstration images, set/rep/weight tracking',
-          'Achievement system: Badges, medals, and level-up animations celebrating milestones',
-          'Progress visualization: Graphs and statistics showing improvement over time',
-          'Streak protection: Daily reminders and streak freeze features to maintain momentum',
-          'Celebration moments: Smooth animations for workout completions, level-ups, and achievement unlocks',
+          'Server-side game logic: Cloud Functions calculate streaks, XP, levels, personal records, and badges on the server clock, and security rules lock those fields from client writes',
+          'Progression: 51 badges in 8 groups with bronze-to-platinum tiers, personal records from estimated one-rep maxes, plus level-up and streak screens with celebration animations',
+          'Outdoor tracking: GPS route maps for walks, runs, and rides, with lock-screen Live Activities showing the timer, current set, and rest countdown',
+          'Apple Health integration and a Pro daily readiness score that blends recovery, sleep, and training load',
+          'Social layer: friends, activity feed, reactions, and friend profiles, with report, block, and content filtering for safety',
+          'Iron Pillar Pro subscriptions through RevenueCat, verified server-side before awarding 2x XP',
+          'Accessibility pass: WCAG AA contrast tokens and screen-reader roles and labels across every control',
         ],
       },
       {
-        title: 'Conclusion',
-        content: 'Iron Pillar represents a thoughtful approach to solving a persistent problem in the fitness app space. By deeply understanding user pain points across different personas and combining motivational psychology with practical functionality, the design creates a compelling solution for the underserved beginner-to-intermediate fitness market.',
+        kicker: 'Phase 04 / Ship',
+        title: 'Taking it to the App Store',
+        content: 'Shipping meant everything around the code, too. I set up EAS builds and TestFlight, wrote the App Store listing and screenshots, configured subscriptions and privacy disclosures, and responded to App Review. I also designed and launched ironpillar.app, the marketing site with support, privacy, and terms pages, built around the same "pillar" layout concept as the brand.',
+      },
+      {
+        kicker: 'Project Management',
+        title: 'A team of one, run like a team',
+        content: 'With no one else to catch mistakes, process mattered as much as code:',
+        bullets: [
+          'A Jira board with epics and issues for every feature, bug, and submission blocker, groomed after each work session',
+          'A running progress log recording what was built, what was verified, and what was still untested',
+          'A "verify it live" rule: features weren\'t done until they were tested end-to-end against the real backend',
+          'Root-causing process failures, not just bugs. For example, finding that backend deploys had been shipping stale code and adding an automatic pre-deploy build',
+          'Scoping against App Store guidelines early, and deliberately putting lower-value integrations on hold to protect the launch',
+        ],
+      },
+      {
+        kicker: 'Takeaways',
+        title: 'What it taught me',
+        content: 'Iron Pillar took me from designing an app to owning one. Research still shaped every decision, but shipping taught me to think in systems: data models, security, release pipelines, and the many small details between a prototype and a product people can download.',
       },
     ],
     externalLinks: [
+      { label: 'Visit ironpillar.app', url: 'https://www.ironpillar.app/' },
+      { label: 'App Store', url: 'https://apps.apple.com/app/id6817053711', comingSoon: true },
       { label: 'View Pitch Deck', url: 'https://www.behance.net/gallery/236190049/Iron-Pillar-Pitch-Deck' },
-      { label: 'View Competitive Analysis', url: 'https://www.behance.net/gallery/236207299/IRON-PILLAR-Competitive-Analysis' },
     ],
   },
   'whiskey-thief': {
