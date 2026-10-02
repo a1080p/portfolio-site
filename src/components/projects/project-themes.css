@@ -905,6 +905,14 @@ body:has(.pt[data-tone='dark']) footer {
   z-index: 1;
   text-align: center;
   padding: 0 24px;
+  /* Wipe the title shut with the letterbox. Doing it on the title itself (not just covering
+     it with the bars) matters in Safari, which paints the text-sweep layer above the bars. */
+  animation: ps-mgk-wipe 0.45s cubic-bezier(0.65, 0, 0.35, 1) 2.05s forwards;
+}
+
+@keyframes ps-mgk-wipe {
+  from { clip-path: inset(0 0 0 0); opacity: 1; }
+  to { clip-path: inset(50% 0 50% 0); opacity: 0; }
 }
 
 .ps-mgk-kicker {
@@ -923,7 +931,9 @@ body:has(.pt[data-tone='dark']) footer {
   font-size: clamp(2.75rem, 10vw, 5.5rem);
   line-height: 1;
   letter-spacing: -0.02em;
-  background: linear-gradient(100deg, #f4ebe4 40%, #fff 50%, #f4ebe4 60%) 200% 0 / 250% 100% no-repeat;
+  /* 3x-wide gradient: solid ink in the outer thirds, highlight band in the middle third, so the
+     text is fully covered at both ends of the sweep and only the highlight travels across */
+  background: linear-gradient(100deg, #f4ebe4 0%, #f4ebe4 40%, #fff 50%, #f4ebe4 60%, #f4ebe4 100%) 100% 0 / 300% 100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -937,7 +947,7 @@ body:has(.pt[data-tone='dark']) footer {
 .ps-mgk-title em { font-style: italic; color: #d9362b; -webkit-text-fill-color: #d9362b; }
 
 @keyframes ps-mgk-focus { to { opacity: 1; filter: blur(0); } }
-@keyframes ps-mgk-sweep { to { background-position: -50% 0; } }
+@keyframes ps-mgk-sweep { to { background-position: 0% 0; } }
 
 .ps-mgk-slate {
   position: absolute;
@@ -954,7 +964,9 @@ body:has(.pt[data-tone='dark']) footer {
   text-transform: uppercase;
   color: rgba(244, 235, 228, 0.55);
   opacity: 0;
-  animation: ps-blink-in 0.2s steps(2, end) 0.9s forwards;
+  animation:
+    ps-blink-in 0.2s steps(2, end) 0.9s forwards,
+    ps-mgk-wipe 0.45s cubic-bezier(0.65, 0, 0.35, 1) 2.05s forwards;
 }
 
 .ps-mgk-rec::before {
