@@ -79,7 +79,7 @@ export const projects: Project[] = [
     previewLoop: { src: '/dither-dog/demo-preview.mp4', poster: '/dither-dog/demo-poster.jpg' },
     category: 'Graphic Design',
     tags: ['Web App', 'Tool Design', 'Development', 'Project Management'],
-    featured: false,
+    featured: true,
     year: '2025–2026',
     externalLinks: {
       live: 'https://www.ditherdog.tech/',
@@ -107,7 +107,7 @@ export const projects: Project[] = [
     thumbnail: '/lego-architect-thumbnail.png',
     category: 'UX/UI Design',
     tags: ['Product Design', 'Concept', 'Pitch'],
-    featured: true,
+    featured: false,
     year: '2025',
     externalLinks: {
       behance: 'https://www.behance.net/gallery/224263107/Lego-Architect-Interaction-Project/modules/1282739869',

@@ -16,14 +16,14 @@ const featureIcons = {
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3l9 4.5-9 4.5-9-4.5L12 3zm-9 9l9 4.5 9-4.5M3 16.5L12 21l9-4.5" />
     </svg>
   ),
-  start: (
+  ship: (
     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.63 8.41m5.96 5.96a14.93 14.93 0 01-5.84 2.58m0 0a6 6 0 01-7.38-5.84h4.8m2.58-5.84a14.93 14.93 0 00-2.58 5.84M15 9.75a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
     </svg>
   ),
-  flexible: (
+  motion: (
     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 9v6m4-6v6m7-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
     </svg>
   ),
 };
@@ -35,14 +35,14 @@ const features = [
     description: 'One person from first idea to final release: research, design, development, and motion, so nothing gets lost between handoffs.',
   },
   {
-    icon: featureIcons.start,
-    title: 'Start Today',
-    description: 'No lengthy onboarding. Share your brief and I\'ll start working on your project immediately.',
+    icon: featureIcons.ship,
+    title: 'Built to Ship',
+    description: 'Designs that become real, working products. I\'ve taken apps and web tools all the way to launch, so every decision is made with shipping in mind.',
   },
   {
-    icon: featureIcons.flexible,
-    title: 'Pause Anytime',
-    description: 'Flexible engagement that adapts to your needs. Pause or adjust scope as your business evolves.',
+    icon: featureIcons.motion,
+    title: 'Motion-Minded',
+    description: 'Animation and 3D sit alongside the UI. From brand idents built in Blender to interface details, I bring work to life where it counts.',
   },
 ];
 
