@@ -11,9 +11,9 @@ import { skillCategories } from '@/lib/data/skills';
 
 // Feature icons
 const featureIcons = {
-  fast: (
+  endToEnd: (
     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 3l9 4.5-9 4.5-9-4.5L12 3zm-9 9l9 4.5 9-4.5M3 16.5L12 21l9-4.5" />
     </svg>
   ),
   start: (
@@ -30,9 +30,9 @@ const featureIcons = {
 
 const features = [
   {
-    icon: featureIcons.fast,
-    title: 'Fast Turnaround',
-    description: 'Quick delivery without compromising quality. Most projects delivered within 2-3 days.',
+    icon: featureIcons.endToEnd,
+    title: 'Concept to Launch',
+    description: 'One person from first idea to final release: research, design, development, and motion, so nothing gets lost between handoffs.',
   },
   {
     icon: featureIcons.start,
@@ -65,7 +65,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <Hero
         name="Aidan Dombrowski"
-        badge="Graphic Designer"
+        badge="Design · Motion · Development"
         lines={[
           { text: 'I CREATE', style: 'thin' },
           { text: 'DIGITAL', style: 'bold' },
