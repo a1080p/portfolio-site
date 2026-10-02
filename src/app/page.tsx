@@ -58,12 +58,13 @@ const features = [
 
 export default function HomePage() {
   // Transform projects for WorkShowcase
-  const showcaseProjects = featuredProjects.slice(0, 3).map((p) => ({
+  const showcaseProjects = featuredProjects.slice(0, 5).map((p) => ({
     title: p.title,
     category: p.category,
     thumbnail: p.thumbnail,
     thumbnailFit: p.thumbnailFit,
     videoPreview: p.videoPreview,
+    previewLoop: p.previewLoop,
     href: `/work/${p.slug}`,
     theme: p.theme,
     tagline: p.tagline,

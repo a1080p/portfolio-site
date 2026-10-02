@@ -102,6 +102,11 @@
 
 .pc-show--compact .pc-show-tagline { font-size: clamp(1.25rem, 2.4vw, 1.875rem); }
 
+/* Shorter cards put the text higher, so the overlay climbs higher too */
+.pc-show--compact .pc-show-overlay {
+  background: linear-gradient(to top, color-mix(in srgb, var(--pt-bg) 95%, transparent) 0%, color-mix(in srgb, var(--pt-bg) 80%, transparent) 45%, transparent 85%);
+}
+
 .pc-show-arrow {
   display: grid;
   place-items: center;

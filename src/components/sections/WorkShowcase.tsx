@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils/cn';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { AccentText } from '@/components/projects/AccentText';
+import { AutoplayPreview } from '@/components/projects/AutoplayPreview';
 import { projectFontVariables } from '@/lib/fonts/project-fonts';
 import type { CaseStudyTheme } from '@/lib/data/case-studies';
 import '@/components/projects/project-themes.css';
@@ -17,6 +18,7 @@ interface Project {
   thumbnail: string;
   thumbnailFit?: 'cover' | 'contain';
   videoPreview?: string;
+  previewLoop?: { src: string; poster: string };
   href: string;
   featured?: boolean;
   /** Skins the card in the project's own style */
@@ -38,6 +40,7 @@ function VideoProjectCard({
   titleSize = 'text-lg',
   buttonSize = 'w-10 h-10',
   iconSize = 'w-4 h-4',
+  compact = false,
 }: {
   project: Project;
   aspectRatio?: string;
@@ -45,6 +48,8 @@ function VideoProjectCard({
   titleSize?: string;
   buttonSize?: string;
   iconSize?: string;
+  /** Smaller tagline type for the lower row */
+  compact?: boolean;
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -66,7 +71,6 @@ function VideoProjectCard({
 
   const useContain = project.thumbnailFit === 'contain';
   const themed = Boolean(project.theme);
-  const compact = aspectRatio !== '16/9';
 
   return (
     <Link
@@ -83,37 +87,35 @@ function VideoProjectCard({
           themed ? cn('pc-show', compact && 'pc-show--compact') : "relative rounded-2xl overflow-hidden bg-stone-200",
           !useContain && "w-full"
         )}
-        style={useContain ? undefined : { aspectRatio }}
+        style={{ aspectRatio }}
       >
-        {useContain ? (
-          <Image
-            src={project.thumbnail}
-            alt={project.title}
-            width={1200}
-            height={800}
-            className={cn(
-              "w-full h-auto transition-all duration-500",
-              isHovered && project.videoPreview ? "opacity-0" : "opacity-100 group-hover:scale-105"
-            )}
+        {project.previewLoop ? (
+          <AutoplayPreview
+            src={project.previewLoop.src}
+            poster={project.previewLoop.poster}
+            label={`${project.title} preview`}
           />
         ) : (
           <Image
             src={project.thumbnail}
             alt={project.title}
             fill
+            sizes="(min-width: 768px) 50vw, 100vw"
             className={cn(
-              "object-cover transition-all duration-500",
+              "transition-all duration-500",
+              useContain ? "object-contain" : "object-cover",
               isHovered && project.videoPreview ? "opacity-0" : "opacity-100 group-hover:scale-105"
             )}
           />
         )}
-        {project.videoPreview && (
+        {project.videoPreview && !project.previewLoop && (
           <video
             ref={videoRef}
             src={project.videoPreview}
             muted
             loop
             playsInline
+            preload="none"
             className={cn(
               "absolute inset-0 w-full h-full object-cover transition-opacity duration-300",
               isHovered ? "opacity-100" : "opacity-0"
@@ -178,9 +180,9 @@ export function WorkShowcase({
   className,
   id,
 }: WorkShowcaseProps) {
-  // Split projects: first one featured, rest in grid
-  const featuredProject = projects[0];
-  const gridProjects = projects.slice(1, 3);
+  // Two headline projects side by side, then the rest in a smaller row
+  const headlineProjects = projects.slice(0, 2);
+  const gridProjects = projects.slice(2, 5);
 
   return (
     <section id={id} className={cn('py-16 sm:py-20 lg:py-28', className)}>
@@ -192,31 +194,34 @@ export function WorkShowcase({
           </h2>
         </ScrollReveal>
 
-        {/* Featured Project - Full Width */}
-        {featuredProject && (
-          <ScrollReveal className="mb-4 sm:mb-6">
-            <VideoProjectCard
-              project={featuredProject}
-              aspectRatio="16/9"
-              contentPadding="p-4 sm:p-6 lg:p-8"
-              titleSize="text-base sm:text-lg"
-              buttonSize="w-8 h-8 sm:w-10 sm:h-10"
-              iconSize="w-3 h-3 sm:w-4 sm:h-4"
-            />
-          </ScrollReveal>
-        )}
-
-        {/* Grid Projects - 2 Column */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-          {gridProjects.map((project, index) => (
+        {/* Headline Projects - 2 Column */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-4 sm:mb-6">
+          {headlineProjects.map((project, index) => (
             <ScrollReveal key={project.href} delay={index * 100}>
               <VideoProjectCard
                 project={project}
                 aspectRatio="4/3"
-                contentPadding="p-4 sm:p-6"
+                contentPadding="p-4 sm:p-6 lg:p-8"
+                titleSize="text-base sm:text-lg"
+                buttonSize="w-8 h-8 sm:w-10 sm:h-10"
+                iconSize="w-3 h-3 sm:w-4 sm:h-4"
+              />
+            </ScrollReveal>
+          ))}
+        </div>
+
+        {/* More Projects - 3 Column */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
+          {gridProjects.map((project, index) => (
+            <ScrollReveal key={project.href} delay={index * 100}>
+              <VideoProjectCard
+                project={project}
+                aspectRatio="16/10"
+                contentPadding="p-4 sm:p-5"
                 titleSize="text-sm sm:text-base"
                 buttonSize="w-8 h-8"
                 iconSize="w-3 h-3"
+                compact
               />
             </ScrollReveal>
           ))}
