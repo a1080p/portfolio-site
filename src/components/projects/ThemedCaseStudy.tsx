@@ -4,6 +4,7 @@ import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { ProjectSplash } from '@/components/projects/ProjectSplash';
 import { AccentText } from '@/components/projects/AccentText';
+import { AutoplayPreview } from '@/components/projects/AutoplayPreview';
 import { projectFontVariables } from '@/lib/fonts/project-fonts';
 import type { Project } from '@/lib/data/projects';
 import type { CaseStudy, CaseStudyLink, CaseStudyTheme } from '@/lib/data/case-studies';
@@ -143,14 +144,22 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
             <ScrollReveal delay={100}>
               <div className="pt-frame">
                 <div className="pt-media relative aspect-video">
-                  <Image
-                    src={caseStudy.heroImage ?? project.thumbnail}
-                    alt={`${project.title} preview`}
-                    fill
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="object-cover"
-                    priority
-                  />
+                  {project.previewLoop ? (
+                    <AutoplayPreview
+                      src={project.previewLoop.src}
+                      poster={project.previewLoop.poster}
+                      label={`${project.title} demo preview`}
+                    />
+                  ) : (
+                    <Image
+                      src={caseStudy.heroImage ?? project.thumbnail}
+                      alt={`${project.title} preview`}
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover"
+                      priority
+                    />
+                  )}
                 </div>
               </div>
               <dl className="grid grid-cols-2 gap-4 mt-6">

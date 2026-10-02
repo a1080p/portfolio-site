@@ -62,6 +62,7 @@ export default function WorkPage() {
                   thumbnail={project.thumbnail}
                   thumbnailFit={project.thumbnailFit}
                   videoPreview={project.videoPreview}
+                  previewLoop={project.previewLoop}
                   href={`/work/${project.slug}`}
                   tags={project.tags}
                   category={project.category}

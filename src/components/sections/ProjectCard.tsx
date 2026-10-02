@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils/cn';
 import { AccentText } from '@/components/projects/AccentText';
+import { AutoplayPreview } from '@/components/projects/AutoplayPreview';
 import { projectFontVariables } from '@/lib/fonts/project-fonts';
 import type { CaseStudyTheme } from '@/lib/data/case-studies';
 import '@/components/projects/project-themes.css';
@@ -16,6 +17,7 @@ interface ProjectCardProps {
   thumbnail: string;
   thumbnailFit?: 'cover' | 'contain';
   videoPreview?: string;
+  previewLoop?: { src: string; poster: string };
   href: string;
   tags: string[];
   category?: string;
@@ -31,6 +33,7 @@ export function ProjectCard({
   thumbnail,
   thumbnailFit = 'cover',
   videoPreview,
+  previewLoop,
   href,
   tags,
   category,
@@ -56,7 +59,9 @@ export function ProjectCard({
     }
   };
 
-  const media = (
+  const media = previewLoop ? (
+    <AutoplayPreview src={previewLoop.src} poster={previewLoop.poster} label={`${title} demo preview`} />
+  ) : (
     <>
       <Image
         src={thumbnail}
@@ -94,34 +99,32 @@ export function ProjectCard({
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-        <div className="pt-frame">
-          <article className="pc-card">
-            <div className="pc-media">{media}</div>
-            <div className="pc-body pt-plate pt-texture">
-              {category && <p className="pt-eyebrow">{category}</p>}
-              <h3 className="pt-display pc-title">{title}</h3>
-              {tagline && (
-                <p className="pt-display text-lg sm:text-xl mt-2 pt-muted">
-                  <AccentText text={tagline} />
-                </p>
-              )}
-              <p className="pt-muted text-sm leading-relaxed line-clamp-2 mt-3">{description}</p>
-              <ul className="flex flex-wrap gap-2 mt-4">
-                {tags.map((tag) => (
-                  <li key={tag} className="pt-chip">
-                    {tag}
-                  </li>
-                ))}
-              </ul>
-              <span className="pc-cta">
-                View project
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </span>
-            </div>
-          </article>
-        </div>
+        <article className="pc-card">
+          <div className="pc-media">{media}</div>
+          <div className="pc-body pt-plate pt-texture">
+            {category && <p className="pt-eyebrow">{category}</p>}
+            <h3 className="pt-display pc-title">{title}</h3>
+            {tagline && (
+              <p className="pt-display text-lg sm:text-xl mt-2 pt-muted">
+                <AccentText text={tagline} />
+              </p>
+            )}
+            <p className="pt-muted text-sm leading-relaxed line-clamp-2 mt-3">{description}</p>
+            <ul className="flex flex-wrap gap-2 mt-4">
+              {tags.map((tag) => (
+                <li key={tag} className="pt-chip">
+                  {tag}
+                </li>
+              ))}
+            </ul>
+            <span className="pc-cta">
+              View project
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </span>
+          </div>
+        </article>
       </Link>
     );
   }

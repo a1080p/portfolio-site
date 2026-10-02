@@ -7,6 +7,8 @@ export interface Project {
   thumbnail: string;
   thumbnailFit?: 'cover' | 'contain';
   videoPreview?: string;
+  /** Light silent loop that plays on its own (card + page hero), not just on hover */
+  previewLoop?: { src: string; poster: string };
   category: 'UX/UI Design' | 'Motion Design' | 'Graphic Design';
   tags: string[];
   featured: boolean;
@@ -74,6 +76,7 @@ export const projects: Project[] = [
     description: 'My first fully deployed web application, grown into a complete client-side tool that turns any photo, video, or GIF into pixel-precise art. Dither Dog offers 28 dithering algorithms, 23 color palettes, and 20 curated presets, all rendered in the browser, wrapped in a sleek, robotic interface I designed and built myself.',
     thumbnail: '/Dither dog thumbnail.png',
     videoPreview: '/Final Preview.mp4',
+    previewLoop: { src: '/dither-dog/demo-preview.mp4', poster: '/dither-dog/demo-poster.jpg' },
     category: 'Graphic Design',
     tags: ['Web App', 'Tool Design', 'Development', 'Project Management'],
     featured: false,

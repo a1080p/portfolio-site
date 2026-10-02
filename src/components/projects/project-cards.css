@@ -1,5 +1,7 @@
 /*
- * Themed project cards. A card carries its project's theme class (pt--*) for the
+ * Themed project cards. Every card shares the same outer shape (radius, border,
+ * hover lift) so the grid reads as one set; personality lives inside the card.
+ * A card carries its project's theme class (pt--*) for the
  * tokens in project-themes.css, but not the page-level .pt class, so it never
  * recolors the page around it. Dividers (.pt-plate), textures (.pt-texture),
  * and frames (.pt-frame) come from the same theme rules as the case study pages.
@@ -12,7 +14,6 @@
   font-family: var(--pt-body);
 }
 
-.pc .pt-frame { height: 100%; margin-inline: 0; }
 
 .pc-card {
   display: flex;
@@ -21,7 +22,7 @@
   overflow: hidden;
   background: var(--pt-bg);
   border: 1px solid var(--pt-line);
-  border-radius: calc(var(--pt-radius) + 4px);
+  border-radius: 12px;
   transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
 }
 
@@ -79,7 +80,7 @@
 .pc-show {
   position: relative;
   overflow: hidden;
-  border-radius: calc(var(--pt-radius) + 8px);
+  border-radius: 16px;
   background: var(--pt-surface);
   transition: box-shadow 300ms ease;
 }
@@ -112,9 +113,6 @@
   color: var(--pt-ink);
   transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
 }
-
-.pt--dither-dog .pc-show-arrow,
-.pt--mgk-dossier .pc-show-arrow { border-radius: 0; }
 
 .pc:hover .pc-show-arrow {
   background: var(--pt-accent);
