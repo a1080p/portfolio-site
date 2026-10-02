@@ -71,7 +71,7 @@ export const projects: Project[] = [
   {
     slug: 'lego-architect',
     title: 'LEGO Architect',
-    description: 'A visionary product concept that reimagines LEGO for architectural professionals. This precision-scaled modular building system bridges the gap between physical model-making and digital design, featuring 1:100 scale components that snap together with architectural accuracy. The companion app syncs physical builds to 3D digital models in real-time, enabling architects to iterate on designs tangibly before committing to CAD. Pitched as a professional tool for client presentations and spatial planning.',
+    description: 'An app concept that transforms play into real world creation. Build furniture or architectural pieces with LEGO bricks, scan the model with your phone, see it rendered in real materials with live cost estimates, then order it from a local craftsperson. LEGO Architect makes custom design accessible using a tool already in millions of homes.',
     thumbnail: '/lego-architect-thumbnail.png',
     category: 'UX/UI Design',
     tags: ['Product Design', 'Concept', 'Pitch'],

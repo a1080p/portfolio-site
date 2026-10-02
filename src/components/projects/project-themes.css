@@ -48,24 +48,28 @@
 }
 
 /* Page-level chrome (body, scrolled navbar, footer) while a themed page is open */
-body:has(.pt--iron-pillar) { background: #0d0f1e; }
-body:has(.pt--dither-dog) { background: #000000; }
+body:has(.pt--iron-pillar) { background: #0d0f1e; --pt-chrome: 13, 15, 30; }
+body:has(.pt--dither-dog) { background: #000000; --pt-chrome: 0, 0, 0; }
+body:has(.pt--mgk-dossier) { background: #0a0707; --pt-chrome: 10, 7, 7; }
+body:has(.pt--whiskey-thief) { background: #211d1a; --pt-chrome: 33, 29, 26; }
+body:has(.pt--lego-architect) { background: #fff8f2; }
 
-body:has(.pt) {
+/* Dark themes recolor the shared navbar and footer; light themes keep the defaults */
+body:has(.pt[data-tone='dark']) {
   --color-text-primary: #f2f2ee;
   --color-text-secondary: rgba(242, 242, 238, 0.65);
 }
 
-body:has(.pt) header[role='banner'][class*='bg-white'] {
-  background-color: rgba(10, 11, 20, 0.72);
+body:has(.pt[data-tone='dark']) header[role='banner'][class*='bg-white'] {
+  background-color: rgba(var(--pt-chrome), 0.75);
   border-color: rgba(255, 255, 255, 0.08);
 }
 
-body:has(.pt) #mobile-menu {
-  background-color: rgba(10, 11, 20, 0.94);
+body:has(.pt[data-tone='dark']) #mobile-menu {
+  background-color: rgba(var(--pt-chrome), 0.95);
 }
 
-body:has(.pt) footer {
+body:has(.pt[data-tone='dark']) footer {
   background: transparent;
   border-color: rgba(255, 255, 255, 0.08);
 }
@@ -152,7 +156,7 @@ body:has(.pt) footer {
 /* Dither Dog: hairline modules with a dot-matrix texture */
 .pt--dither-dog .pt-plate { border-top: 1px solid var(--pt-line); }
 
-.pt--dither-dog .pt-dots {
+.pt--dither-dog .pt-texture {
   background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.14) 1px, transparent 0);
   background-size: 6px 6px;
 }
@@ -577,3 +581,582 @@ body:has(.pt) footer {
 @keyframes ps-blink-in {
   to { opacity: 1; }
 }
+
+/* ======================================================================
+ * MGK x Dossier: a late-night luxury fragrance spot.
+ * Near-black with a desert-sunset glow, Bodoni type, "lost americana" red.
+ * ==================================================================== */
+
+.pt--mgk-dossier {
+  --pt-bg: #0a0707;
+  --pt-surface: #140e0d;
+  --pt-ink: #f4ebe4;
+  --pt-muted: rgba(244, 235, 228, 0.64);
+  --pt-line: rgba(244, 235, 228, 0.13);
+  --pt-accent: #d9362b;          /* lost americana red */
+  --pt-accent-ink: #fff8f3;
+  --pt-accent-2: #eaa892;        /* sunset peach */
+  --pt-accent-2-soft: rgba(217, 54, 43, 0.14);
+  --pt-display: var(--font-mgk-display), 'Didot', 'Bodoni 72', Georgia, serif;
+  --pt-body: var(--font-sans);
+  --pt-mono: var(--font-project-mono), ui-monospace, monospace;
+  --pt-radius: 0px;
+}
+
+.pt--mgk-dossier .pt-display {
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.pt--mgk-dossier .pt-display .pt-accent { font-style: italic; }
+.pt--mgk-dossier .pt-h1 { font-size: clamp(3rem, 8.5vw, 6rem); }
+
+.pt--mgk-dossier .pt-eyebrow { letter-spacing: 0.24em; }
+
+.pt--mgk-dossier .pt-texture {
+  position: relative;
+  isolation: isolate;
+  background:
+    radial-gradient(ellipse 55% 60% at 85% 15%, rgba(217, 54, 43, 0.24), transparent 70%),
+    radial-gradient(ellipse 45% 40% at 5% 95%, rgba(234, 168, 146, 0.10), transparent 70%);
+}
+
+/* Film grain */
+.pt--mgk-dossier .pt-texture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.09;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.pt--mgk-dossier .pt-plate { border-top: 1px solid var(--pt-line); }
+
+.pt--mgk-dossier .pt-media {
+  border: 0;
+  box-shadow: 0 40px 90px -30px rgba(217, 54, 43, 0.45);
+}
+
+.pt--mgk-dossier .pt-btn,
+.pt--mgk-dossier .pt-chip {
+  border-radius: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+}
+
+.pt--mgk-dossier .pt-btn { font-size: 0.75rem; font-weight: 600; }
+
+.pt--mgk-dossier .pt-stat-value {
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);
+}
+
+.pt--mgk-dossier .pt-stat:first-child .pt-stat-value { color: var(--pt-accent); }
+
+.pt--mgk-dossier .pt-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--pt-accent);
+}
+
+/* ======================================================================
+ * Whiskey Thief: a bourbon label.
+ * Charcoal barrel wood, rust and amber, slab signage, typewriter notes.
+ * ==================================================================== */
+
+.pt--whiskey-thief {
+  --pt-bg: #211d1a;
+  --pt-surface: #2c2724;
+  --pt-ink: #f1e7d6;
+  --pt-muted: rgba(241, 231, 214, 0.68);
+  --pt-line: rgba(241, 231, 214, 0.18);
+  --pt-accent: #e0a043;          /* bourbon amber */
+  --pt-accent-ink: #211d1a;
+  --pt-accent-2: #e0a043;
+  --pt-accent-2-soft: rgba(196, 71, 42, 0.22);
+  --wt-rust: #c4472a;
+  --pt-display: var(--font-wt-display), 'Rockwell', Georgia, serif;
+  --pt-body: var(--font-sans);
+  --pt-mono: var(--font-wt-mono), 'Courier New', monospace;
+  --pt-radius: 3px;
+}
+
+.pt--whiskey-thief .pt-display {
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  line-height: 0.98;
+}
+
+.pt--whiskey-thief .pt-eyebrow { letter-spacing: 0.08em; }
+
+.pt--whiskey-thief .pt-texture {
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(224, 160, 67, 0.13), transparent 70%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.018) 0 2px, transparent 2px 11px);
+}
+
+/* Double rule with a label star, like the border of a bottle label */
+.pt--whiskey-thief .pt-plate {
+  position: relative;
+  border-top: 4px double var(--pt-line);
+}
+
+.pt--whiskey-thief .pt-plate::before {
+  content: '✦';
+  position: absolute;
+  top: -0.8em;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 0.75rem;
+  background: var(--pt-bg);
+  color: var(--wt-rust);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.pt--whiskey-thief .pt-media {
+  outline: 1px solid var(--pt-line);
+  outline-offset: 6px;
+}
+
+.pt--whiskey-thief .pt-frame { margin-inline: 7px; }
+.pt--whiskey-thief .pt-h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); }
+
+.pt--whiskey-thief .pt-btn {
+  border-radius: 2px;
+  font-family: var(--pt-display);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pt--whiskey-thief .pt-btn--ghost { border: 3px double var(--pt-line); }
+
+.pt--whiskey-thief .pt-chip { border-radius: 2px; }
+
+.pt--whiskey-thief .pt-chip--accent {
+  color: var(--pt-ink);
+  border-color: rgba(196, 71, 42, 0.5);
+}
+
+.pt--whiskey-thief .pt-stat-value { font-weight: 700; }
+.pt--whiskey-thief .pt-stat:first-child .pt-stat-value { color: var(--pt-accent); }
+
+.pt--whiskey-thief .pt-bullets li::before {
+  content: '✦';
+  position: absolute;
+  left: 0.2rem;
+  top: 0.15em;
+  font-size: 0.8rem;
+  color: var(--wt-rust);
+}
+
+/* ======================================================================
+ * LEGO Architect: playful, bright, and buildable.
+ * Warm white baseplate, primary-colored bricks, chunky Montserrat.
+ * ==================================================================== */
+
+.pt--lego-architect {
+  --pt-bg: #fff8f2;
+  --pt-surface: #ffffff;
+  --pt-ink: #1b1b1f;
+  --pt-muted: #57515c;
+  --pt-line: #eadbd0;
+  --pt-accent: #d6000a;          /* brick red (AA on the light background) */
+  --pt-accent-ink: #ffffff;
+  --pt-accent-2: #0062a8;        /* brick blue */
+  --pt-accent-2-soft: #e3effa;
+  --lego-yellow: #ffcf00;
+  --lego-green: #00852b;
+  --pt-display: var(--font-lego-display), 'Arial Black', sans-serif;
+  --pt-body: var(--font-lego-display), var(--font-sans);
+  --pt-mono: var(--font-lego-display), var(--font-sans);
+  --pt-radius: 14px;
+}
+
+.pt--lego-architect .pt-display {
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 0.98;
+}
+
+.pt--lego-architect .pt-h1 { font-size: clamp(2.5rem, 6.2vw, 4.5rem); }
+
+.pt--lego-architect .pt-mono,
+.pt--lego-architect .pt-eyebrow {
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+/* Baseplate studs */
+.pt--lego-architect .pt-texture {
+  background-image: radial-gradient(circle at 14px 14px, rgba(214, 0, 10, 0.07) 6px, transparent 6.5px);
+  background-size: 28px 28px;
+}
+
+/* Red / yellow / blue brick strip between sections */
+.pt--lego-architect .pt-plate {
+  border-top: 8px solid;
+  border-image: linear-gradient(90deg, #d6000a 0 33.3%, #ffcf00 33.3% 66.6%, #0062a8 66.6%) 1;
+}
+
+/* Studs on top of every framed image, so media sits like a brick */
+.pt--lego-architect .pt-frame { margin-top: 10px; }
+
+.pt--lego-architect .pt-frame::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 18px;
+  right: 18px;
+  height: 10px;
+  background: radial-gradient(ellipse 9px 10px at 50% 100%, var(--pt-accent) 96%, transparent 100%) 0 0 / 36px 10px repeat-x;
+}
+
+.pt--lego-architect .pt-media {
+  border: 0;
+  box-shadow: 0 0 0 1px var(--pt-line), 0 8px 0 rgba(27, 27, 31, 0.08);
+}
+
+.pt--lego-architect .pt-btn { border-radius: 10px; font-weight: 800; }
+.pt--lego-architect .pt-btn--primary { box-shadow: 0 4px 0 #8f0007; }
+.pt--lego-architect .pt-btn--ghost {
+  background: #fff;
+  border: 2px solid var(--pt-ink);
+  box-shadow: 0 4px 0 var(--pt-ink);
+}
+
+.pt--lego-architect .pt-btn:active { transform: translateY(3px); box-shadow: none; }
+
+.pt--lego-architect .pt-chip {
+  border-radius: 8px;
+  font-weight: 700;
+  background: #fff;
+}
+
+.pt--lego-architect .pt-chip--accent {
+  background: var(--lego-yellow);
+  color: var(--pt-ink);
+  border-color: transparent;
+}
+
+.pt--lego-architect .pt-stat-value {
+  font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+  letter-spacing: -0.03em;
+}
+
+.pt--lego-architect .pt-stat:nth-child(1) .pt-stat-value { color: #d6000a; }
+.pt--lego-architect .pt-stat:nth-child(2) .pt-stat-value { color: #b58900; }
+.pt--lego-architect .pt-stat:nth-child(3) .pt-stat-value { color: #0062a8; }
+.pt--lego-architect .pt-stat:nth-child(4) .pt-stat-value { color: var(--lego-green); }
+
+/* Round stud bullets in rotating brick colors */
+.pt--lego-architect .pt-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0.2rem;
+  top: 0.35em;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #d6000a;
+  box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.15);
+}
+
+.pt--lego-architect .pt-bullets li:nth-child(3n + 2)::before { background: var(--lego-yellow); }
+.pt--lego-architect .pt-bullets li:nth-child(3n + 3)::before { background: #0062a8; }
+
+/* ----- MGK splash: letterbox opens on a sunset, title lands, letterbox closes ----- */
+
+.ps--mgk-dossier {
+  background:
+    radial-gradient(ellipse 70% 60% at 50% 45%, rgba(217, 54, 43, 0.35), transparent 70%),
+    #0a0707;
+  color: #f4ebe4;
+  animation: ps-hide 0s linear 2.6s forwards;
+}
+
+.ps-mgk-bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 50.5%;
+  background: #000;
+  z-index: 2;
+  animation:
+    ps-mgk-open 0.9s cubic-bezier(0.65, 0, 0.35, 1) 0.1s forwards,
+    ps-mgk-close 0.45s cubic-bezier(0.65, 0, 0.35, 1) 2.05s forwards;
+}
+
+.ps-mgk-bar--top { top: 0; }
+.ps-mgk-bar--bottom { bottom: 0; }
+
+@keyframes ps-mgk-open { to { height: 13vh; } }
+@keyframes ps-mgk-close { from { height: 13vh; } to { height: 50.5%; } }
+
+.ps-mgk {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.ps-mgk-kicker {
+  font-family: var(--font-project-mono), ui-monospace, monospace;
+  font-size: 0.6875rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #eaa892;
+  opacity: 0;
+  animation: ps-fade-up 0.6s ease 0.55s forwards;
+}
+
+.ps-mgk-title {
+  margin-top: 14px;
+  font-family: var(--font-mgk-display), Didot, Georgia, serif;
+  font-size: clamp(2.75rem, 10vw, 5.5rem);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(100deg, #f4ebe4 40%, #fff 50%, #f4ebe4 60%) 200% 0 / 250% 100% no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0;
+  filter: blur(8px);
+  animation:
+    ps-mgk-focus 0.9s ease 0.6s forwards,
+    ps-mgk-sweep 1s ease 1.15s forwards;
+}
+
+.ps-mgk-title em { font-style: italic; color: #d9362b; -webkit-text-fill-color: #d9362b; }
+
+@keyframes ps-mgk-focus { to { opacity: 1; filter: blur(0); } }
+@keyframes ps-mgk-sweep { to { background-position: -50% 0; } }
+
+.ps-mgk-slate {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: calc(13vh + 14px);
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  z-index: 3;
+  font-family: var(--font-project-mono), ui-monospace, monospace;
+  font-size: 0.625rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(244, 235, 228, 0.55);
+  opacity: 0;
+  animation: ps-blink-in 0.2s steps(2, end) 0.9s forwards;
+}
+
+.ps-mgk-rec::before {
+  content: '';
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 50%;
+  background: #d9362b;
+  animation: ps-mgk-rec 0.8s steps(2, jump-none) infinite;
+}
+
+@keyframes ps-mgk-rec { 50% { opacity: 0.2; } }
+
+.ps--mgk-dossier .ps-skip { z-index: 4; border-radius: 0; }
+
+/* ----- Whiskey Thief splash: a rocks glass fills with bourbon, the label is stamped ----- */
+
+.ps--whiskey-thief {
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 40%, rgba(224, 160, 67, 0.16), transparent 70%),
+    #211d1a;
+  color: #f1e7d6;
+  animation:
+    ps-wt-exit 0.5s ease-in 2s forwards,
+    ps-hide 0s linear 2.6s forwards;
+}
+
+@keyframes ps-wt-exit { to { opacity: 0; transform: translateY(-24px); } }
+
+.ps-wt {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  text-align: center;
+}
+
+.ps-wt-glass {
+  position: relative;
+  width: 92px;
+  height: 96px;
+  border: 3px solid #f1e7d6;
+  border-top: 0;
+  border-radius: 0 0 16px 16px;
+  overflow: hidden;
+}
+
+/* Thick glass base */
+.ps-wt-glass::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 12px;
+  background: rgba(241, 231, 214, 0.3);
+}
+
+.ps-wt-liquid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
+  background: linear-gradient(180deg, #e8ac4f, #a8561f);
+  animation: ps-wt-pour 1.3s cubic-bezier(0.3, 0, 0.2, 1) 0.2s forwards;
+}
+
+/* Surface ripple */
+.ps-wt-liquid::before {
+  content: '';
+  position: absolute;
+  top: -5px;
+  left: -10%;
+  width: 120%;
+  height: 10px;
+  border-radius: 50%;
+  background: #f0bd68;
+}
+
+@keyframes ps-wt-pour { to { height: 64%; } }
+
+.ps-wt-name {
+  font-family: var(--font-wt-display), Rockwell, Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2rem, 8vw, 3rem);
+  line-height: 0.95;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: scale(1.15);
+  animation: ps-wt-stamp 0.35s cubic-bezier(0.2, 0.8, 0.3, 1.2) 0.95s forwards;
+}
+
+.ps-wt-name small {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.5em;
+  letter-spacing: 0.12em;
+}
+
+@keyframes ps-wt-stamp { to { opacity: 1; transform: scale(1); } }
+
+.ps-wt-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-wt-mono), 'Courier New', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: rgba(241, 231, 214, 0.7);
+  opacity: 0;
+  animation: ps-blink-in 0.4s ease 1.3s forwards;
+}
+
+.ps-wt-meta span:nth-child(2) { color: #c4472a; }
+
+.ps--whiskey-thief .ps-skip { border-radius: 2px; }
+
+/* ----- LEGO splash: bricks drop and stack, then the sign snaps on top ----- */
+
+.ps--lego-architect {
+  background:
+    radial-gradient(circle at 14px 14px, rgba(0, 0, 0, 0.06) 6px, transparent 6.5px) 0 0 / 28px 28px,
+    #ffcf00;
+  color: #1b1b1f;
+  animation:
+    ps-lego-exit 0.5s cubic-bezier(0.7, 0, 0.84, 0) 2.05s forwards,
+    ps-hide 0s linear 2.6s forwards;
+}
+
+@keyframes ps-lego-exit { to { transform: translateY(100%); } }
+
+.ps-lego {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  text-align: center;
+  padding: 0 24px;
+}
+
+.ps-lego-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+.ps-lego-brick {
+  position: relative;
+  width: var(--w, 128px);
+  height: 36px;
+  margin-left: var(--x, 0);
+  /* Upper bricks sit over the studs of the brick below */
+  z-index: var(--i);
+  border-radius: 4px;
+  background: var(--c);
+  box-shadow: inset 0 -6px 0 rgba(0, 0, 0, 0.18);
+  transform: translateY(-110vh);
+  animation: ps-lego-drop 0.5s cubic-bezier(0.34, 1.4, 0.64, 1) forwards;
+  animation-delay: calc(0.15s + var(--i) * 0.16s);
+}
+
+.ps-lego-brick::before {
+  content: '';
+  position: absolute;
+  top: -9px;
+  left: 7px;
+  right: 7px;
+  height: 10px;
+  background: radial-gradient(ellipse 9px 10px at 50% 100%, var(--c) 96%, transparent 100%) 0 0 / 28.5px 10px repeat-x;
+}
+
+@keyframes ps-lego-drop { to { transform: translateY(0); } }
+
+.ps-lego-sign {
+  padding: 12px 20px 14px;
+  border-radius: 6px;
+  background: #d6000a;
+  box-shadow: 0 0 0 4px #ffcf00, 0 0 0 7px #1b1b1f;
+  font-family: var(--font-lego-display), 'Arial Black', sans-serif;
+  font-weight: 900;
+  font-style: italic;
+  font-size: clamp(1.75rem, 7vw, 2.5rem);
+  line-height: 0.95;
+  color: #fff;
+  -webkit-text-stroke: 6px #1b1b1f;
+  paint-order: stroke fill;
+  text-transform: uppercase;
+  transform: scale(0);
+  animation: ps-lego-pop 0.4s cubic-bezier(0.34, 1.6, 0.64, 1) 0.95s forwards;
+}
+
+@keyframes ps-lego-pop { to { transform: scale(1) rotate(-3deg); } }
+
+.ps-lego-tagline {
+  font-family: var(--font-lego-display), sans-serif;
+  font-weight: 800;
+  font-size: 0.9375rem;
+  opacity: 0;
+  animation: ps-fade-up 0.4s ease 1.3s forwards;
+}
+
+.ps--lego-architect .ps-skip { border-radius: 10px; border-width: 2px; opacity: 0.8; }

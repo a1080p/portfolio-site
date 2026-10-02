@@ -63,7 +63,7 @@ export function ProjectSplash({ theme, slug, year }: ProjectSplashProps) {
         onClick={() => setDone(true)}
         role="presentation"
       >
-        {theme === 'iron-pillar' ? <IronPillarSplash year={year} /> : <DitherDogSplash />}
+        <SplashContent theme={theme} year={year} />
         <button
           type="button"
           className="ps-skip"
@@ -78,6 +78,21 @@ export function ProjectSplash({ theme, slug, year }: ProjectSplashProps) {
       <script dangerouslySetInnerHTML={{ __html: preHide }} />
     </>
   );
+}
+
+function SplashContent({ theme, year }: { theme: CaseStudyTheme; year: string }) {
+  switch (theme) {
+    case 'iron-pillar':
+      return <IronPillarSplash year={year} />;
+    case 'dither-dog':
+      return <DitherDogSplash />;
+    case 'mgk-dossier':
+      return <MgkSplash />;
+    case 'whiskey-thief':
+      return <WhiskeyThiefSplash />;
+    case 'lego-architect':
+      return <LegoSplash />;
+  }
 }
 
 const WEEK = ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
@@ -130,5 +145,81 @@ function DitherDogSplash() {
         </div>
       </div>
     </>
+  );
+}
+
+function MgkSplash() {
+  return (
+    <>
+      <span className="ps-mgk-bar ps-mgk-bar--top" aria-hidden="true" />
+      <span className="ps-mgk-bar ps-mgk-bar--bottom" aria-hidden="true" />
+      <div className="ps-mgk" aria-hidden="true">
+        <p className="ps-mgk-kicker">A Blender motion study</p>
+        <p className="ps-mgk-title">
+          MGK <em>&times;</em> Dossier
+        </p>
+      </div>
+      <div className="ps-mgk-slate" aria-hidden="true">
+        <span className="ps-mgk-rec">Rec</span>
+        <span>Cycles</span>
+        <span>24 fps</span>
+      </div>
+    </>
+  );
+}
+
+function WhiskeyThiefSplash() {
+  return (
+    <div className="ps-wt" aria-hidden="true">
+      <div className="ps-wt-glass">
+        <span className="ps-wt-liquid" />
+      </div>
+      <p className="ps-wt-name">
+        Whiskey Thief
+        <small>Distilling Co.</small>
+      </p>
+      <p className="ps-wt-meta">
+        <span>DSP-KY</span>
+        <span>&#10022;</span>
+        <span>20002</span>
+      </p>
+    </div>
+  );
+}
+
+// Bottom brick first in the drop order (--i), listed top-down for the flex column
+const BRICKS = [
+  { color: '#00852b', width: 96, x: 20, i: 3 },
+  { color: '#ffffff', width: 128, x: -18, i: 2 },
+  { color: '#0062a8', width: 128, x: 22, i: 1 },
+  { color: '#d6000a', width: 160, x: 0, i: 0 },
+];
+
+function LegoSplash() {
+  return (
+    <div className="ps-lego" aria-hidden="true">
+      <p className="ps-lego-sign">
+        Lego
+        <br />
+        Architect
+      </p>
+      <div className="ps-lego-stack">
+        {BRICKS.map((brick) => (
+          <span
+            key={brick.i}
+            className="ps-lego-brick"
+            style={
+              {
+                '--c': brick.color,
+                '--w': `${brick.width}px`,
+                '--x': `${brick.x}px`,
+                '--i': brick.i,
+              } as React.CSSProperties
+            }
+          />
+        ))}
+      </div>
+      <p className="ps-lego-tagline">Transforming play into real world creation</p>
+    </div>
   );
 }

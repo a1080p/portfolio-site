@@ -30,6 +30,60 @@ function Headline({ text }: { text: string }) {
   );
 }
 
+interface ThemeConfig {
+  /** Light themes keep the site's default navbar and footer colors */
+  tone: 'dark' | 'light';
+  /** Prefix section kickers with 01, 02... */
+  numbered: boolean;
+  videoLabel: string;
+  roleNote: string;
+  stackNote: string;
+  ctaTitle: string;
+}
+
+const THEMES: Record<CaseStudyTheme, ThemeConfig> = {
+  'iron-pillar': {
+    tone: 'dark',
+    numbered: false,
+    videoLabel: 'Preview',
+    roleNote: 'Solo developer. I owned every part of the product.',
+    stackNote: 'Tools and platforms behind the shipped product.',
+    ctaTitle: 'Interested in working together?',
+  },
+  'dither-dog': {
+    tone: 'dark',
+    numbered: true,
+    videoLabel: 'Demo',
+    roleNote: 'Solo developer. I owned every part of the product.',
+    stackNote: 'Tools and platforms behind the shipped product.',
+    ctaTitle: 'Ready to build something?',
+  },
+  'mgk-dossier': {
+    tone: 'dark',
+    numbered: false,
+    videoLabel: 'The film',
+    roleNote: 'A one-person production, from first model to final grade.',
+    stackNote: 'The pipeline behind every frame.',
+    ctaTitle: 'Let\'s make something cinematic.',
+  },
+  'whiskey-thief': {
+    tone: 'dark',
+    numbered: false,
+    videoLabel: 'Preview',
+    roleNote: 'Research, strategy, and design, start to finish.',
+    stackNote: 'Tools and formats behind the experience.',
+    ctaTitle: 'Let\'s pour something new.',
+  },
+  'lego-architect': {
+    tone: 'light',
+    numbered: false,
+    videoLabel: 'Preview',
+    roleNote: 'Concept, UX, UI, and the pitch.',
+    stackNote: 'Tools behind the concept.',
+    ctaTitle: 'Let\'s build something together.',
+  },
+};
+
 function ProjectLink({ link, primary }: { link: CaseStudyLink; primary: boolean }) {
   if (link.comingSoon) {
     return (
@@ -57,14 +111,14 @@ function ProjectLink({ link, primary }: { link: CaseStudyLink; primary: boolean 
 
 export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
   const { theme } = caseStudy;
-  const isDither = theme === 'dither-dog';
+  const config = THEMES[theme];
 
   return (
-    <div className={`pt pt--${theme} ${projectFontVariables}`}>
+    <div className={`pt pt--${theme} ${projectFontVariables}`} data-tone={config.tone}>
       <ProjectSplash theme={theme} slug={project.slug} year={project.year} />
 
       {/* Hero */}
-      <section className={`relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 ${isDither ? 'pt-dots' : ''}`}>
+      <section className={`relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 pt-texture`}>
         <Container className="relative">
           <ScrollReveal>
             <Link
@@ -156,7 +210,7 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
         <section className="pt-plate py-12 sm:py-16">
           <Container>
             <ScrollReveal>
-              <p className="pt-eyebrow mb-4">{isDither ? 'Demo' : 'Preview'}</p>
+              <p className="pt-eyebrow mb-4">{config.videoLabel}</p>
               <div className="pt-frame">
                 <div className="pt-media bg-black">
                   <video
@@ -184,7 +238,7 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
               {caseStudy.roles && (
                 <ScrollReveal>
                   <h2 className="pt-eyebrow mb-2">My role</h2>
-                  <p className="pt-muted text-sm mb-4">Solo developer. I owned every part of the product.</p>
+                  <p className="pt-muted text-sm mb-4">{config.roleNote}</p>
                   <ul className="flex flex-wrap gap-2">
                     {caseStudy.roles.map((role) => (
                       <li key={role} className="pt-chip pt-chip--accent">
@@ -197,7 +251,7 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
               {caseStudy.stack && (
                 <ScrollReveal delay={80}>
                   <h2 className="pt-eyebrow mb-2">Built with</h2>
-                  <p className="pt-muted text-sm mb-4">Tools and platforms behind the shipped product.</p>
+                  <p className="pt-muted text-sm mb-4">{config.stackNote}</p>
                   <ul className="flex flex-wrap gap-2">
                     {caseStudy.stack.map((tool) => (
                       <li key={tool} className="pt-chip">
@@ -220,7 +274,7 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
               <ScrollReveal>
                 <div className="lg:sticky lg:top-28">
                   <p className="pt-eyebrow mb-3">
-                    {isDither ? `${String(index + 1).padStart(2, '0')} · ` : ''}
+                    {config.numbered ? `${String(index + 1).padStart(2, '0')} · ` : ''}
                     {section.kicker}
                   </p>
                   <h2 className="pt-display pt-h2">{section.title}</h2>
@@ -242,7 +296,7 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
 
                 {section.image && (
                   <div className="pt-frame mt-8">
-                    <div className="pt-media relative aspect-video bg-white">
+                    <div className="pt-media relative aspect-video">
                       <Image
                         src={section.image}
                         alt={section.title}
@@ -298,11 +352,11 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
       ))}
 
       {/* CTA */}
-      <section className={`pt-plate py-16 sm:py-20 ${isDither ? 'pt-dots' : ''}`}>
+      <section className={`pt-plate py-16 sm:py-20 pt-texture`}>
         <Container className="text-center">
           <ScrollReveal>
             <h2 className="pt-display pt-h2 mb-4">
-              {isDither ? 'Ready to build something?' : 'Interested in working together?'}
+              {config.ctaTitle}
             </h2>
             <p className="pt-muted mb-8">Let&apos;s discuss how I can help bring your project to life.</p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
