@@ -1,3 +1,5 @@
+import type { CaseStudyTheme } from './case-studies';
+
 export interface Project {
   slug: string;
   title: string;
@@ -9,6 +11,10 @@ export interface Project {
   tags: string[];
   featured: boolean;
   year: string;
+  /** Skins the project's card (and page) in its own style */
+  theme?: CaseStudyTheme;
+  /** One-line hook for the card; wrap a phrase in *asterisks* to accent it */
+  tagline?: string;
   externalLinks?: {
     figma?: string;
     behance?: string;
@@ -19,6 +25,8 @@ export interface Project {
 export const projects: Project[] = [
   {
     slug: 'mgk-dossier',
+    theme: 'mgk-dossier',
+    tagline: 'Bottled *rebellion.*',
     title: 'MGK x Dossier Case Study',
     description: 'A self-directed 3D motion design exploration pushing the boundaries of luxury fragrance advertising. Built entirely in Blender, this case study features photorealistic glass rendering, Mantaflow fluid simulations, and dramatic studio lighting to capture the rebellious elegance of high-end perfume commercials. The project demonstrates advanced techniques in product visualization, procedural materials, and cinematic camera work. Not affiliated with MGK or Dossier.',
     thumbnail: '/MGK x Dossier Thumbnail.png',
@@ -30,6 +38,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'iron-pillar',
+    theme: 'iron-pillar',
+    tagline: 'Show up. Stack the *days.*',
     title: 'Iron Pillar',
     description: 'A workout tracker for iPhone that I took from UX research to a real app headed for the App Store, as a solo developer. Iron Pillar logs any workout in seconds, tracks outdoor activity with GPS, and turns consistency into streaks, XP, levels, and badges. I owned everything: research, UX/UI, brand, React Native and Firebase development, the marketing site, App Store submission, and project management.',
     thumbnail: '/iron-pillar-hero.png',
@@ -45,6 +55,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'whiskey-thief',
+    theme: 'whiskey-thief',
+    tagline: 'Every barrel has a *story.*',
     title: 'Whiskey Thief',
     description: 'A sophisticated digital platform designed for Whiskey Thief Distilling Co. that elevates the tasting room experience. This QR-accessible web app guides visitors through curated bourbon flights, craft cocktail recipes, and food pairings with rich storytelling about each product\'s heritage. The interface balances Kentucky bourbon culture aesthetics with modern usability, featuring smooth animations and an intuitive navigation system that works seamlessly in the distillery\'s ambient lighting.',
     thumbnail: '/whiskey-thief-thumbnail.png',
@@ -56,6 +68,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'dither-dog',
+    theme: 'dither-dog',
+    tagline: 'Dither your *whole world.*',
     title: 'Dither Dog',
     description: 'My first fully deployed web application, grown into a complete client-side tool that turns any photo, video, or GIF into pixel-precise art. Dither Dog offers 28 dithering algorithms, 23 color palettes, and 20 curated presets, all rendered in the browser, wrapped in a sleek, robotic interface I designed and built myself.',
     thumbnail: '/Dither dog thumbnail.png',
@@ -70,6 +84,8 @@ export const projects: Project[] = [
   },
   {
     slug: 'lego-architect',
+    theme: 'lego-architect',
+    tagline: 'Play, made *real.*',
     title: 'LEGO Architect',
     description: 'An app concept that transforms play into real world creation. Build furniture or architectural pieces with LEGO bricks, scan the model with your phone, see it rendered in real materials with live cost estimates, then order it from a local craftsperson. LEGO Architect makes custom design accessible using a tool already in millions of homes.',
     thumbnail: '/lego-architect-thumbnail.png',

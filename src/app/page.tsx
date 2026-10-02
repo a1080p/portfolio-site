@@ -65,6 +65,8 @@ export default function HomePage() {
     thumbnailFit: p.thumbnailFit,
     videoPreview: p.videoPreview,
     href: `/work/${p.slug}`,
+    theme: p.theme,
+    tagline: p.tagline,
   }));
 
   return (

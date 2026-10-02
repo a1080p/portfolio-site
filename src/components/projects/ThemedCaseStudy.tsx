@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { ProjectSplash } from '@/components/projects/ProjectSplash';
+import { AccentText } from '@/components/projects/AccentText';
 import { projectFontVariables } from '@/lib/fonts/project-fonts';
 import type { Project } from '@/lib/data/projects';
 import type { CaseStudy, CaseStudyLink, CaseStudyTheme } from '@/lib/data/case-studies';
@@ -11,23 +12,6 @@ import './project-themes.css';
 interface ThemedCaseStudyProps {
   project: Project;
   caseStudy: CaseStudy & { theme: CaseStudyTheme };
-}
-
-/** Renders "Show up.\nStack the *days.*" with the *starred* part in the accent color */
-function Headline({ text }: { text: string }) {
-  return (
-    <>
-      {text.split('*').map((part, i) =>
-        i % 2 === 1 ? (
-          <span key={i} className="pt-accent">
-            {part}
-          </span>
-        ) : (
-          <span key={i}>{part}</span>
-        )
-      )}
-    </>
-  );
 }
 
 interface ThemeConfig {
@@ -137,7 +121,7 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
               {caseStudy.eyebrow && <p className="pt-eyebrow mb-4">{caseStudy.eyebrow}</p>}
               <h1 className="pt-display pt-h1 whitespace-pre-line mb-6">
                 <span className="sr-only">{project.title}: </span>
-                <Headline text={caseStudy.headline ?? project.title} />
+                <AccentText text={caseStudy.headline ?? project.title} />
               </h1>
               <p className="pt-muted text-base sm:text-lg leading-relaxed mb-6 max-w-[62ch]">
                 {caseStudy.overview}

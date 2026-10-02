@@ -5,6 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils/cn';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
+import { AccentText } from '@/components/projects/AccentText';
+import { projectFontVariables } from '@/lib/fonts/project-fonts';
+import type { CaseStudyTheme } from '@/lib/data/case-studies';
+import '@/components/projects/project-themes.css';
+import '@/components/projects/project-cards.css';
 
 interface Project {
   title: string;
@@ -14,6 +19,9 @@ interface Project {
   videoPreview?: string;
   href: string;
   featured?: boolean;
+  /** Skins the card in the project's own style */
+  theme?: CaseStudyTheme;
+  tagline?: string;
 }
 
 interface WorkShowcaseProps {
@@ -57,17 +65,22 @@ function VideoProjectCard({
   };
 
   const useContain = project.thumbnailFit === 'contain';
+  const themed = Boolean(project.theme);
+  const compact = aspectRatio !== '16/9';
 
   return (
     <Link
       href={project.href}
-      className="group block relative"
+      className={cn(
+        'group block relative',
+        themed && ['pc', `pt--${project.theme}`, projectFontVariables]
+      )}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
       <div
         className={cn(
-          "relative rounded-2xl overflow-hidden bg-stone-200",
+          themed ? cn('pc-show', compact && 'pc-show--compact') : "relative rounded-2xl overflow-hidden bg-stone-200",
           !useContain && "w-full"
         )}
         style={useContain ? undefined : { aspectRatio }}
@@ -108,9 +121,26 @@ function VideoProjectCard({
           />
         )}
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+        <div
+          className={themed ? 'pc-show-overlay' : 'absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent'}
+        />
 
         {/* Content */}
+        {themed ? (
+          <div className={cn('absolute bottom-0 left-0 right-0 flex items-end justify-between gap-4', contentPadding)}>
+            <div>
+              <p className="pt-eyebrow mb-2">{project.title}</p>
+              <p className="pt-display pc-show-tagline">
+                <AccentText text={project.tagline ?? project.title} />
+              </p>
+            </div>
+            <span className="pc-show-arrow" aria-hidden="true">
+              <svg className={cn('arrow-icon', iconSize)} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 17L17 7M17 7H7M17 7V17" />
+              </svg>
+            </span>
+          </div>
+        ) : (
         <div className={cn('absolute bottom-0 left-0 right-0 flex items-end justify-between', contentPadding)}>
           <div>
             <p className={cn('text-white font-medium mb-1', titleSize)}>
@@ -136,6 +166,7 @@ function VideoProjectCard({
             </svg>
           </div>
         </div>
+        )}
       </div>
     </Link>
   );

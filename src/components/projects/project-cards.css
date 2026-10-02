@@ -1,0 +1,123 @@
+/*
+ * Themed project cards. A card carries its project's theme class (pt--*) for the
+ * tokens in project-themes.css, but not the page-level .pt class, so it never
+ * recolors the page around it. Dividers (.pt-plate), textures (.pt-texture),
+ * and frames (.pt-frame) come from the same theme rules as the case study pages.
+ */
+
+.pc {
+  display: block;
+  height: 100%;
+  color: var(--pt-ink);
+  font-family: var(--pt-body);
+}
+
+.pc .pt-frame { height: 100%; margin-inline: 0; }
+
+.pc-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  background: var(--pt-bg);
+  border: 1px solid var(--pt-line);
+  border-radius: calc(var(--pt-radius) + 4px);
+  transition: transform 300ms ease, border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.pc:hover .pc-card,
+.pc:focus-visible .pc-card {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--pt-accent) 70%, transparent);
+  box-shadow: 0 24px 48px -24px color-mix(in srgb, var(--pt-accent) 55%, transparent);
+}
+
+.pc:focus-visible { outline: none; }
+.pc:focus-visible .pc-card { outline: 2px solid var(--pt-accent); outline-offset: 3px; }
+
+.pc-media {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: var(--pt-surface);
+}
+
+.pc-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+}
+
+.pc-title {
+  font-size: clamp(1.625rem, 2.6vw, 2.125rem);
+  margin-top: 0.5rem;
+}
+
+.pc-cta {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--pt-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--pt-accent);
+}
+
+.pc-cta svg { transition: transform 200ms ease; }
+.pc:hover .pc-cta svg { transform: translateX(4px); }
+
+/* Brighter accent text on dark cards where the accent is a fill color */
+.pt--mgk-dossier .pc-cta { color: var(--pt-accent-2); }
+
+/* ----- Showcase (home page) variant: image card with themed overlay ----- */
+
+.pc-show {
+  position: relative;
+  overflow: hidden;
+  border-radius: calc(var(--pt-radius) + 8px);
+  background: var(--pt-surface);
+  transition: box-shadow 300ms ease;
+}
+
+.pc:hover .pc-show {
+  box-shadow: 0 28px 60px -28px color-mix(in srgb, var(--pt-accent) 60%, transparent);
+}
+
+.pc-show-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, color-mix(in srgb, var(--pt-bg) 94%, transparent) 0%, color-mix(in srgb, var(--pt-bg) 55%, transparent) 38%, transparent 70%);
+}
+
+.pc-show-tagline {
+  font-size: clamp(1.5rem, 3.4vw, 2.75rem);
+  line-height: 0.95;
+}
+
+.pc-show--compact .pc-show-tagline { font-size: clamp(1.25rem, 2.4vw, 1.875rem); }
+
+.pc-show-arrow {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border: 1px solid color-mix(in srgb, var(--pt-ink) 35%, transparent);
+  border-radius: 999px;
+  color: var(--pt-ink);
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+}
+
+.pt--dither-dog .pc-show-arrow,
+.pt--mgk-dossier .pc-show-arrow { border-radius: 0; }
+
+.pc:hover .pc-show-arrow {
+  background: var(--pt-accent);
+  border-color: var(--pt-accent);
+  color: var(--pt-accent-ink);
+}

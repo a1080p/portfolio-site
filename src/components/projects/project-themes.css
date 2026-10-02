@@ -48,11 +48,11 @@
 }
 
 /* Page-level chrome (body, scrolled navbar, footer) while a themed page is open */
-body:has(.pt--iron-pillar) { background: #0d0f1e; --pt-chrome: 13, 15, 30; }
-body:has(.pt--dither-dog) { background: #000000; --pt-chrome: 0, 0, 0; }
-body:has(.pt--mgk-dossier) { background: #0a0707; --pt-chrome: 10, 7, 7; }
-body:has(.pt--whiskey-thief) { background: #211d1a; --pt-chrome: 33, 29, 26; }
-body:has(.pt--lego-architect) { background: #fff8f2; }
+body:has(.pt.pt--iron-pillar) { background: #0d0f1e; --pt-chrome: 13, 15, 30; }
+body:has(.pt.pt--dither-dog) { background: #000000; --pt-chrome: 0, 0, 0; }
+body:has(.pt.pt--mgk-dossier) { background: #0a0707; --pt-chrome: 10, 7, 7; }
+body:has(.pt.pt--whiskey-thief) { background: #211d1a; --pt-chrome: 33, 29, 26; }
+body:has(.pt.pt--lego-architect) { background: #fff8f2; }
 
 /* Dark themes recolor the shared navbar and footer; light themes keep the defaults */
 body:has(.pt[data-tone='dark']) {

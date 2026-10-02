@@ -64,6 +64,9 @@ export default function WorkPage() {
                   videoPreview={project.videoPreview}
                   href={`/work/${project.slug}`}
                   tags={project.tags}
+                  category={project.category}
+                  theme={project.theme}
+                  tagline={project.tagline}
                 />
               </ScrollReveal>
             ))}
