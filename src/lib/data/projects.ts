@@ -46,6 +46,7 @@ export const projects: Project[] = [
     description: 'A self-directed 3D motion design exploration pushing the boundaries of luxury fragrance advertising. Built entirely in Blender, this case study features photorealistic glass rendering, Mantaflow fluid simulations, and dramatic studio lighting to capture the rebellious elegance of high-end perfume commercials. The project demonstrates advanced techniques in product visualization, procedural materials, and cinematic camera work. Not affiliated with MGK or Dossier.',
     thumbnail: '/MGK x Dossier Thumbnail.png',
     videoPreview: '/MGK x Dossier Final.mp4',
+    previewLoop: { src: '/mgk-dossier/preview.mp4', poster: '/mgk-dossier/preview-poster.jpg' },
     category: 'Motion Design',
     tags: ['Blender', '3D Animation', 'Motion Graphics'],
     featured: true,
