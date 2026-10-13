@@ -50,7 +50,7 @@ export function FeatureGrid({
         {/* Title row: heading left, subtitle and arrow right */}
         <ScrollReveal>
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-12 mb-10 sm:mb-14">
-            <h2 className="text-[length:var(--text-display)] font-black uppercase tracking-tight leading-none" style={{ color: '#3d9e5a' }}>
+            <h2 className="text-[length:var(--text-display)] font-black uppercase tracking-tight leading-none text-[var(--color-accent)]">
               {title}
             </h2>
             {subtitle && (

@@ -108,7 +108,7 @@ export default function HomePage() {
             {/* Title row: heading left, intro and link right */}
             <div>
               <ScrollReveal className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4 lg:gap-12">
-                <h2 className="text-[length:var(--text-display)] font-black uppercase tracking-tight leading-none" style={{ color: '#3d9e5a' }}>
+                <h2 className="text-[length:var(--text-display)] font-black uppercase tracking-tight leading-none text-[var(--color-accent)]">
                   Capabilities
                 </h2>
                 <div className="lg:pb-3 lg:text-right">
@@ -117,10 +117,10 @@ export default function HomePage() {
                 </p>
                 <Link
                   href="/services"
-                  className="inline-flex items-center gap-2 text-[var(--color-accent)] font-medium hover:gap-3 transition-all text-sm sm:text-base"
+                  className="inline-flex items-center gap-2 text-white font-medium hover:gap-3 transition-all text-sm sm:text-base"
                 >
                   View All Services
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-[var(--color-accent)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>

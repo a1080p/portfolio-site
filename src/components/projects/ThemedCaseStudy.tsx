@@ -1,10 +1,11 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
 import { ScrollReveal } from '@/components/animations/ScrollReveal';
 import { ProjectSplash } from '@/components/projects/ProjectSplash';
 import { AccentText } from '@/components/projects/AccentText';
 import { AutoplayPreview } from '@/components/projects/AutoplayPreview';
+import { CaseStudyFooter, CaseStudyLabel } from '@/components/projects/CaseStudyFrame';
+import { projects } from '@/lib/data/projects';
 import { projectFontVariables } from '@/lib/fonts/project-fonts';
 import type { Project } from '@/lib/data/projects';
 import type { CaseStudy, CaseStudyLink, CaseStudyTheme } from '@/lib/data/case-studies';
@@ -105,8 +106,11 @@ function ProjectLink({ link, primary }: { link: CaseStudyLink; primary: boolean 
 export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
   const { theme } = caseStudy;
   const config = THEMES[theme];
+  const index = Math.max(0, projects.findIndex((p) => p.slug === project.slug));
+  const nextIndex = (index + 1) % projects.length;
 
   return (
+    <>
     <div className={`pt pt--${theme} ${projectFontVariables}`} data-tone={config.tone}>
       <ProjectSplash theme={theme} year={project.year} />
 
@@ -114,15 +118,7 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
       <section className={`relative pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 pt-texture`}>
         <Container className="relative">
           <ScrollReveal>
-            <Link
-              href="/work"
-              className="pt-mono pt-muted inline-flex items-center gap-2 min-h-11 text-xs hover:text-[var(--pt-ink)] transition-colors mb-6 sm:mb-10"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-              Back to work
-            </Link>
+            <CaseStudyLabel index={index} total={projects.length} category={project.category} />
           </ScrollReveal>
 
           <div className="grid grid-cols-1 lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
@@ -372,25 +368,15 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
         </section>
       ))}
 
-      {/* CTA */}
-      <section className={`pt-plate py-16 sm:py-20 pt-texture`}>
-        <Container className="text-center">
-          <ScrollReveal>
-            <h2 className="pt-display pt-h2 mb-4">
-              {config.ctaTitle}
-            </h2>
-            <p className="pt-muted mb-8">Let&apos;s discuss how I can help bring your project to life.</p>
-            <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3">
-              <Link href="/contact" className="pt-btn pt-btn--primary justify-center">
-                Start a conversation
-              </Link>
-              <Link href="/work" className="pt-btn pt-btn--ghost justify-center">
-                View more projects
-              </Link>
-            </div>
-          </ScrollReveal>
-        </Container>
-      </section>
     </div>
+
+    {/* Outside the theme wrapper, so it's in the site's own style */}
+    <CaseStudyFooter
+      next={projects[nextIndex]}
+      nextIndex={nextIndex}
+      total={projects.length}
+      ctaTitle={config.ctaTitle}
+    />
+    </>
   );
 }

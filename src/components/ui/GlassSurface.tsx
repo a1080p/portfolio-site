@@ -34,7 +34,7 @@ export function GlassSurface({
         hover && 'transition-all duration-300 hover:bg-white hover:border-white/80 hover:shadow-[0_12px_40px_rgba(0,0,0,0.15)]',
         'rounded-2xl',
         // Reset text colors for card content (dark text on white background)
-        '[--color-text-primary:#1a1a1a] [--color-text-secondary:#4a4a4a] [--color-accent:#1a4d2e]',
+        '[--color-text-primary:#1a1a1a] [--color-text-secondary:#4a4a4a] [--color-accent:#2a7d47]',
         className
       )}
     >

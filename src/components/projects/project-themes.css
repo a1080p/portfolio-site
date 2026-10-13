@@ -26,7 +26,7 @@
   --pt-accent-2: #7482ff;        /* pillar blue */
   --pt-accent-2-soft: #1d2250;
   --pt-display: var(--font-ip-display), 'Arial Narrow', Impact, sans-serif;
-  --pt-body: var(--font-ip-body), 'Helvetica Neue', Arial, sans-serif;
+  --pt-body: var(--font-sans);
   --pt-mono: var(--font-project-mono), ui-monospace, 'SF Mono', Menlo, monospace;
   --pt-radius: 14px;
 }
@@ -48,32 +48,24 @@
 }
 
 /* Page-level chrome (body, scrolled navbar, footer) while a themed page is open */
-body:has(.pt.pt--iron-pillar) { background: #0d0f1e; --pt-chrome: 13, 15, 30; }
-body:has(.pt.pt--dither-dog) { background: #000000; --pt-chrome: 0, 0, 0; }
-body:has(.pt.pt--mgk-dossier) { background: #0a0707; --pt-chrome: 10, 7, 7; }
-body:has(.pt.pt--whiskey-thief) { background: #211d1a; --pt-chrome: 33, 29, 26; }
+body:has(.pt.pt--iron-pillar) { background: #0d0f1e; }
+body:has(.pt.pt--dither-dog) { background: #000000; }
+body:has(.pt.pt--mgk-dossier) { background: #0a0707; }
+body:has(.pt.pt--whiskey-thief) { background: #211d1a; }
 body:has(.pt.pt--lego-architect) { background: #fff8f2; }
 body:has(.pt.pt--apostrophe) { background: #f6f5f7; }
 
-/* Dark themes recolor the shared navbar and footer; light themes keep the defaults */
-body:has(.pt[data-tone='dark']) {
-  --color-text-primary: #f2f2ee;
-  --color-text-secondary: rgba(242, 242, 238, 0.65);
+/* The navbar and footer are the site's own on every project page, never themed. The navbar
+   shows its solid light bar from the top so it reads over any hero, dark or light. */
+body:has(.pt) header[role='banner'] {
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(24px) saturate(1.5);
+  backdrop-filter: blur(24px) saturate(1.5);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 }
 
-body:has(.pt[data-tone='dark']) header[role='banner'][class*='bg-white'] {
-  background-color: rgba(var(--pt-chrome), 0.75);
-  border-color: rgba(255, 255, 255, 0.08);
-}
-
-body:has(.pt[data-tone='dark']) #mobile-menu {
-  background-color: rgba(var(--pt-chrome), 0.95);
-}
-
-body:has(.pt[data-tone='dark']) footer {
-  background: transparent;
-  border-color: rgba(255, 255, 255, 0.08);
-}
+body:has(.pt) footer { background-color: rgb(251, 250, 248); }
 
 .pt ::selection {
   background: var(--pt-accent);
@@ -775,7 +767,7 @@ body:has(.pt[data-tone='dark']) footer {
   --lego-yellow: #ffcf00;
   --lego-green: #00852b;
   --pt-display: var(--font-lego-display), 'Arial Black', sans-serif;
-  --pt-body: var(--font-lego-display), var(--font-sans);
+  --pt-body: var(--font-sans);
   --pt-mono: var(--font-lego-display), var(--font-sans);
   --pt-radius: 14px;
 }

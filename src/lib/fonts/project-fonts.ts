@@ -6,7 +6,6 @@ import {
   JetBrains_Mono,
   Lato,
   Montserrat,
-  Public_Sans,
   Zilla_Slab,
 } from 'next/font/google';
 
@@ -19,14 +18,6 @@ export const bigShoulders = Big_Shoulders({
   subsets: ['latin'],
   weight: ['700', '800', '900'],
   variable: '--font-ip-display',
-  display: 'swap',
-  preload: false,
-});
-
-export const publicSans = Public_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-ip-body',
   display: 'swap',
   preload: false,
 });
@@ -96,7 +87,6 @@ export const lato = Lato({
 
 export const projectFontVariables = [
   bigShoulders.variable,
-  publicSans.variable,
   jetbrainsMono.variable,
   doto.variable,
   bodoniModa.variable,

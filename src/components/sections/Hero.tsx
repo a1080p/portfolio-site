@@ -43,8 +43,8 @@ export function Hero({
     bold: 'font-black',
     outline: 'text-outline font-bold',
     accent: 'font-bold text-[var(--color-accent)]',
-    // The green used by the home page section headings (Features, Capabilities)
-    green: 'font-black text-[#3d9e5a]',
+    // The site accent green
+    green: 'font-black text-[var(--site-accent)]',
   };
 
   const handleScrollClick = () => {

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import type { CaseStudyTheme } from '@/lib/data/case-studies';
 
 interface ProjectSplashProps {
@@ -8,8 +8,11 @@ interface ProjectSplashProps {
   year: string;
 }
 
-// Matches the end of the CSS timeline in project-themes.css
-const SPLASH_DURATION_MS = 2600;
+// The CSS timelines in project-themes.css are authored over 2.6s; they play at
+// SPLASH_SPEED so each splash is over in about 1.6s.
+const CSS_TIMELINE_MS = 2600;
+const SPLASH_SPEED = 1.625;
+const SPLASH_DURATION_MS = Math.round(CSS_TIMELINE_MS / SPLASH_SPEED);
 
 /**
  * Branded intro that plays every time a project page opens. The animation itself
@@ -18,8 +21,13 @@ const SPLASH_DURATION_MS = 2600;
  */
 export function ProjectSplash({ theme, year }: ProjectSplashProps) {
   const [done, setDone] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Speed up every CSS animation in the splash at once, delays included
+    rootRef.current?.getAnimations({ subtree: true }).forEach((animation) => {
+      animation.playbackRate = SPLASH_SPEED;
+    });
     const timer = window.setTimeout(() => setDone(true), SPLASH_DURATION_MS);
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') setDone(true);
@@ -34,7 +42,7 @@ export function ProjectSplash({ theme, year }: ProjectSplashProps) {
   if (done) return null;
 
   return (
-    <div className={`ps ps--${theme}`} onClick={() => setDone(true)} role="presentation">
+    <div ref={rootRef} className={`ps ps--${theme}`} onClick={() => setDone(true)} role="presentation">
       <SplashContent theme={theme} year={year} />
       <button
         type="button"
