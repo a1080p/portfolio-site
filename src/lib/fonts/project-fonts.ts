@@ -5,7 +5,6 @@ import {
   Doto,
   JetBrains_Mono,
   Lato,
-  Montserrat,
   Zilla_Slab,
 } from 'next/font/google';
 
@@ -67,15 +66,6 @@ export const courierPrime = Courier_Prime({
   preload: false,
 });
 
-// LEGO Architect: the chunky geometric sans from the pitch deck
-export const montserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['500', '700', '800', '900'],
-  variable: '--font-lego-display',
-  display: 'swap',
-  preload: false,
-});
-
 // Apostrophe: the heavy Lato capitals from apostrophetv.com
 export const lato = Lato({
   subsets: ['latin'],
@@ -92,6 +82,5 @@ export const projectFontVariables = [
   bodoniModa.variable,
   zillaSlab.variable,
   courierPrime.variable,
-  montserrat.variable,
   lato.variable,
 ].join(' ');

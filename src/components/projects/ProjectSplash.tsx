@@ -68,8 +68,6 @@ function SplashContent({ theme, year }: { theme: CaseStudyTheme; year: string })
       return <MgkSplash />;
     case 'whiskey-thief':
       return <WhiskeyThiefSplash />;
-    case 'lego-architect':
-      return <LegoSplash />;
     case 'apostrophe':
       return <ApostropheSplash year={year} />;
   }
@@ -163,43 +161,6 @@ function WhiskeyThiefSplash() {
         <span>&#10022;</span>
         <span>20002</span>
       </p>
-    </div>
-  );
-}
-
-// Bottom brick first in the drop order (--i), listed top-down for the flex column
-const BRICKS = [
-  { color: '#00852b', width: 96, x: 20, i: 3 },
-  { color: '#ffffff', width: 128, x: -18, i: 2 },
-  { color: '#0062a8', width: 128, x: 22, i: 1 },
-  { color: '#d6000a', width: 160, x: 0, i: 0 },
-];
-
-function LegoSplash() {
-  return (
-    <div className="ps-lego" aria-hidden="true">
-      <p className="ps-lego-sign">
-        Lego
-        <br />
-        Architect
-      </p>
-      <div className="ps-lego-stack">
-        {BRICKS.map((brick) => (
-          <span
-            key={brick.i}
-            className="ps-lego-brick"
-            style={
-              {
-                '--c': brick.color,
-                '--w': `${brick.width}px`,
-                '--x': `${brick.x}px`,
-                '--i': brick.i,
-              } as React.CSSProperties
-            }
-          />
-        ))}
-      </div>
-      <p className="ps-lego-tagline">Transforming play into real world creation</p>
     </div>
   );
 }

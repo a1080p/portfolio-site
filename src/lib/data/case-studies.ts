@@ -24,7 +24,6 @@ export type CaseStudyTheme =
   | 'dither-dog'
   | 'mgk-dossier'
   | 'whiskey-thief'
-  | 'lego-architect'
   | 'apostrophe';
 
 export interface CaseStudy {
@@ -341,55 +340,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         title: 'Built for the room',
         content: 'Every decision was tuned for in-venue use: a dark interface to cut glare in the dim tasting room, large touch targets for guests holding a glass, and lightweight pages that load quickly on a weak connection. The result is a menu that tells the distillery\'s story without getting in the way of the people pouring it.',
       },
-    ],
-  },
-  'lego-architect': {
-    slug: 'lego-architect',
-    theme: 'lego-architect',
-    eyebrow: 'Product concept · UX/UI · Pitch',
-    headline: 'Transforming play into\n*real world creation.*',
-    overview: 'LEGO Architect is an app concept that turns LEGO builds into real furniture and architectural pieces. Creating custom furniture is expensive, technical, and out of reach for most people, but the most intuitive design tool already lives in millions of homes: LEGO bricks. Build it, scan it, see it in real materials, and have it made.',
-    heroImage: '/lego-architect-thumbnail.png',
-    status: 'Interaction design project · 2025',
-    stats: [
-      { value: 'Design', label: 'Build it in bricks' },
-      { value: 'Transform', label: 'Scan it into a real render' },
-      { value: 'Customize', label: 'Choose real materials' },
-      { value: 'Order', label: 'Hire a local maker' },
-    ],
-    roles: ['Product Concept', 'UX Design', 'UI Design', 'Pitch & Storytelling'],
-    stack: ['Figma', 'Prototyping', 'Mockups', 'Behance'],
-    sections: [
-      {
-        kicker: 'Step 01',
-        title: 'Design it',
-        content: 'Build your design with familiar LEGO bricks, then scan it with your phone. The app recognizes the creation\'s structure, dimensions, and colors, with real-time feedback that guides you to capture every side.',
-      },
-      {
-        kicker: 'Step 02',
-        title: 'Transform it',
-        content: 'Your LEGO model becomes a photorealistic rendering, with real-world materials mapped automatically from the colors of your bricks. A structural check confirms the design is feasible at full scale.',
-      },
-      {
-        kicker: 'Step 03',
-        title: 'Customize it',
-        content: 'Browse hundreds of real building materials (wood, metal, stone, glass, brick) and watch the design update in real time. Every choice recalculates the project\'s cost, so you can balance quality and budget with confidence.',
-      },
-      {
-        kicker: 'Step 04',
-        title: 'Order it',
-        content: 'Connect with verified contractors and craftspeople who specialize in your project type through an in-app marketplace. Share specs and material lists in one tap and receive quotes directly in the app.',
-        image: '/Lego Wireframes.png',
-      },
-      {
-        kicker: 'The Big Idea',
-        title: 'Why it works',
-        content: 'By bridging play and practical creation, LEGO Architect lowers the cost of entry for design, extends the LEGO brand beyond toys, and opens a new category where physical and digital design meet. Who knew the key to rethinking architecture was sitting in the toy box all along?',
-        image: '/LEgo men 1.png',
-      },
-    ],
-    externalLinks: [
-      { label: 'View on Behance', url: 'https://www.behance.net/gallery/224263107/Lego-Architect-Interaction-Project' },
     ],
   },
   'demo-reel-2025': {

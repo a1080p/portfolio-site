@@ -60,14 +60,6 @@ const THEMES: Record<CaseStudyTheme, ThemeConfig> = {
     stackNote: 'Tools and formats behind the experience.',
     ctaTitle: 'Let\'s pour something new.',
   },
-  'lego-architect': {
-    tone: 'light',
-    numbered: false,
-    videoLabel: 'Preview',
-    roleNote: 'Concept, UX, UI, and the pitch.',
-    stackNote: 'Tools behind the concept.',
-    ctaTitle: 'Let\'s build something together.',
-  },
   apostrophe: {
     tone: 'light',
     numbered: false,

@@ -99,21 +99,6 @@ export const projects: Project[] = [
     featured: true,
     year: '2025',
   },
-  {
-    slug: 'lego-architect',
-    theme: 'lego-architect',
-    tagline: 'Play, made *real.*',
-    title: 'LEGO Architect',
-    description: 'An app concept that transforms play into real world creation. Build furniture or architectural pieces with LEGO bricks, scan the model with your phone, see it rendered in real materials with live cost estimates, then order it from a local craftsperson. LEGO Architect makes custom design accessible using a tool already in millions of homes.',
-    thumbnail: '/lego-architect-thumbnail.png',
-    category: 'UX/UI Design',
-    tags: ['Product Design', 'Concept', 'Pitch'],
-    featured: false,
-    year: '2025',
-    externalLinks: {
-      behance: 'https://www.behance.net/gallery/224263107/Lego-Architect-Interaction-Project/modules/1282739869',
-    },
-  },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);
