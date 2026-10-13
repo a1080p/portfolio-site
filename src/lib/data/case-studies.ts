@@ -49,29 +49,34 @@ export const caseStudies: Record<string, CaseStudy> = {
     headline: 'Small mark,\n*big entrance.*',
     overview: 'Logo idents for Apostrophe, a Louisville creative studio that makes promos and campaigns for networks like Peacock and Paramount. Each ident brings the Apostrophe logo to life in its own world: a balloon that inflates for the studio\'s second birthday, and a vinyl record spinning up a soundtrack promo. I came up with the ideas and was responsible for bringing them to life.',
     heroImage: '/apostrophe-idents/vinyl-poster.jpg',
-    status: 'Client work · Apostrophe',
+    status: 'Freelance motion designer · Apostrophe',
     stats: [
       { value: '02', label: 'Logo idents, concept to final' },
       { value: 'Blender', label: 'Physics & simulation' },
       { value: '10.7s', label: 'Balloon ident' },
       { value: '22.5s', label: 'Vinyl ident' },
     ],
-    roles: ['Concept', 'Art Direction', '3D Animation', 'Simulation'],
+    roles: ['Concept', 'Storyboarding', 'Art Direction', '3D Animation', 'Simulation'],
     stack: ['Blender', 'Physics Simulation', '3D Animation'],
     sections: [
       {
-        kicker: 'The Campaign',
-        title: 'An ident system for a studio',
-        content: 'Apostrophe\'s ident campaign gives the studio\'s logo a series of short, memorable entrances. Instead of placing the mark on an end card, each ident makes the logo the hero object of the scene, so the brand is the story rather than a sign-off.',
+        kicker: 'The Why',
+        title: 'Make the logo the star',
+        content: 'I work with Apostrophe as a freelance motion designer, creating animations, logo idents, and character animation, and I\'m now the environment designer on an internal short film. For the studio\'s ident campaign, the goal was to give its mark a series of short, memorable entrances, where the logo is the hero of the scene instead of a sign-off on an end card.',
+      },
+      {
+        kicker: 'The How',
+        title: 'Concept, storyboard, simulate',
+        content: 'Each ident started as an idea I came up with, then built myself in Blender. I sketched concepts, storyboarded the sequences, and worked through simulation and lighting until each piece felt real and on brand, checking tone and timing with the studio\'s creative director along the way. Sound design was handled by others.',
       },
       {
         kicker: 'Ident 01',
         title: 'Two years, one big breath',
-        content: 'For Apostrophe\'s second birthday in business, the idea was all mine: the logo as a balloon. In a clean white studio niche, the apostrophe mark inflates to fill its frame, then lets go, deflating and slipping out of view. I built everything in Blender, using physics and simulation so the balloon stretches, wobbles, and collapses like the real thing.',
+        content: 'For Apostrophe\'s second birthday in business, the idea was all mine: the logo as a balloon. In a clean white studio niche, the apostrophe mark inflates to fill its frame, then lets go, deflating and slipping out of view. The balloon is a cloth simulation with internal pressure. The hardest part was finding values that behaved like a real balloon without the simulation going wild, and because the scene was so dense, every change meant waiting several minutes for it to recompute, so each tweak had to count.',
         bullets: [
           'Original concept, pitched for the studio\'s 2nd birthday in business',
-          'Modeled, simulated, animated, and rendered in Blender',
-          'Physics simulation drives both the inflation and the release',
+          'Cloth simulation with internal pressure drives both the inflation and the release',
+          'Dialed in over many iterations, each a multi-minute re-simulation of a dense scene',
           'The logo is the balloon, so the brand mark carries the whole piece',
         ],
         video: {
@@ -83,7 +88,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kicker: 'Ident 02',
         title: 'Side B: the vinyl ident',
-        content: 'A vinyl ident used for a posted Apostrophe soundtrack promo. The record itself carries the brand: an orange disc with the apostrophe mark as its center label. The camera glides in tight macro moves across the grooves and the tonearm, then pulls back to reveal the full turntable.',
+        content: 'A vinyl ident for an Apostrophe soundtrack promo, built entirely in Blender. The record carries the brand: an orange disc with the apostrophe mark as its center label. I drew up concepts for the turntable itself and storyboarded the video, then worked with Apostrophe\'s creative director, Ryan O\'Hare, to get the tone and timing right and to brainstorm which tracks to feature. The camera glides in tight macro moves across the grooves and the tonearm, then pulls back to reveal the full turntable.',
         video: {
           src: '/apostrophe-idents/vinyl-ident.mp4',
           poster: '/apostrophe-idents/vinyl-poster.jpg',
@@ -91,9 +96,9 @@ export const caseStudies: Record<string, CaseStudy> = {
         },
       },
       {
-        kicker: 'Credits',
-        title: 'My role',
-        content: 'I came up with the ideas for both idents and was responsible for bringing them to life, from first concept to final animation. Sound design was handled by others.',
+        kicker: 'Reception',
+        title: 'On air, and what\'s next',
+        content: 'Ryan loved them, and both ran as Apostrophe posts. There\'s early talk of using them as logo IDs in the studio\'s demo reels. I came up with the ideas for both idents and was responsible for bringing them to life, from first sketch to final animation.',
       },
     ],
   },
@@ -108,16 +113,21 @@ export const caseStudies: Record<string, CaseStudy> = {
     stats: [
       { value: '28', label: 'Dither algorithms' },
       { value: '23', label: 'Color palettes' },
-      { value: '20', label: 'Curated presets' },
+      { value: '350', label: 'Peak users' },
       { value: '100%', label: 'Client-side' },
     ],
     roles: ['Product Design', 'UI / UX', 'Front-End Development', 'Project Management', 'Brand'],
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Canvas API', 'Vercel', 'Claude Code'],
     sections: [
       {
-        kicker: 'Origin',
-        title: 'A designer ships a real tool',
-        content: 'Dither Dog started as a personal challenge: could I design and ship a functional web tool without prior development experience? By pairing my design background with AI-assisted coding through Claude Code, I took it from an idea to a deployed product, and then kept iterating on it like a real product rather than a one-off experiment.',
+        kicker: 'The Why',
+        title: 'A free tool that rivals the paid ones',
+        content: 'I love the dithered look in design and animation, but the tools that do it well are mostly paid, and few free ones come close. I wanted to build a free tool that could hold its own against them, and to learn how to build software along the way. Dither Dog became both: a tool for anyone who loves the aesthetic, and my first real lesson in shipping a product.',
+      },
+      {
+        kicker: 'The How',
+        title: 'Robotic by design, flexible by default',
+        content: 'Dithering feels inherently robotic and digital to me, so the interface leans into it, taking inspiration from the retro anime robotics UIs I love: cockpit-style readouts, numbered modules, and a single signal color. The hardest technical problem was flexibility. Every preset and algorithm had to stay fully editable, so people could start from a preset and push it into a wide range of their own looks instead of being locked into fixed filters.',
       },
       {
         kicker: 'Product',
@@ -127,7 +137,7 @@ export const caseStudies: Record<string, CaseStudy> = {
           'Images, videos, and GIFs, all processed in the browser. Nothing is ever uploaded to a server',
           '28 algorithms across error diffusion (Floyd-Steinberg, Atkinson, Stucki, Sierra), ordered dither (Bayer, blue noise, clustered dot), and artistic patterns (halftone, crosshatch, stipple, spiral)',
           '23 color palettes, from Game Boy green to cyan-and-magenta print halftone',
-          '20 hand-tuned presets that dial in an algorithm, palette, and contrast curve in one click',
+          '20 hand-tuned presets that dial in an algorithm, palette, and contrast curve in one click, then stay fully editable',
           'A Guides section that teaches how dithering works, so the tool doubles as a learning resource',
         ],
         gallery: [
@@ -139,7 +149,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kicker: 'Design Direction',
         title: 'A sleek, robotic instrument panel',
-        content: 'I wanted the interface to feel like precision hardware: something between a lab instrument and a retro terminal. The UI steps back so the artwork carries the color:',
+        content: 'The interface should feel like precision hardware, somewhere between a mech cockpit and a retro terminal, while stepping back so the artwork carries the color:',
         bullets: [
           'Near-black canvas with a single signal-orange accent for every primary action',
           'Dot-matrix display type that echoes the pixel grids the tool produces',
@@ -154,20 +164,19 @@ export const caseStudies: Record<string, CaseStudy> = {
         bullets: [
           'Structuring a Next.js and TypeScript app with a reusable component architecture',
           'Canvas API pixel manipulation for real-time image processing',
-          'State management for algorithm, palette, and contrast settings across images, video frames, and GIFs',
+          'Keeping every algorithm and preset parameter editable live, across images, video frames, and GIFs',
           'Performance work: debounced updates so sliders stay smooth, and careful canvas handling for large files',
           'Continuous deployment on Vercel, with the source public on GitHub',
         ],
       },
       {
-        kicker: 'Project Management',
-        title: 'Small scope, real discipline',
-        content: 'Even as a small, niche project, Dither Dog taught me to run work like a product team of one:',
+        kicker: 'In the Wild',
+        title: 'A niche tool, used for real',
+        content: 'Dither Dog peaked at around 350 users and holds a steady 10 to 15 people a week. That\'s exactly what I expected: it\'s a niche platform solving a niche problem, and the people who need it keep coming back. Running it taught me to treat a small project like a real product:',
         bullets: [
           'Start with a focused core (upload, dither, export), ship it, then expand in deliberate releases',
           'Prioritize the features that make the tool more useful (presets, video, guides) over ones that only add complexity',
           'Keep the design system consistent as features grow, so new screens feel native to the product',
-          'Treat feedback and real usage as the roadmap instead of building in isolation',
         ],
       },
       {
@@ -205,9 +214,25 @@ export const caseStudies: Record<string, CaseStudy> = {
     stack: ['React Native', 'Expo', 'TypeScript', 'Firebase', 'Cloud Functions', 'RevenueCat', 'HealthKit', 'Live Activities', 'EAS Build', 'Claude Code'],
     sections: [
       {
+        kicker: 'The Why',
+        title: 'Built for people like me',
+        content: 'I struggled with two things most people who work out will recognize: writing down and tracking my goals, and simply showing up consistently. The more people I talked to, the clearer it became that I wasn\'t alone. I wanted to build something that would help all of us, and that\'s why Iron Pillar didn\'t stop at a case study. A prototype can\'t help anyone stay consistent. A real app in their pocket can.',
+      },
+      {
+        kicker: 'The How',
+        title: 'Learning to build it for real',
+        content: 'The design came first, grounded in research. The technical side was the hard part: I had never set up a backend or shipped an app. Through research and the modern tools available today, I learned as I built, setting up a backend that tracks every workout, streak, and metric securely. The whole project became a crash course in coding and app development:',
+        bullets: [
+          'Designed first: research, personas, storyboards, then paper and Figma prototypes',
+          'Learned and built the stack myself: React Native and Expo for the app, Firebase and Cloud Functions for the backend',
+          'Put it in testers\' hands through TestFlight and demos, then built what they asked for',
+          'Ran it like a product: a Jira board, a progress log, and nothing marked done until it worked live',
+        ],
+      },
+      {
         kicker: 'Phase 01 / Research',
-        title: 'The problem',
-        content: 'Fitness apps lose most of their users within weeks. Research pointed to three groups with distinct pain points:',
+        title: 'Who it\'s for',
+        content: 'Research pointed to three groups with distinct pain points:',
         bullets: [
           'Beginners feel overwhelmed by equipment and lack structured guidance on form and progression',
           'Inconsistent users lose motivation after missed sessions and need accountability',
@@ -235,7 +260,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kicker: 'Phase 03 / Build',
         title: 'From Figma to a working app',
-        content: 'I built the app in React Native with Expo and TypeScript, with a Firebase backend. The core rule: anything that affects progress is decided by the server, so streaks and XP can\'t be faked.',
+        content: 'The core rule of the build: anything that affects progress is decided by the server, so streaks and XP can\'t be faked.',
         bullets: [
           'Server-side game logic: Cloud Functions calculate streaks, XP, levels, personal records, and badges on the server clock, and security rules lock those fields from client writes',
           'Progression: 51 badges in 8 groups with bronze-to-platinum tiers, personal records from estimated one-rep maxes, plus level-up and streak screens with celebration animations',
@@ -247,7 +272,16 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
-        kicker: 'Phase 04 / Ship',
+        kicker: 'Phase 04 / Listen',
+        title: 'Shaped by testers',
+        content: 'Testers, and the many people I showed it to, gave me good advice and real insight. Two of the app\'s most personal features came straight from their feedback:',
+        bullets: [
+          'Importing history: one tester wanted to bring in their old workout data so their whole record lived in one place, so I added a way to import it',
+          'Planning around injuries: another tester wanted more focus on an injury she was working through, so I added a feature that helps plan workouts around injuries',
+        ],
+      },
+      {
+        kicker: 'Phase 05 / Ship',
         title: 'Taking it to the App Store',
         content: 'Shipping meant everything around the code, too. I set up EAS builds and TestFlight, wrote the App Store listing and screenshots, configured subscriptions and privacy disclosures, and responded to App Review. I also designed and launched ironpillar.app, the marketing site with support, privacy, and terms pages, built around the same "pillar" layout concept as the brand.',
       },
@@ -266,7 +300,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kicker: 'Takeaways',
         title: 'What it taught me',
-        content: 'Iron Pillar took me from designing an app to owning one. Research still shaped every decision, but shipping taught me to think in systems: data models, security, release pipelines, and the many small details between a prototype and a product people can download.',
+        content: 'Iron Pillar took me from designing an app to owning one. Research still shaped every decision, but building it taught me to think in systems: data models, security, release pipelines, and the many small details between a prototype and a product people can download. Above all, it taught me that listening to real users is what turns a good idea into something people actually use.',
       },
     ],
     externalLinks: [
@@ -282,7 +316,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     headline: 'Every barrel\nhas a *story.*',
     overview: 'An interactive digital platform for Whiskey Thief Distilling Co. that puts the bourbon, cocktail, and food menus, a tour guide, and the distillery\'s story one QR scan away. The design had to feel as handcrafted as the spirits while staying fast and readable in a dim, busy tasting room.',
     heroImage: '/whiskey-thief-thumbnail.png',
-    status: 'UX/UI case study · DSP-KY 20002',
+    status: 'Class project · Presented to the owner',
     stats: [
       { value: '3', label: 'Menus: spirits, cocktails, food' },
       { value: '5', label: 'Step visitor journey' },
@@ -293,9 +327,19 @@ export const caseStudies: Record<string, CaseStudy> = {
     stack: ['Figma', 'Mobile Web', 'QR Access', 'User Journeys'],
     sections: [
       {
+        kicker: 'The Why',
+        title: 'A real brief from a real owner',
+        content: 'This began as a class project with a real stakeholder: the owner of Whiskey Thief Distilling Co. introduced the brief and was there for the final presentation. The distillery wanted to do more with every visit: inform guests, teach them about the spirits, and sell more on site. That made the challenge real, because I was designing something an actual owner would judge as a business tool, not just a class assignment.',
+      },
+      {
+        kicker: 'The How',
+        title: 'Research first, then the room',
+        content: 'I started with research: interviews, a competitive analysis, and a hunt for the moments in a visit that could be better. Those findings shaped the five-step visitor journey and every screen that followed.',
+      },
+      {
         kicker: 'The Pour',
         title: 'Project goals',
-        content: 'The distillery saw an opportunity to do more with every visit. The platform needed to:',
+        content: 'From the owner\'s brief and the research, the platform needed to:',
         bullets: [
           'Inform visitors about the distillery\'s offerings in an engaging way',
           'Raise the educational value of tours and tastings',
@@ -307,7 +351,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kicker: 'The Mash Bill',
-        title: 'Research & discovery',
+        title: 'Designing for the tasting room',
         content: 'The tasting room set the constraints. Designing for it meant accounting for:',
         bullets: [
           'Lighting that varies widely, which calls for high-contrast interfaces',
@@ -337,8 +381,8 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         kicker: 'The Finish',
-        title: 'Built for the room',
-        content: 'Every decision was tuned for in-venue use: a dark interface to cut glare in the dim tasting room, large touch targets for guests holding a glass, and lightweight pages that load quickly on a weak connection. The result is a menu that tells the distillery\'s story without getting in the way of the people pouring it.',
+        title: 'Presented to the owner',
+        content: 'Every decision was tuned for in-venue use: a dark interface to cut glare in the dim tasting room, large touch targets for guests holding a glass, and lightweight pages that load quickly on a weak connection. I presented the finished design to the owner. It wasn\'t taken further, but it was my first time designing to a real business\'s goals and presenting the work to the person who would decide whether to use it.',
       },
     ],
   },
@@ -371,18 +415,23 @@ export const caseStudies: Record<string, CaseStudy> = {
       { value: 'Blender', label: 'Modeled, lit & rendered' },
       { value: 'Cycles', label: 'Photoreal glass & liquid' },
       { value: 'Mantaflow', label: 'Fluid simulation' },
-      { value: 'After Effects', label: 'Edit & composite' },
+      { value: '15–20 hrs', label: 'Concept to final render' },
     ],
     roles: ['Art Direction', '3D Modeling', 'Lighting', 'Simulation', 'Animation', 'Compositing'],
     stack: ['Blender 5.0', 'Cycles', 'Mantaflow', 'Geometry Nodes', 'After Effects'],
     sections: [
       {
-        kicker: 'Scene 01',
-        title: 'The brief I wrote myself',
-        content: 'This self-directed study was built to push my motion design work into the luxury product space. The goal was a fragrance spot that balances dark, edgy aesthetics with the elegance expected of high-end perfume advertising.',
+        kicker: 'The Why',
+        title: 'A fan, a gift, a bottle',
+        content: 'I\'m a huge MGK fan, and I was given the fragrance as a gift. I loved the bottle, and I loved the free-spirited feel of the ad series and the Lost Americana album it accompanied. It was the perfect excuse to learn something new: product design and animation, built around an object I already cared about.',
       },
       {
-        kicker: 'Scene 02',
+        kicker: 'The How',
+        title: 'Learning product viz in 15 to 20 hours',
+        content: 'I built the whole spot in Blender in roughly 15 to 20 hours. At the time, the hardest part was the modeling, followed by dialing in the materials so the glass, liquid, and label read as a real, premium product. From there it came together through lighting, simulation, and a cinematic edit.',
+      },
+      {
+        kicker: 'Scene 01',
         title: 'Glass, liquid, light',
         content: 'Everything was built from scratch in Blender:',
         bullets: [
@@ -394,9 +443,9 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
-        kicker: 'Scene 03',
+        kicker: 'Scene 02',
         title: 'Visual direction',
-        content: 'The look draws from contemporary luxury advertising, with darker, more rebellious edges that suit the MGK identity:',
+        content: 'The look draws from contemporary luxury advertising and the free spirit of the Lost Americana campaign, with darker, more rebellious edges that suit the MGK identity:',
         bullets: [
           'High-contrast lighting with deep shadows and selective highlights',
           'A restrained palette with a single, strategic accent color',
@@ -406,19 +455,19 @@ export const caseStudies: Record<string, CaseStudy> = {
         ],
       },
       {
-        kicker: 'Scene 04',
+        kicker: 'Scene 03',
         title: 'Animation & compositing',
         content: 'The animation combined keyframed camera work with physics-based simulation. In After Effects I handled the edit and compositing, adding lens effects, motion blur, and a final color grade for the cinematic commercial finish.',
       },
       {
         kicker: 'End Card',
-        title: 'What it taught me',
-        content: 'This project reinforced a few core motion design principles:',
+        title: 'What I\'d do differently',
+        content: 'Honestly, I rushed it. I was so excited to put it out that I didn\'t give it the time it deserved. Today I\'d spend longer on it and make the spot longer, with more shots. Even so, it taught me a lot:',
         bullets: [
+          'Modeling and materials are the foundation; a product only feels premium once they\'re right',
           'Pre-visualization and storyboarding save hours on complex 3D sequences',
-          'Glass and liquid materials need careful optimization to render efficiently',
           'Simulation work is a constant balance between artistic intent and technical limits',
-          'Iteration matters: the final piece went through several lighting and animation passes',
+          'Patience is part of the craft: more shots and more passes would have made a stronger film',
         ],
       },
     ],
