@@ -1,5 +1,4 @@
 import {
-  Big_Shoulders,
   Bodoni_Moda,
   Courier_Prime,
   Doto,
@@ -11,15 +10,6 @@ import {
 // Fonts borrowed from (or chosen to match) each project so its case study page has
 // its own voice. preload is off: every themed page imports this module, and each one
 // only uses two or three of these. The splash screen covers the brief swap.
-
-// Iron Pillar (ironpillar.app)
-export const bigShoulders = Big_Shoulders({
-  subsets: ['latin'],
-  weight: ['700', '800', '900'],
-  variable: '--font-ip-display',
-  display: 'swap',
-  preload: false,
-});
 
 // Shared mono (Iron Pillar stats, Dither Dog UI labels)
 export const jetbrainsMono = JetBrains_Mono({
@@ -76,7 +66,6 @@ export const lato = Lato({
 });
 
 export const projectFontVariables = [
-  bigShoulders.variable,
   jetbrainsMono.variable,
   doto.variable,
   bodoniModa.variable,

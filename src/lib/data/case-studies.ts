@@ -203,7 +203,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     headline: 'Show up.\nStack the *days.*',
     overview: 'Iron Pillar began as a UX research and design project and became a real iOS app that I designed, built, and brought to the App Store on my own. It logs any workout in seconds, tracks outdoor activity with GPS, and turns consistency into streaks, XP, levels, and badges. As the sole developer, I owned everything: research, UX and UI, brand, mobile and backend engineering, the marketing site, App Store submission, and project management.',
     heroImage: '/iron-pillar-hero.png',
-    status: 'In App Store review',
+    status: 'Heading to the App Store',
     stats: [
       { value: '1', label: 'Developer, start to finish' },
       { value: '51', label: 'Badges across 8 groups' },

@@ -16,18 +16,21 @@
 }
 
 .pt--iron-pillar {
-  --pt-bg: #0d0f1e;
-  --pt-surface: #151831;
-  --pt-ink: #eceefa;
-  --pt-muted: #9aa0bd;
-  --pt-line: #262a47;
-  --pt-accent: #ffa040;          /* flame */
-  --pt-accent-ink: #0d0f1e;
-  --pt-accent-2: #7482ff;        /* pillar blue */
-  --pt-accent-2-soft: #1d2250;
-  --pt-display: var(--font-ip-display), 'Arial Narrow', Impact, sans-serif;
+  /* ironpillar.app (Oct 2026): white surfaces, bold blue headings, solid blue cards with
+     white text, orange only for the streak flame, the system font for display type */
+  --pt-bg: #ffffff;
+  --pt-surface: #f2f2f2;
+  --pt-ink: #1a1a1a;
+  --pt-muted: #6b6b6b;
+  --pt-line: #e4e4e4;
+  --pt-accent: #3d4fea;          /* pillar blue */
+  --pt-accent-ink: #ffffff;
+  --pt-accent-2: #3d4fea;
+  --pt-accent-2-soft: #eceefd;
+  --ip-flame: #e87a00;
+  --pt-display: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --pt-body: var(--font-sans);
-  --pt-mono: var(--font-project-mono), ui-monospace, 'SF Mono', Menlo, monospace;
+  --pt-mono: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   --pt-radius: 14px;
 }
 
@@ -48,7 +51,7 @@
 }
 
 /* Page-level chrome (body, scrolled navbar, footer) while a themed page is open */
-body:has(.pt.pt--iron-pillar) { background: #0d0f1e; }
+body:has(.pt.pt--iron-pillar) { background: #ffffff; }
 body:has(.pt.pt--dither-dog) { background: #000000; }
 body:has(.pt.pt--mgk-dossier) { background: #0a0707; }
 body:has(.pt.pt--whiskey-thief) { background: #211d1a; }
@@ -85,9 +88,25 @@ body:has(.pt) footer { background-color: rgb(251, 250, 248); }
 }
 
 .pt--iron-pillar .pt-display {
-  text-transform: uppercase;
-  font-weight: 900;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  color: var(--pt-accent);
 }
+
+/* The one orange word, like "days." on the site */
+.pt--iron-pillar .pt-display .pt-accent { color: var(--ip-flame); }
+
+.pt--iron-pillar .pt-h1 { font-size: clamp(2.75rem, 7.5vw, 5.25rem); line-height: 0.98; }
+
+/* Eyebrows read like the site's: bold blue sentence case */
+.pt--iron-pillar .pt-eyebrow {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.pt--iron-pillar .pt-mono { letter-spacing: 0.06em; font-weight: 700; }
 
 .pt--dither-dog .pt-display {
   font-weight: 900;
@@ -129,21 +148,52 @@ body:has(.pt) footer { background-color: rgb(251, 250, 248); }
   border-radius: var(--pt-radius);
 }
 
-/* Iron Pillar: heavy horizontal "plates" between sections */
+/* Iron Pillar: hairline sections with a short blue mark, like the site's active nav */
 .pt--iron-pillar .pt-plate {
-  border-top: 6px solid var(--pt-line);
+  border-top: 1px solid var(--pt-line);
   position: relative;
 }
 
 .pt--iron-pillar .pt-plate::before {
   content: '';
   position: absolute;
-  top: -6px;
+  top: -2px;
   left: 0;
-  width: 72px;
-  height: 6px;
+  width: 48px;
+  height: 3px;
+  border-radius: 3px;
   background: var(--pt-accent);
 }
+
+/* Stats as a solid blue card with white text, like the site's Current Streak card */
+.pt--iron-pillar .pt-stats {
+  margin-block: 28px;
+  padding-inline: 24px;
+  border-radius: var(--pt-radius);
+  background: var(--pt-accent);
+  color: #ffffff;
+}
+
+.pt--iron-pillar .pt-stats > div { border-color: rgba(255, 255, 255, 0.28); }
+.pt--iron-pillar .pt-stats .pt-stat-value,
+.pt--iron-pillar .pt-stats .pt-stat:first-child .pt-stat-value { color: #ffffff; }
+.pt--iron-pillar .pt-stats .pt-muted { color: rgba(255, 255, 255, 0.88); }
+
+/* Buttons and the store badge, as on ironpillar.app */
+.pt--iron-pillar .pt-btn--ghost {
+  border: 2px solid var(--pt-accent);
+  color: var(--pt-accent);
+}
+
+.pt--iron-pillar .pt-btn--ghost:hover { border-color: var(--pt-accent); background: var(--pt-accent-2-soft); }
+
+.pt--iron-pillar .pt-store {
+  border: 0;
+  background: var(--pt-accent);
+  color: #ffffff;
+}
+
+.pt--iron-pillar .pt-store small { color: rgba(255, 255, 255, 0.88); }
 
 /* Dither Dog: hairline modules with a dot-matrix texture */
 .pt--dither-dog .pt-plate { border-top: 1px solid var(--pt-line); }
@@ -280,7 +330,6 @@ body:has(.pt) footer { background-color: rgb(251, 250, 248); }
   color: var(--pt-ink);
 }
 
-.pt--iron-pillar .pt-stat:first-child .pt-stat-value { color: var(--pt-accent); }
 .pt--dither-dog .pt-stat:last-child .pt-stat-value { color: var(--pt-accent); }
 
 /* ---------- Lists ---------- */
@@ -295,11 +344,11 @@ body:has(.pt) footer { background-color: rgb(251, 250, 248); }
 .pt--iron-pillar .pt-bullets li::before {
   content: '';
   position: absolute;
-  left: 0.25rem;
+  left: 0.3rem;
   top: 0.55em;
-  width: 10px;
-  height: 10px;
-  border-radius: 3px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
   background: var(--pt-accent);
 }
 
@@ -357,17 +406,17 @@ body:has(.pt) footer { background-color: rgb(251, 250, 248); }
   .ps { display: none; }
 }
 
-/* ----- Iron Pillar: the streak week fills, then the plate lifts ----- */
+/* ----- Iron Pillar: the site's streak card fills its week, then lifts ----- */
 
 .ps--iron-pillar {
-  background: #0d0f1e;
-  color: #eceefa;
+  background: #ffffff;
+  color: #1a1a1a;
   animation:
     ps-ip-lift 0.55s cubic-bezier(0.7, 0, 0.2, 1) 2s forwards,
     ps-hide 0s linear 2.6s forwards;
 }
 
-.ps--iron-pillar .ps-skip { border-radius: 999px; }
+.ps--iron-pillar .ps-skip { border-radius: 999px; color: #3d4fea; }
 
 @keyframes ps-ip-lift {
   to { transform: translateY(-100%); }
@@ -378,75 +427,99 @@ body:has(.pt) footer { background-color: rgb(251, 250, 248); }
   flex-direction: column;
   align-items: center;
   gap: 28px;
-  width: min(360px, calc(100vw - 32px));
+  width: min(380px, calc(100vw - 32px));
 }
 
 .ps-ip-logo {
-  width: min(260px, 70vw);
+  width: min(220px, 60vw);
   height: auto;
-  filter: invert(1);
   opacity: 0;
   animation: ps-fade-up 0.5s ease 0.1s forwards;
+}
+
+/* Solid blue card, white type */
+.ps-ip-card {
+  width: 100%;
+  padding: 20px;
+  border-radius: 14px;
+  background: #3d4fea;
+  color: #ffffff;
+  box-shadow: 0 24px 48px -24px rgba(61, 79, 234, 0.6);
+  opacity: 0;
+  animation: ps-fade-up 0.45s ease 0.25s forwards;
+}
+
+.ps-ip-card-label {
+  display: flex;
+  justify-content: space-between;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .ps-ip-week {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
-  width: 100%;
+  gap: 7px;
+  margin-top: 14px;
 }
 
 .ps-ip-day {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
   aspect-ratio: 1;
-  font-family: var(--font-project-mono), ui-monospace, monospace;
-  font-size: 0.75rem;
-  font-weight: 700;
-  color: #9aa0bd;
-  background: #151831;
-  border: 1px solid #262a47;
   border-radius: 8px;
+  background: rgba(255, 255, 255, 0.18);
+  color: rgba(255, 255, 255, 0.75);
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.6875rem;
+  font-weight: 700;
   animation: ps-ip-day 0.25s ease forwards;
-  animation-delay: calc(0.5s + var(--i) * 0.13s);
+  animation-delay: calc(0.55s + var(--i) * 0.13s);
+}
+
+/* Streak flame: hidden until its day fills */
+.ps-ip-day::before {
+  content: '';
+  width: 8px;
+  height: 10px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: #ff8a00;
+  opacity: 0;
+  transform: scale(0.4);
+  animation: ps-ip-flame 0.25s ease forwards;
+  animation-delay: calc(0.55s + var(--i) * 0.13s);
 }
 
 @keyframes ps-ip-day {
-  to {
-    background: #ffa040;
-    border-color: #ffa040;
-    color: #0d0f1e;
-    transform: scale(1.04);
-  }
+  to { background: #ffffff; color: #1a1a1a; transform: scale(1.04); }
+}
+
+@keyframes ps-ip-flame {
+  to { opacity: 1; transform: scale(1); }
 }
 
 .ps-ip-bar {
-  width: 100%;
   height: 6px;
+  margin-top: 16px;
   border-radius: 3px;
-  background: #262a47;
+  background: rgba(255, 255, 255, 0.28);
   overflow: hidden;
 }
 
 .ps-ip-bar span {
   display: block;
   height: 100%;
-  background: #7482ff;
+  background: #ffffff;
   transform: scaleX(0);
   transform-origin: left;
-  animation: ps-fill 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.45s forwards;
-}
-
-.ps-ip-meta {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: -16px;
-  font-family: var(--font-project-mono), ui-monospace, monospace;
-  font-size: 0.6875rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #9aa0bd;
+  animation: ps-fill 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.5s forwards;
 }
 
 /* ----- Dither Dog: dot field resolves, pixel type scans in, stepped exit ----- */

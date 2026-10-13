@@ -79,20 +79,22 @@ function IronPillarSplash({ year }: { year: string }) {
   return (
     <div className="ps-ip" aria-hidden="true">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img className="ps-ip-logo" src="/iron-pillar/logo.png" alt="" width={1200} height={337} />
-      <div className="ps-ip-week">
-        {WEEK.map((day, i) => (
-          <span key={i} className="ps-ip-day" style={{ '--i': i } as React.CSSProperties}>
-            {day}
-          </span>
-        ))}
-      </div>
-      <div className="ps-ip-bar">
-        <span />
-      </div>
-      <div className="ps-ip-meta">
-        <span>Case study</span>
-        <span>{year}</span>
+      <img className="ps-ip-logo" src="/iron-pillar/logo.png" alt="" width={788} height={299} />
+      <div className="ps-ip-card">
+        <p className="ps-ip-card-label">
+          <span>Current streak</span>
+          <span>Case study · {year}</span>
+        </p>
+        <div className="ps-ip-week">
+          {WEEK.map((day, i) => (
+            <span key={i} className="ps-ip-day" style={{ '--i': i } as React.CSSProperties}>
+              {day}
+            </span>
+          ))}
+        </div>
+        <div className="ps-ip-bar">
+          <span />
+        </div>
       </div>
     </div>
   );

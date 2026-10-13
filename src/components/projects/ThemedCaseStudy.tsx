@@ -29,7 +29,7 @@ interface ThemeConfig {
 
 const THEMES: Record<CaseStudyTheme, ThemeConfig> = {
   'iron-pillar': {
-    tone: 'dark',
+    tone: 'light',
     numbered: false,
     videoLabel: 'Preview',
     roleNote: 'Solo developer. I owned every part of the product.',
@@ -177,7 +177,7 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
       {caseStudy.stats && (
         <section className="pt-plate">
           <Container>
-            <dl className="grid grid-cols-2 lg:grid-cols-4">
+            <dl className="pt-stats grid grid-cols-2 lg:grid-cols-4">
               {caseStudy.stats.map((stat, i) => (
                 <div
                   key={stat.label}
