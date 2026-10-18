@@ -56,6 +56,7 @@ body:has(.pt.pt--dither-dog) { background: #000000; }
 body:has(.pt.pt--mgk-dossier) { background: #0a0707; }
 body:has(.pt.pt--whiskey-thief) { background: #211d1a; }
 body:has(.pt.pt--apostrophe) { background: #f6f5f7; }
+body:has(.pt.pt--daker) { background: #ffffff; }
 
 /* The navbar and footer are the site's own on every project page, never themed. The navbar
    shows its solid light bar from the top so it reads over any hero, dark or light. */
@@ -1232,3 +1233,161 @@ body:has(.pt) footer { background-color: rgb(251, 250, 248); }
 }
 
 .ps-tear-slate span:first-child { color: #c24104; }
+
+/* ======================================================================
+ * Daker: the product film's clean SaaS look. Open white space, the
+ * Daker navy, bold Inter set tight, and calm frosted-glass surfaces.
+ * ==================================================================== */
+
+.pt--daker {
+  --pt-bg: #ffffff;
+  --pt-surface: #f3f6f9;
+  --pt-ink: #0f2233;
+  --pt-muted: #56677a;
+  --pt-line: #e1e7ee;
+  --pt-accent: #0f314c;          /* Daker navy, sampled from the title card */
+  --pt-accent-ink: #ffffff;
+  --pt-accent-2: #0f314c;
+  --pt-accent-2-soft: #e7eef5;
+  --pt-display: var(--font-sans), 'Helvetica Neue', Arial, sans-serif;
+  --pt-body: var(--font-sans);
+  --pt-mono: var(--font-sans), 'Helvetica Neue', Arial, sans-serif;
+  --pt-radius: 14px;
+}
+
+.pt--daker .pt-display {
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  line-height: 1;
+  color: var(--pt-accent);
+}
+
+.pt--daker .pt-display .pt-accent { color: #4f7fa8; }
+
+.pt--daker .pt-h1 { font-size: clamp(2.75rem, 7vw, 5rem); }
+
+.pt--daker .pt-eyebrow,
+.pt--daker .pt-mono { font-weight: 600; letter-spacing: 0.1em; }
+
+/* A soft glass glow behind the hero, like the chains floating on white */
+.pt--daker .pt-texture {
+  background:
+    radial-gradient(ellipse 45% 55% at 92% 8%, rgba(79, 127, 168, 0.12), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 4% 96%, rgba(15, 49, 76, 0.07), transparent 70%),
+    #ffffff;
+}
+
+/* Hairline sections with a short navy rule */
+.pt--daker .pt-plate {
+  position: relative;
+  border-top: 1px solid var(--pt-line);
+}
+
+.pt--daker .pt-plate::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--pt-accent);
+}
+
+/* Stats on a navy card, like the film's title card */
+.pt--daker .pt-stats {
+  margin-block: 28px;
+  padding-inline: 24px;
+  border-radius: var(--pt-radius);
+  background: var(--pt-accent);
+  color: #ffffff;
+}
+
+.pt--daker .pt-stats > div { border-color: rgba(255, 255, 255, 0.2); }
+.pt--daker .pt-stats .pt-stat-value { color: #ffffff; font-weight: 700; letter-spacing: -0.03em; font-size: clamp(1.875rem, 4vw, 3rem); }
+.pt--daker .pt-stats .pt-muted { color: rgba(255, 255, 255, 0.8); }
+
+/* Media sits like a screen on a laptop: soft shadow, no hard border */
+.pt--daker .pt-media {
+  border: 0;
+  box-shadow: 0 1px 0 rgba(15, 34, 51, 0.04), 0 30px 60px -32px rgba(15, 49, 76, 0.45);
+}
+
+.pt--daker .pt-btn { border-radius: 10px; }
+.pt--daker .pt-chip { border-radius: 8px; text-transform: none; letter-spacing: 0.02em; font-size: 0.75rem; }
+
+.pt--daker .pt-bullets li::before {
+  content: '';
+  position: absolute;
+  left: 0.3rem;
+  top: 0.5em;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+  background: var(--pt-accent);
+}
+
+/* ----- Daker splash: "Introducing", then the navy title card wipes up and away ----- */
+
+.ps--daker {
+  background: #ffffff;
+  color: #0f314c;
+  animation:
+    ps-dk-reveal 0.5s cubic-bezier(0.7, 0, 0.2, 1) 2.05s forwards,
+    ps-hide 0s linear 2.6s forwards;
+}
+
+.ps--daker .ps-skip { z-index: 2; border-radius: 10px; }
+
+.ps-dk { position: absolute; inset: 0; display: grid; place-items: center; }
+
+.ps-dk-intro {
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 600;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
+  letter-spacing: -0.02em;
+  color: #0f2233;
+  opacity: 0;
+  filter: blur(8px);
+  animation:
+    ps-dk-focus 0.4s ease 0.05s forwards,
+    ps-dk-out 0.2s ease 0.55s forwards;
+}
+
+.ps-dk-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #0f314c;
+  color: #ffffff;
+  transform: translateY(100%);
+  animation: ps-dk-card-in 0.5s cubic-bezier(0.7, 0, 0.2, 1) 0.55s forwards;
+}
+
+.ps-dk-name {
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 700;
+  font-size: clamp(3.5rem, 12vw, 7.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  opacity: 0;
+  filter: blur(10px);
+  animation: ps-dk-focus 0.45s ease 0.85s forwards;
+}
+
+.ps-dk-sub {
+  font-family: var(--font-sans), sans-serif;
+  font-weight: 600;
+  font-size: clamp(0.8125rem, 1.8vw, 1rem);
+  clip-path: inset(0 100% 0 0);
+  animation: ps-dk-type 0.45s steps(24, end) 1.05s forwards;
+}
+
+@keyframes ps-dk-focus { to { opacity: 1; filter: blur(0); } }
+@keyframes ps-dk-out { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes ps-dk-card-in { to { transform: none; } }
+@keyframes ps-dk-type { to { clip-path: inset(0 0 0 0); } }
+@keyframes ps-dk-reveal { to { transform: translateY(-100%); } }

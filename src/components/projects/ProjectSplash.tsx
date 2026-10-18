@@ -70,6 +70,8 @@ function SplashContent({ theme, year }: { theme: CaseStudyTheme; year: string })
       return <WhiskeyThiefSplash />;
     case 'apostrophe':
       return <ApostropheSplash year={year} />;
+    case 'daker':
+      return <DakerSplash />;
   }
 }
 
@@ -223,6 +225,19 @@ function ApostropheSplash({ year }: { year: string }) {
       <div className="ps-tear-half ps-tear-half--bottom">
         <div className="ps-tear-fiber" style={{ clipPath: bottomClip(true) }} />
         <div className="ps-tear-paper" style={{ clipPath: bottomClip() }} />
+      </div>
+    </div>
+  );
+}
+
+/** The film's title card: "Introducing" on white, then the navy Daker card slides up and away */
+function DakerSplash() {
+  return (
+    <div className="ps-dk" aria-hidden="true">
+      <p className="ps-dk-intro">Introducing</p>
+      <div className="ps-dk-card">
+        <p className="ps-dk-name">Daker</p>
+        <p className="ps-dk-sub">Communication &amp; Compliance Platform</p>
       </div>
     </div>
   );

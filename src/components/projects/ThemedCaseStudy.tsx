@@ -68,6 +68,14 @@ const THEMES: Record<CaseStudyTheme, ThemeConfig> = {
     stackNote: 'Tools behind the idents.',
     ctaTitle: 'Let\'s make something that moves.',
   },
+  daker: {
+    tone: 'light',
+    numbered: false,
+    videoLabel: 'The film',
+    roleNote: 'Client work, from concept to final cut.',
+    stackNote: 'Tools behind the film.',
+    ctaTitle: 'Let\'s tell your product\'s story.',
+  },
 };
 
 function ProjectLink({ link, primary }: { link: CaseStudyLink; primary: boolean }) {

@@ -99,6 +99,20 @@ export const projects: Project[] = [
     featured: true,
     year: '2025',
   },
+  {
+    slug: 'daker',
+    theme: 'daker',
+    tagline: 'Compliance, *made clear.*',
+    title: 'Daker Product Film',
+    description: 'A one-minute product film for Daker, a startup communication and compliance platform for Medicaid home care agencies. Built entirely in After Effects as client work, it gave a brand-new company its look and tone on screen, pitched to investors and the agencies who would use it.',
+    thumbnail: '/daker-promo/poster.jpg',
+    videoPreview: '/daker-promo/daker-film.mp4',
+    previewLoop: { src: '/daker-promo/preview.mp4', poster: '/daker-promo/poster.jpg' },
+    category: 'Motion Design',
+    tags: ['After Effects', 'Product Film', 'Motion Graphics', 'Kinetic Type'],
+    featured: true,
+    year: '2026',
+  },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);

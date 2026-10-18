@@ -24,7 +24,8 @@ export type CaseStudyTheme =
   | 'dither-dog'
   | 'mgk-dossier'
   | 'whiskey-thief'
-  | 'apostrophe';
+  | 'apostrophe'
+  | 'daker';
 
 export interface CaseStudy {
   slug: string;
@@ -383,6 +384,58 @@ export const caseStudies: Record<string, CaseStudy> = {
         kicker: 'The Finish',
         title: 'Presented to the owner',
         content: 'Every decision was tuned for in-venue use: a dark interface to cut glare in the dim tasting room, large touch targets for guests holding a glass, and lightweight pages that load quickly on a weak connection. I presented the finished design to the owner. It wasn\'t taken further, but it was my first time designing to a real business\'s goals and presenting the work to the person who would decide whether to use it.',
+      },
+    ],
+  },
+  daker: {
+    slug: 'daker',
+    theme: 'daker',
+    eyebrow: 'Product film · Home care SaaS',
+    headline: 'Compliance,\n*made clear.*',
+    overview: 'A one-minute product film for Daker, a startup building a communication and compliance platform for Medicaid home care agencies. The film sets up the pressure the industry is under, introduces Daker, and walks through the product, for an audience of both investors and the agencies who would use it every day.',
+    heroImage: '/daker-promo/poster.jpg',
+    status: 'Client work · Pitch & investor film',
+    stats: [
+      { value: '1:04', label: 'Runtime, problem to call to action' },
+      { value: 'After Effects', label: 'Built start to finish' },
+      { value: '2', label: 'Audiences: investors & agencies' },
+      { value: '4K', label: 'Final delivery' },
+    ],
+    roles: ['Creative Direction', 'Motion Design', 'Kinetic Typography', 'UI Animation', 'Editing'],
+    stack: ['After Effects', 'Premiere Pro'],
+    sections: [
+      {
+        kicker: 'The Why',
+        title: 'A voice for a brand-new company',
+        content: 'Daker hired me to make the film its team would put in front of investors and the home care agencies it\'s built for. As a startup in Medicaid software, Daker didn\'t have an established look or tone yet, so the film had to do more than explain the product. It had to define how the company looks, moves, and sounds on screen for the first time.',
+      },
+      {
+        kicker: 'The How',
+        title: 'Two audiences, one minute',
+        content: 'I built the whole film in After Effects. The hardest part was the tone. The same minute had to land with investors weighing the business and with agency staff who would use the product, so it needed to feel credible and clear without turning cold. It also had to hit every point without dragging, so every beat had to earn its place:',
+        bullets: [
+          'A calm, clean palette: open white space, the Daker navy, and glass forms that suggest clarity and trust',
+          'Problem first: short lines of kinetic type set the stakes, from 5.6 million people relying on home care to stricter compliance rules, before the product appears',
+          'The real product on screen: Daker\'s dashboards animated on laptop mockups, so viewers see the actual tool instead of abstract icons',
+          'A tight structure: the problem, the introduction, the features, why now, and a call to action, in about a minute',
+        ],
+      },
+      {
+        kicker: 'The Film',
+        title: 'From problem to platform',
+        content: 'The film opens on the strain facing home care, introduces Daker as the first platform built specifically for home care compliance, then tours the product: the director dashboard, multilingual caregiver views, and compliance management with audit-ready reports generated in seconds, not days. It closes on why the timing matters, as Medicaid rebuilds its oversight and demand reaches an all-time high.',
+        gallery: [
+          { src: '/daker-promo/glass-chains.jpg', alt: 'Opening: kinetic type sets up the problem', width: 1920, height: 1080 },
+          { src: '/daker-promo/dashboard-reveal.jpg', alt: 'The product reveal on the director dashboard', width: 1920, height: 1080 },
+          { src: '/daker-promo/director-dashboard.jpg', alt: 'Introducing Daker for home care compliance', width: 1920, height: 1080 },
+          { src: '/daker-promo/caregiver-dashboard.jpg', alt: 'Multilingual caregiver dashboard', width: 1920, height: 1080 },
+          { src: '/daker-promo/compliance-reports.jpg', alt: 'Compliance management and audit-ready reports', width: 1920, height: 1080 },
+        ],
+      },
+      {
+        kicker: 'Reception',
+        title: 'Made for the pitch',
+        content: 'The finished film became Daker\'s pitch and investor video: the piece the team uses to introduce the company and show the product in a single minute. It was a lesson in restraint. With a brand this new, the job was to make it look established, and the clearest version of the story was always the shorter one.',
       },
     ],
   },
