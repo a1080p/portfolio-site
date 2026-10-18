@@ -364,6 +364,21 @@ export function ThemedCaseStudy({ project, caseStudy }: ThemedCaseStudyProps) {
                 </div>
               </ScrollReveal>
             )}
+
+            {section.loops && (
+              <ScrollReveal delay={80}>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-10">
+                  {section.loops.map((loop) => (
+                    <figure key={loop.src} className="pt-frame">
+                      <div className="pt-media relative aspect-video bg-black">
+                        <AutoplayPreview src={loop.src} poster={loop.poster} label={loop.caption} />
+                      </div>
+                      <figcaption className="pt-mono pt-muted text-[0.6875rem] mt-3">{loop.caption}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </ScrollReveal>
+            )}
           </Container>
         </section>
       ))}

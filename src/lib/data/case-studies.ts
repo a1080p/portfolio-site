@@ -9,6 +9,8 @@ export interface CaseStudySection {
   video?: { src: string; poster: string; caption?: string };
   /** Extra images shown as a grid on themed pages. Without width/height they're cropped to 16:9. */
   gallery?: { src: string; alt: string; width?: number; height?: number }[];
+  /** Silent looping clips shown as a grid on themed pages, playing while on screen */
+  loops?: { src: string; poster: string; caption: string }[];
 }
 
 export interface CaseStudyLink {
@@ -397,12 +399,12 @@ export const caseStudies: Record<string, CaseStudy> = {
     status: 'Client work · Pitch & investor film',
     stats: [
       { value: '1:04', label: 'Runtime, problem to call to action' },
-      { value: 'After Effects', label: 'Built start to finish' },
+      { value: 'AE + 3D', label: 'After Effects & Blender' },
       { value: '2', label: 'Audiences: investors & agencies' },
       { value: '4K', label: 'Final delivery' },
     ],
     roles: ['Creative Direction', 'Motion Design', 'Kinetic Typography', 'UI Animation', 'Editing'],
-    stack: ['After Effects', 'Premiere Pro'],
+    stack: ['After Effects', 'Blender', 'Premiere Pro'],
     sections: [
       {
         kicker: 'The Why',
@@ -412,7 +414,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       {
         kicker: 'The How',
         title: 'Two audiences, one minute',
-        content: 'I built the whole film in After Effects. The hardest part was the tone. The same minute had to land with investors weighing the business and with agency staff who would use the product, so it needed to feel credible and clear without turning cold. It also had to hit every point without dragging, so every beat had to earn its place:',
+        content: 'I built the film in After Effects, with 3D elements rendered in Blender. The hardest part was the tone. The same minute had to land with investors weighing the business and with agency staff who would use the product, so it needed to feel credible and clear without turning cold. It also had to hit every point without dragging, so every beat had to earn its place:',
         bullets: [
           'A calm, clean palette: open white space, the Daker navy, and glass forms that suggest clarity and trust',
           'Problem first: short lines of kinetic type set the stakes, from 5.6 million people relying on home care to stricter compliance rules, before the product appears',
@@ -430,6 +432,24 @@ export const caseStudies: Record<string, CaseStudy> = {
           { src: '/daker-promo/director-dashboard.jpg', alt: 'Introducing Daker for home care compliance', width: 1920, height: 1080 },
           { src: '/daker-promo/caregiver-dashboard.jpg', alt: 'Multilingual caregiver dashboard', width: 1920, height: 1080 },
           { src: '/daker-promo/compliance-reports.jpg', alt: 'Compliance management and audit-ready reports', width: 1920, height: 1080 },
+        ],
+      },
+      {
+        kicker: 'In 3D',
+        title: 'Rendered in Blender',
+        content: 'The film\'s 3D elements were made in Blender and composited in After Effects. Glass and light kept coming back as the visual idea: clear, calm, and trustworthy, which is exactly what a compliance company needs to feel like. Alongside what made the final cut, I rendered a set of explorations to find the brand\'s look in motion:',
+        bullets: [
+          'Liquid glass chains that float through the opening, rendered with transparency so they sit cleanly on the white set',
+          'A particle wordmark that resolves out of dust into the Daker logo',
+          'Particle swirls, a glass ribbon, a tunnel of light rings, and a grid of glass discs, all in the Daker blues',
+        ],
+        loops: [
+          { src: '/daker-promo/blender/glass-chain.mp4', poster: '/daker-promo/blender/glass-chain.jpg', caption: 'Liquid glass chain' },
+          { src: '/daker-promo/blender/particle-wordmark.mp4', poster: '/daker-promo/blender/particle-wordmark.jpg', caption: 'Particle wordmark' },
+          { src: '/daker-promo/blender/particle-swirl.mp4', poster: '/daker-promo/blender/particle-swirl.jpg', caption: 'Particle swirl' },
+          { src: '/daker-promo/blender/ribbon-spiral.mp4', poster: '/daker-promo/blender/ribbon-spiral.jpg', caption: 'Glass ribbon' },
+          { src: '/daker-promo/blender/light-rings.mp4', poster: '/daker-promo/blender/light-rings.jpg', caption: 'Light ring tunnel' },
+          { src: '/daker-promo/blender/glass-grid.mp4', poster: '/daker-promo/blender/glass-grid.jpg', caption: 'Glass disc grid' },
         ],
       },
       {
