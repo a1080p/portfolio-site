@@ -398,7 +398,7 @@ export const caseStudies: Record<string, CaseStudy> = {
     heroImage: '/daker-promo/poster.jpg',
     status: 'Client work · Pitch & investor film',
     stats: [
-      { value: '1:04', label: 'Runtime, problem to call to action' },
+      { value: '1:02', label: 'Runtime, problem to call to action' },
       { value: 'AE + 3D', label: 'After Effects & Blender' },
       { value: '2', label: 'Audiences: investors & agencies' },
       { value: '4K', label: 'Final delivery' },
@@ -427,7 +427,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         title: 'From problem to platform',
         content: 'The film opens on the strain facing home care, introduces Daker as the first platform built specifically for home care compliance, then tours the product: the director dashboard, multilingual caregiver views, and compliance management with audit-ready reports generated in seconds, not days. It closes on why the timing matters, as Medicaid rebuilds its oversight and demand reaches an all-time high.',
         gallery: [
-          { src: '/daker-promo/glass-chains.jpg', alt: 'Opening: kinetic type sets up the problem', width: 1920, height: 1080 },
+          { src: '/daker-promo/opening.jpg', alt: 'Opening: kinetic type sets up the problem', width: 1920, height: 1080 },
           { src: '/daker-promo/dashboard-reveal.jpg', alt: 'The product reveal on the director dashboard', width: 1920, height: 1080 },
           { src: '/daker-promo/director-dashboard.jpg', alt: 'Introducing Daker for home care compliance', width: 1920, height: 1080 },
           { src: '/daker-promo/caregiver-dashboard.jpg', alt: 'Multilingual caregiver dashboard', width: 1920, height: 1080 },
@@ -439,7 +439,7 @@ export const caseStudies: Record<string, CaseStudy> = {
         title: 'Rendered in Blender',
         content: 'The film\'s 3D elements were made in Blender and composited in After Effects. Glass and light kept coming back as the visual idea: clear, calm, and trustworthy, which is exactly what a compliance company needs to feel like. Alongside what made the final cut, I rendered a set of explorations to find the brand\'s look in motion:',
         bullets: [
-          'Liquid glass chains that float through the opening, rendered with transparency so they sit cleanly on the white set',
+          'Twisting glass forms that frame the opening lines, plus liquid glass chains explored for the same moment, rendered with transparency so they sit cleanly on the white set',
           'A particle wordmark that resolves out of dust into the Daker logo',
           'Particle swirls, a glass ribbon, a tunnel of light rings, and a grid of glass discs, all in the Daker blues',
         ],
